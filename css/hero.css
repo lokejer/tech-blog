@@ -1,0 +1,29 @@
+.hero-title {
+  color: hsl(250.1, 100%, 69.6%); /* Fallback */
+  background:
+  linear-gradient(to top right, 
+  #1e232b, 
+  #4b5869, 
+  #1e232b
+  );  
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 2px -2px 0 hsl(from var(--dark-surface) h s 20%);
+  
+  animation: gradientShift 10s linear infinite;
+}
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.hero-content p {
+  /* find a way to make the text contrast better against the bright globe */
+}
+
+.hero-btn-wrapper a {
+  width: 150px; height: 50px;
+}

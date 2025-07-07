@@ -1,0 +1,126 @@
+:root {
+  /* base background */
+  --off-black: hsl(222, 20%, 5%);    
+  --dark-surface: hsl(220, 14%, 12%);
+  --elevated-surface: hsl(220, 15%, 20%);
+
+  /* text colours */
+  --text-primary: hsl(0, 0%, 88%);
+  --text-secondary: hsl(215, 14%, 65%);
+  --text-heading: hsl(0, 0%, 100%);
+  --divider: hsl(220, 13%, 25%);
+
+  /* brand colours */
+  --color-primary: hsl(250.1, 100%, 69.6%);
+  --color-accent: hsl(45, 85%, 60%);
+}
+
+/* ----------- CUSTOM SCROLLBAR ----------- */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--main-color);
+  background: rgba(126, 100, 255, 0.4); /* --main-color with 40% opacity */
+  border-radius: 8px;
+  transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover,
+::-webkit-scrollbar-thumb:active { 
+  background: rgba(126, 100, 255, 0.8); /* more solid on hover */
+}
+
+/* ----------- BASE STYLES ----------- */
+body {
+  font-family: 'DM Sans', sans-serif;
+  background-color: var(--off-black);
+  color: var(--text-primary);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'DM Sans', serif;
+}
+
+p, figcaption {
+  font-family: 'Merriweather', sans-serif;
+}
+
+a {
+  display: flex;
+  align-items: center;
+}
+
+/* ----------- BOOTSTRAP UTILS ----------- */
+.text-heading { color: var(--text-heading); }
+.text-primary { color: var(--text-primary) !important; }
+.text-secondary { color: var(--text-secondary) !important; }
+
+/* ----------- CUSTOM CSS FOR BOOTSTRAP ----------- */
+/* CUSTOM HEADERS */
+.gradient-text {
+  background: linear-gradient(
+    to bottom right,
+    #8c93ff, 
+    #6915ff);
+  background-clip: text;
+  -webkit-background-clip: text;  /* webkit compatibility */
+  color: transparent;
+}
+
+/* CUSTOM-COLOURED BUTTONS */
+.btn-purple {
+  padding: 0.6em 0.8em;
+  font-size: 1.1rem;
+  background: var(--color-primary);
+  color: var(--text-primary);
+  border-radius: 8px;
+  box-shadow: 5px 5px 32px rgba(0, 0, 0, 0.5);
+}
+
+.btn-outline-custom {
+  padding: 0.6em 0.8em;
+  font-size: 1.1rem;
+  border: solid var(--divider);
+  color: var(--text-secondary);
+  border-radius: 8px;
+  box-shadow: 5px 5px 32px rgba(0, 0, 0, 0.5);
+  transition: all 0.2s ease;
+}
+
+.btn-outline-custom:hover,
+.btn-outline-custom:focus-visible {
+  background-color: var(--divider);
+  color: var(--text-primary);
+}
+
+/* GLOWING BTNS */
+.glowing-btn {
+  padding: 0.6em 0.8em;
+  font-size: 1.1rem;
+  background-color: var(--color-primary);
+  color: var(--text-primary);
+  transition: 0.2s ease;
+}
+
+.glowing-btn:hover,
+.glowing-btn:focus-visible {
+  color: var(--off-black);
+  background: var(--color-accent);
+  box-shadow: 0 0 32px hsl(from var(--color-accent) h s 50%);
+}
+
+.secondary-glowing-btn {
+  background-color: var(--divider);
+  line-height: 45px; /* vertically center the 'Register' text as height = line height = 45px */
+}
+
+.secondary-glowing-btn:hover,
+.secondary-glowing-btn:focus-visible {
+  background-color: var(--accent-color);
+}
