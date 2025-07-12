@@ -8,18 +8,14 @@
 
 .navbar-brand {
   color: var(--text-heading) !important;
-  font-family: 'DM Sans', sans-serif;
-  font-weight: 700;
   font-size: 1.5rem;
 }
 
 .navbar-nav .nav-link {
-  color: var(--text-primary) !important;
-  font-family: 'DM Sans', sans-serif;
-  font-weight: 500;
   padding: 0.5rem 1rem !important;
-  transition: all 0.3s ease;
-  position: relative;
+  color: var(--text-primary) !important;
+  /* transition: all 0.3s ease;
+  position: relative; */
 }
 
 .navbar-nav .nav-link:hover,
@@ -90,13 +86,12 @@
 
 .search-btn {
   position: absolute;
-  right: 5px;
-  top: 50%;
-  transform: translateY(-50%);
-  background: none;
-  border: none;
-  color: var(--text-secondary);
   padding: 0.25rem 0.5rem;
+  top: 50%; right: 5px;
+  background: none;
+  color: var(--text-secondary);
+  border: none;
+  transform: translateY(-50%);
 }
 
 .search-btn:hover {
@@ -104,16 +99,11 @@
 }
 
 .user-profile {
-  width: 35px;
-  height: 35px;
-  border-radius: 50%;
+  width: 35px; height: 35px;
   border: 2px solid var(--color-primary);
+  border-radius: 50%;
   background-color: var(--elevated-surface);
-  display: flex;
-  align-items: center;
-  justify-content: center;
   color: var(--text-primary);
-  text-decoration: none;
   transition: all 0.3s ease;
 }
 
@@ -122,6 +112,7 @@
   color: var(--off-black);
 }
 
+/* mobile hamburger menu */
 .navbar-toggler {
   border-color: var(--divider);
 }

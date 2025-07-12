@@ -3,10 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon/icons8-earth-globe-quill-16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon/icons8-earth-globe-quill-32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="./assets/favicon/icons8-earth-globe-quill-96.png">
+
   <!-- link bootstrap / bs icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
+  <!-- link css stylesheets -->
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/navbar.css">
   <link rel="stylesheet" href="css/index.css">
@@ -24,74 +31,76 @@
 <body>
   
   <!-- NAVBAR -->
-  <nav class="navbar navbar-expand-lg custom-navbar fixed-top">
-    <div class="container-fluid px-3 px-md-4">
+  <header>
+    <nav class="navbar navbar-expand-lg fixed-top custom-navbar">
+      <div class="container-fluid px-3 px-md-4">
 
-      <!-- brand -->
-      <a class="navbar-brand" href="/"><i class="bi bi-globe me-2"></i>Future Tech</a>
-      
-      <!-- mobile hamburger menu -->
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      
-      <!-- NAVBAR CONTENT -->
-      <div class="collapse navbar-collapse" id="navbarContent">
+        <!-- brand -->
+        <a class="fw-bold navbar-brand" href="/"><i class="bi bi-globe me-2"></i>Future Tech</a>
+        
+        <!-- mobile hamburger menu -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <!-- NAVBAR CONTENT -->
+        <div class="collapse navbar-collapse" id="navbarContent">
 
-        <!-- Mobile-only search and profile (shown in collapsed menu) -->
-        <div class="d-lg-none mobile-search-profile py-3 border-bottom">
-          <div class="d-flex align-items-center justify-content-between">
+          <!-- *MOBILE ONLY* search and profile (shown in collapsed menu) -->
+          <div class="d-lg-none py-3 border-bottom mobile-search-profile">
+            <div class="d-flex justify-content-between align-items-center">
+              <!-- search function -->
+              <form class="search-form position-relative flex-grow-1 me-3">
+                <input type="search" class="form-control search-input" placeholder="Find something..." aria-label="Search">
+                <button class="search-btn" type="submit">
+                  <i class="bi bi-search"></i>
+                </button>
+              </form>
+              
+              <!-- user profile icon -->
+              <a href="#" class="user-profile d-flex justify-content-center align-items-center">
+                <i class="bi bi-person-fill"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- nav links -->
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="blog.html">Blog</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="form.html">Discussion</a>
+            </li>
+          </ul>
+          
+          <!-- *DESKTOP ONLY* search and profile (RHS ITEMS) -->
+          <div class="d-none d-lg-flex align-items-center gap-3">
+
             <!-- search function -->
-            <form class="search-form position-relative flex-grow-1 me-3">
-              <input type="search" class="form-control search-input" placeholder="Search articles..." aria-label="Search">
+            <form class="position-relative">
+              <input type="search" class="form-control search-input" placeholder="Find something..." aria-label="Search">
               <button class="search-btn" type="submit">
                 <i class="bi bi-search"></i>
               </button>
             </form>
             
             <!-- user profile icon -->
-            <a href="#" class="user-profile">
+            <a href="#" class="d-flex justify-content-center align-items-center text-decoration-none user-profile">
               <i class="bi bi-person-fill"></i>
             </a>
+
           </div>
-        </div>
-
-        <!-- nav links -->
-        <ul class="navbar-nav mx-auto">
-          <li class="nav-item">
-            <a class="nav-link active" href="/">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="blog.html">Blog</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="form.html">Discussion</a>
-          </li>
-        </ul>
-        
-        <!-- Desktop-only search and profile (RHS ITEMS) -->
-        <div class="d-none d-lg-flex align-items-center gap-3">
-
-          <!-- search function -->
-          <form class="search-form position-relative">
-            <input type="search" class="form-control search-input" placeholder="Search articles..." aria-label="Search">
-            <button class="search-btn" type="submit">
-              <i class="bi bi-search"></i>
-            </button>
-          </form>
-          
-          <!-- user profile icon -->
-          <a href="#" class="user-profile">
-            <i class="bi bi-person-fill"></i>
-          </a>
 
         </div>
 
       </div>
-
-    </div>
-  </nav>
-  
+    </nav>
+  </header>
+    
   <main>
 
     <section id="hero-section" class="position-relative vh-100">
@@ -126,11 +135,11 @@
               <h1 class="display-1 display-md-2 display-sm-3 fw-bold mb-4 hero-title">
                 Welcome to the Future.
               </h1>
-              <p class="lead fs-5 fs-md-4 mb-3 mb-md-4 text-secondary position-relative">
+              <p class="lead fs-5 fs-md-4 mb-3 mb-md-4 text-primary position-relative">
                 I write blog articles to help youths like you explore quantum computers, AI minds, and sustainable innovations that are reshaping our world, keeping you informed and up to date.
               </p>
               <div class="d-flex flex-column flex-sm-row gap-3 justify-content-start hero-btn-wrapper">
-                <a href="#" class="text-decoration-none rounded glowing-btn"><i class="bi bi-info-circle me-2"></i>Learn More</a>
+                <a href="#" class="text-decoration-none glowing-btn"><i class="bi bi-info-circle me-2"></i>Learn More</a>
                 <a href="#" class="text-decoration-none btn-outline-custom"><i class="bi bi-chat-quote me-2"></i>Discussion</a>
               </div>
             </div>
@@ -147,9 +156,9 @@
       </div>
     </section>
 
-    <section id="" class="min-vh-100">
+    <section class="min-vh-100">
 
-
+      
 
     </section>
 

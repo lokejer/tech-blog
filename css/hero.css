@@ -1,27 +1,30 @@
 .hero-title {
-  color: hsl(250.1, 100%, 69.6%); /* Fallback */
-  background:
-  linear-gradient(to top right, 
-  #1e232b, 
-  #4b5869, 
-  #1e232b
-  );  
-  background-size: 400% 400%;
+  background: linear-gradient(270deg, 
+      #595d65 0%,
+      #6c707b 20%,
+      #b1b4bf 40%,
+      #9a9ca5 60%,
+      #6c707b 80%,
+      #595d65 100%
+  );
+  background-size: 200% 100%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  text-shadow: 2px -2px 0 hsl(from var(--dark-surface) h s 20%);
+  /* text-shadow: 2px -2px 0 var(--divider); */
   
-  animation: gradientShift 10s linear infinite;
+  animation: subtleShine 12s ease-in-out infinite;
 }
 
-@keyframes gradientShift {
+@keyframes subtleShine {
   0%, 100% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
 }
 
 .hero-content p {
   /* find a way to make the text contrast better against the bright globe */
+  padding: 0.5rem;
+  background: linear-gradient(to right, #6c707b8f, transparent);
 }
 
 .hero-btn-wrapper a {

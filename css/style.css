@@ -80,15 +80,14 @@ a {
   background: var(--color-primary);
   color: var(--text-primary);
   border-radius: 8px;
-  box-shadow: 5px 5px 32px rgba(0, 0, 0, 0.5);
 }
 
 .btn-outline-custom {
   padding: 0.6em 0.8em;
   font-size: 1.1rem;
   border: solid var(--divider);
-  color: var(--text-secondary);
   border-radius: 8px;
+  color: var(--text-secondary);
   box-shadow: 5px 5px 32px rgba(0, 0, 0, 0.5);
   transition: all 0.2s ease;
 }
@@ -103,8 +102,10 @@ a {
 .glowing-btn {
   padding: 0.6em 0.8em;
   font-size: 1.1rem;
+  border-radius: 8px;
   background-color: var(--color-primary);
   color: var(--text-primary);
+  box-shadow: 5px 5px 32px rgba(0, 0, 0, 0.5);
   transition: 0.2s ease;
 }
 
