@@ -1,0 +1,40 @@
+.quick-links-wrapper .row {
+  border: 2px solid var(--divider) !important;
+  border-radius: 32px;
+  overflow: hidden;
+}
+
+.quick-links-wrapper .row .col i:not(.bi-square),
+.quick-links-wrapper .row .col svg {
+  top: 35px; left: 20px;
+  opacity: 1;
+}
+
+.quick-links-wrapper .row .col i.bi-square {
+  bottom: -50px; right: 10%;
+  font-size: 6rem;
+  opacity: 0.3;
+  transform: rotate(-15deg);
+  transition: transform 0.2s ease;
+}
+
+/* hover animations */
+.quick-links-wrapper .row:hover {
+  border-color: hsl(from var(--divider) h s 30%) !important;
+  background: linear-gradient(to bottom right, hsl(from var(--divider) h s 15%));
+}
+.quick-links-wrapper .row:hover h3,
+.quick-links-wrapper .row:hover p {
+  cursor: pointer;
+  /* text-decoration: underline; */
+}
+.quick-links-wrapper .row .col:hover i {
+  transform: rotate(-11deg) translateY(-4px);
+}
+
+/* bs medium screens breakpoint */
+@media (min-width: 768px) {
+  .quick-links-wrapper .row {
+    width: 60% !important;
+  }
+}

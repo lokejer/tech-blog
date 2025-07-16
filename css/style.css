@@ -1,6 +1,6 @@
 :root {
   /* base background */
-  --off-black: hsl(222, 20%, 5%);    
+  --off-black: hsl(0, 0%, 9%);    
   --dark-surface: hsl(220, 14%, 12%);
   --elevated-surface: hsl(220, 15%, 20%);
 
@@ -25,7 +25,7 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--main-color);
+  background: var(--color-primary);
   background: rgba(126, 100, 255, 0.4); /* --main-color with 40% opacity */
   border-radius: 8px;
   transition: background 0.3s ease;

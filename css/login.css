@@ -99,7 +99,7 @@
 
 #login-form .field input:focus {
   outline: none;
-  border-bottom: 2px solid var(--main-color);
+  border-bottom: 2px solid var(--color-primary);
 }
 
 /* error messages - global, for all potential form elements to use */

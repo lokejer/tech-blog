@@ -23,6 +23,11 @@
   color: var(--color-primary) !important;
 }
 
+/* offset main site content by the height of the navbar */
+.navbar-offset {
+  margin-top: 63px;
+}
+
 /* REMOVED: purple underline animations */
 /*
 .navbar-nav .nav-link::after {
