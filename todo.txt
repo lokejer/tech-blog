@@ -6,7 +6,7 @@ Collapse for showing/hiding code blocks or detailed explanations
 Carousel for showcasing multiple featured posts or screenshots
 
 blog.html
-- add a side navigation <aside>, which outlines the articles by topic. can implement scrollspy
+- add a side navigation <aside> or offcanvas, which outlines the articles by topic. can implement scrollspy
 - add a Preview button which opens a modal showing the first paragraph of the article?? can think of btr implementation
 maybe instead of a linear scroll down to show the articles we can do carousels for each topic. maybe even implement camillemormal style carousel
 

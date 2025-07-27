@@ -60,6 +60,8 @@ a {
 .text-heading { color: var(--text-heading) !important; }
 .text-primary { color: var(--text-primary) !important; }
 .text-secondary { color: var(--text-secondary) !important; }
+.bg-main { background-color: var(--dark-surface) !important; }
+.bg-black { background-color: var(--off-black) !important; }
 
 /* ----------- CUSTOM CSS FOR BOOTSTRAP ----------- */
 /* CUSTOM HEADERS */

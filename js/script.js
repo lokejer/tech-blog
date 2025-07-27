@@ -1,4 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
+
+  // handling highlighting of navbar links
   const currentPath = window.location.pathname;
   const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
   
@@ -27,4 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
       link.classList.add('active');
     }
   });
+
+  renderArticles();
+
 });
