@@ -30,6 +30,41 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 
+  // dynamic articles for blog.html
   renderArticles();
 
+  // dynamic pagination for blog.html
+  console.log('Page loaded, initializing pagination...');
+  
+  // STEP 1: Render the first page of articles
+  renderArticles(allArticles, 1);
+  
+  // STEP 2: Set up the pagination buttons
+  updatePaginationButtons(allArticles);
+  
+  // STEP 3: Optional - Add keyboard navigation
+  document.addEventListener('keydown', function(e) {
+    const totalPages = getTotalPages();
+    
+    if (e.key === 'ArrowLeft' && currentPage > 1) {
+      goToPage(currentPage - 1);
+    } else if (e.key === 'ArrowRight' && currentPage < totalPages) {
+      goToPage(currentPage + 1);
+    }
+  });
+  
+  console.log('Pagination initialized successfully!');
+});
+
+// fade-in animations
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+});
+
+document.querySelectorAll('.fade-in').forEach(el => {
+  observer.observe(el);
 });

@@ -105,7 +105,8 @@ h2::before {
 /* PRODUCT CARD STYLING */
 .product-card {
   background-color: var(--dark-surface);
-  border: 1px solid var(--divider);
+  border: 2px solid var(--divider);
+  overflow: hidden;
 }
 
 /* product image */
