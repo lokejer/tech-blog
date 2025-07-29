@@ -36,13 +36,13 @@ document.addEventListener('DOMContentLoaded', function() {
   // dynamic pagination for blog.html
   console.log('Page loaded, initializing pagination...');
   
-  // STEP 1: Render the first page of articles
+  // #1 Render the first page of articles
   renderArticles(allArticles, 1);
   
-  // STEP 2: Set up the pagination buttons
+  // #2 Set up the pagination buttons
   updatePaginationButtons(allArticles);
   
-  // STEP 3: Optional - Add keyboard navigation
+  // #3: Add keyboard navigation
   document.addEventListener('keydown', function(e) {
     const totalPages = getTotalPages();
     

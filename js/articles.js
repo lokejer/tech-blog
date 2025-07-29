@@ -147,8 +147,8 @@ const allArticles = [
 ];
 
 /* ---------------- DYNAMIC PAGINATION ---------------- */
-const ARTICLES_PER_PAGE = 4; // How many articles to show per page
-let currentPage = 1; // Track which page we're currently on
+const ARTICLES_PER_PAGE = 4; // define how many articles to show per page (can change)
+let currentPage = 1; // track which page we're currently on
 
 console.log('Pagination config loaded:', {
   articlesPerPage: ARTICLES_PER_PAGE,
@@ -159,26 +159,29 @@ console.log('Pagination config loaded:', {
 function goToPage(page, articlesArray = allArticles) {
   const totalPages = getTotalPages(articlesArray);
   
-  // STEP 1: Validate the page number
+  /* --- #1: Validate the page number --- */
   if (page < 1 || page > totalPages) {
     console.log('Invalid page:', page);
     return;
   }
   
-  // STEP 2: Update current page
+  /* --- #2: Update current page --- */
   currentPage = page;
   console.log('Going to page:', currentPage);
   
-  // STEP 3: Re-render articles for the new page 
+  /* --- #3: Re-render articles for the new page  --- */
   renderArticles(articlesArray, currentPage);
   
-  // STEP 4: Update pagination buttons (we'll create this next)
+  /* --- #4: Update pagination buttons (we'll create this next) --- */
   updatePaginationButtons(articlesArray);
   
-  // STEP 5: Optional - scroll to top of articles
+  /* --- #5: Scroll to top of articles --- */
   const articlesContainer = document.getElementById('articles-container');
   if (articlesContainer) {
-    articlesContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    // allow DOM content to completely render before scrolling by setting a 10ms delay
+    setTimeout(() => {
+      articlesContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 10);
   }
 }
 
@@ -192,12 +195,12 @@ function updatePaginationButtons(articlesArray = allArticles) {
     return;
   }
   
-  // Clear existing pagination
+  // clear existing pagination
   pagination.innerHTML = '';
   
-  // STEP 1: Create Previous buttons
-  const prevDoubleDisabled = currentPage === 1 ? 'disabled' : '';
+  /* --- #1: Create Previous buttons (< and <<) --- */
   const prevDisabled = currentPage === 1 ? 'disabled' : '';
+  const prevDoubleDisabled = currentPage === 1 ? 'disabled' : '';
   
   pagination.innerHTML += `
     <li class="page-item ${prevDoubleDisabled}">
@@ -212,7 +215,7 @@ function updatePaginationButtons(articlesArray = allArticles) {
     </li>
   `;
   
-  // STEP 2: Create Page number buttons
+  /* --- #2: Create Page number buttons ([1] [2] [3] etc) --- */
   for (let i = 1; i <= totalPages; i++) {
     const activeClass = i === currentPage ? 'active' : '';
     pagination.innerHTML += `
@@ -222,7 +225,7 @@ function updatePaginationButtons(articlesArray = allArticles) {
     `;
   }
   
-  // STEP 3: Create Next buttons
+  /* --- #3: Create Next buttons (> and >>) --- */
   const nextDisabled = currentPage === totalPages ? 'disabled' : '';
   const nextDoubleDisabled = currentPage === totalPages ? 'disabled' : '';
   
@@ -243,26 +246,19 @@ function updatePaginationButtons(articlesArray = allArticles) {
 }
 
 /* ---------------- PAGINATION HELPER FUNCTIONS ---------------- */
-// Add these functions after your configuration
-
-// Calculate how many pages we need total
+// calculate total no. of pages required to display the correct no. of articles per page
 function getTotalPages(articlesArray = allArticles) {
   return Math.ceil(articlesArray.length / ARTICLES_PER_PAGE);
 }
 
-// Get only the articles that should show on a specific page
+// get only the articles that should show on a specific page
 function getArticlesForPage(page, articlesArray = allArticles) {
   const startIndex = (page - 1) * ARTICLES_PER_PAGE;
   const endIndex = startIndex + ARTICLES_PER_PAGE;
   return articlesArray.slice(startIndex, endIndex);
 }
 
-// Test the functions
-console.log('Total pages needed:', getTotalPages());
-console.log('Articles for page 1:', getArticlesForPage(1));
-console.log('Articles for page 2:', getArticlesForPage(2));
-
-// SAVE ARTICLE FN
+/* ---------------- final step: RENDER ARTICLES onto the actual blog.html ---------------- */
 function saveArticle(articleId) {
   // if no ID passed, try to get it from the clicked button
   if (!articleId) {
@@ -290,6 +286,9 @@ function saveArticle(articleId) {
     savedArticles = savedArticles.filter(saved => saved.id !== articleId);
     showToast(`"${article.title}" removed from bookmarks!`, 'info');
   }
+
+  // update savedArticles count
+  updateSavedCount();
   
   // call the fn that updates "Add to Bookmarks" btn appearance
   updateSaveButton(articleId, article.saved);
@@ -344,7 +343,6 @@ function showToast(message, type = 'info') {
     toastElement.remove();
   });
 }
-
 // UPDATE "ADD TO BOOKMARKS" BTN FN
 function updateSaveButton(articleId, isSaved) {
   const button = document.querySelector(`button[data-article-id="${articleId}"]`);
@@ -366,12 +364,10 @@ function updateSaveButton(articleId, isSaved) {
     button.innerHTML = `<i class="bi bi-bookmark me-1"></i>Add to Bookmarks`;
   }
 }
-
 // GET SAVED ARTICLES FN
 function getSavedArticles() {
   return savedArticles;
 }
-
 // MANAGE BOOKMARKS FEATURE (REMOVE ARTICLES FROM SAVED) FN
 function removeSavedArticle(articleId) {
   const article = allArticles.find(article => article.id === articleId);
@@ -383,7 +379,6 @@ function removeSavedArticle(articleId) {
     showToast(`"${article.title}" removed from bookmarks!`, 'info');
   };
 }
-
 // MANAGE BOOKMARKS FEATURE (REMOVE ALL ARTICLES FROM SAVED) FN
 function clearAllSaved() {
   savedArticles.forEach(article => {
@@ -394,32 +389,35 @@ function clearAllSaved() {
     }
   });
   savedArticles = [];
+
+  updateSavedCount();
+  
   showToast('All bookmarks cleared!', 'info');
 }
 
 /* ---------------- DYNAMIC RENDERING OF ARTICLES ONTO PAGE ---------------- */
 // POPULATE HTML WITH ARTICLE CARDS FN
-// UPDATED POPULATE HTML WITH ARTICLE CARDS FN
 function renderArticles(articlesToRender = allArticles, page = currentPage) {
   const container = document.getElementById('articles-container');
   
-  // STEP 1: Get only the articles for this page
+  // #1: get only the articles for this page
   const pageArticles = getArticlesForPage(page, articlesToRender);
   
-  // STEP 2: Clear existing content
+  // #2: clear existing content
   container.innerHTML = '';
   
-  // STEP 3: Handle empty page
+  // #3 EDGE CASE HANDLING: show error message for empty page/no articles shown
   if (pageArticles.length === 0) {
     container.innerHTML = `
-      <div class="col-12 text-center">
-        <p class="text-muted">No articles found for this page.</p>
+      <div class="col-12 my-5 text-center border">
+        <img src="assets/glass-magnifying-glass.png" class="my-3" alt="glassmorphism magnifying glass" width="100" style="opacity: 0.8">
+        <p class="text-primary">No articles found for this page.</p>
       </div>
     `;
     return;
   }
   
-  // STEP 4: Generate HTML for each article
+  // #4: generate articles' HTML
   pageArticles.forEach(article => {
     const articleHTML = `
       <div class="col-md-5">
@@ -489,12 +487,55 @@ function getBadgeHTML(badge) {
   return badge;
 }
 
-// For bookmarked articles
-function showBookmarkedArticles() {
-  const saved = getSavedArticles();
-  currentPage = 1; // Reset to first page
-  renderArticles(saved, 1);
-  updatePaginationButtons(saved);
+/* ---------------- FILTER FUNCTION ---------------- */
+let currentFilter = 'ALL';
+
+function filterArticles(filterType) {
+  currentFilter = filterType;
+  updateActiveFilter(filterType);
+  
+  let filteredArticles = [];
+  
+  switch(filterType) {
+    case 'HOT':
+      filteredArticles = allArticles.filter(article => article.badge === 'HOT');
+      break;
+    case 'NEW':
+      filteredArticles = allArticles.filter(article => article.badge === 'NEW');
+      break;
+    case 'SAVED':
+      filteredArticles = allArticles.filter(article => article.saved === true);
+      break;
+    case 'ALL':
+    default:
+      filteredArticles = allArticles;
+      break;
+  }
+  
+  currentPage = 1;
+  renderArticles(filteredArticles, 1);
+  updatePaginationButtons(filteredArticles);
+}
+
+// add the active class to filter pills
+function updateActiveFilter(activeFilter) {
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.classList.remove('active');
+  });
+  
+  const activeButton = document.querySelector(`[data-filter="${activeFilter}"]`);
+  if (activeButton) {
+    activeButton.classList.add('active');
+  }
+}
+
+function updateSavedCount() {
+  const savedCount = allArticles.filter(article => article.saved).length;
+  const badge = document.getElementById('saved-count');
+  if (badge) {
+    badge.textContent = savedCount;
+    badge.style.display = savedCount > 0 ? 'inline-block' : 'none';
+  }
 }
 
 // For search functionality
@@ -502,7 +543,7 @@ function searchArticles(searchTerm) {
   const filtered = allArticles.filter(article => 
     article.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
-  currentPage = 1; // Reset to first page
+  currentPage = 1; // reset to first page
   renderArticles(filtered, 1);
   updatePaginationButtons(filtered);
 }
