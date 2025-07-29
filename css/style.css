@@ -3,12 +3,12 @@
   --off-black: hsl(0, 0%, 9%);    
   --dark-surface: hsl(220, 14%, 12%);
   --elevated-surface: hsl(220, 15%, 20%);
+  --divider: hsl(220, 13%, 25%);
 
   /* text colours */
   --text-primary: hsl(0, 0%, 88%);
   --text-secondary: hsl(215, 14%, 65%);
   --text-heading: hsl(0, 0%, 100%);
-  --divider: hsl(220, 13%, 25%);
 
   /* brand colours */
   --color-primary: hsl(250.1, 100%, 69.6%);
