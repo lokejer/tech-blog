@@ -258,7 +258,7 @@ function getArticlesForPage(page, articlesArray = allArticles) {
   return articlesArray.slice(startIndex, endIndex);
 }
 
-/* ---------------- final step: RENDER ARTICLES onto the actual blog.html ---------------- */
+/* ---------------- SAVE FUNCTIONS + TOAST NOTIFICATIONS FOR REAL-TIME FEEDBACK ---------------- */
 function saveArticle(articleId) {
   // if no ID passed, try to get it from the clicked button
   if (!articleId) {
@@ -356,7 +356,8 @@ function updateSaveButton(articleId, isSaved) {
     button.classList.add('btn-success');
     icon.className = 'bi bi-bookmark-fill me-1';
     button.innerHTML = `<i class="bi bi-bookmark-fill me-1"></i>Bookmarked`;
-  } else {
+  } 
+  else {
     button.classList.remove('saved');
     button.classList.remove('btn-success');
     button.classList.add('btn-outline-info');
@@ -420,7 +421,7 @@ function renderArticles(articlesToRender = allArticles, page = currentPage) {
   // #4: generate articles' HTML
   pageArticles.forEach(article => {
     const articleHTML = `
-      <div class="col-md-5">
+      <article class="col-md-5">
         <div class="card product-card h-100">
         
           <!-- PRODUCT IMAGE -->
@@ -458,7 +459,7 @@ function renderArticles(articlesToRender = allArticles, page = currentPage) {
           </div>
 
         </div>
-      </div>
+      </article>
     `;
     
     container.innerHTML += articleHTML;

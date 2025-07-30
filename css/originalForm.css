@@ -1,3 +1,81 @@
+/* IMAGE BORDER EFFECT */
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.login-card {
+  margin: 0 auto;
+  width: 450px;
+  position: relative;
+}
+
+.card-bg {
+  position: absolute;
+  top: 0; right: 0;
+  width: 100%; height: 100%;
+  z-index: -1;
+  /* background-color: black; */
+  background: url("../assets/bg/login-cover.jpg");
+  background-size: cover;
+  background-position: center;
+  filter: brightness(30%);
+  border-radius: 6px;
+}
+
+.login-card::before, .login-card::after {
+  content: '';
+  position: absolute;
+  width: 101%; height: 100.5%;
+  top: 50%; left: 50%;
+  translate: -50% -50%; 
+  z-index: -2;
+  background:
+    conic-gradient(
+    from var(--angle),
+    #1e232b83, 
+    #1e232b, 
+    #4b5869, 
+    #1e232b, 
+    #1e232b83);
+  border-radius: 8px;
+  animation: bg-rotate 9s linear infinite;
+}
+
+/* border glow effect */
+.login-card::before {
+  display: none; /* disable for now */
+  filter: blur(1rem);
+  opacity: 1;
+}
+
+@keyframes bg-rotate {
+  from { --angle: 0deg; }
+  to { --angle: 360deg; }
+}
+
+.discussion-header {
+  background: linear-gradient(135deg, var(--dark-surface), var(--elevated-surface));
+  border-radius: 20px;
+  padding: 3rem 2rem;
+  margin-bottom: 3rem;
+  border: 1px solid var(--divider);
+}
+
+.discussion-header h1 {
+  color: var(--text-heading);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.discussion-header p {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  margin-bottom: 0;
+}
+
 /* form styling */
 .form-container {
   background-color: var(--dark-surface);
@@ -134,38 +212,6 @@ textarea.form-control {
 .pledge-highlight {
   color: var(--color-accent);
   font-weight: 600;
-}
-
-/* validation styling */
-.was-validated .form-control:valid,
-.was-validated .form-select:valid {
-  border-color: #28a745;
-  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath fill='%2328a745' d='m2.3 6.73.8-.77-.8-.77 1.5-1.5.77.8-.77.8 1.5 1.5.8-.77.8.77-1.5 1.5-.77-.8.77-.8-1.5-1.5z'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 0.75rem center;
-  background-size: 16px 12px;
-}
-
-.was-validated .form-control:invalid,
-.was-validated .form-select:invalid {
-  border-color: #dc3545;
-  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%23dc3545'%3E%3Ccircle cx='6' cy='6' r='4.5'/%3E%3Cpath d='m5.8 4.6 4.6 4.6M4.6 5.8l4.6-4.6'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 0.75rem center;
-  background-size: 16px 12px;
-}
-
-.invalid-feedback {
-  display: none;
-  width: 100%;
-  margin-top: 0.25rem;
-  font-size: 0.875rem;
-  color: #dc3545;
-}
-
-.was-validated .form-control:invalid ~ .invalid-feedback,
-.was-validated .form-select:invalid ~ .invalid-feedback {
-  display: block;
 }
 
 /* success message styling */

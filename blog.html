@@ -291,42 +291,63 @@
         <h2 class="display-4 text-center my-4 fw-bold" data-title="Explore">Explore</h2>
 
         <!-- filters -->
-        <div class="d-flex justify-content-center align-items-center gap-2 mb-4 flex-wrap">
-            <button 
-              class="btn btn-outline-danger rounded-pill px-3 py-2 filter-btn" 
-              onclick="filterArticles('HOT')" 
-              data-filter="HOT"
+        <section class="filter-section mb-4" aria-label="Article filters">
+          <div class="d-flex justify-content-center align-items-center gap-2 flex-wrap">
+
+            <h2 class="fs-5 text-secondary mb-0">SORT:</h2>
+
+            <fieldset class="d-flex gap-2 flex-wrap" style="border: none; margin: 0; padding: 0;">
+              <legend class="visually-hidden">Filter articles by category</legend>
+
+              <button 
+                class="btn btn-outline-danger rounded-pill px-3 py-2 filter-btn" 
+                onclick="filterArticles('HOT')" 
+                data-filter="HOT"
+                aria-label="Show hot articles"
+                type="button"
+                >
+                <i class="bi bi-fire me-1" aria-hidden="true"></i>
+                HOT
+              </button>
+              
+              <button
+                class="btn btn-outline-warning rounded-pill px-3 py-2 filter-btn" 
+                onclick="filterArticles('NEW')" 
+                data-filter="NEW"
+                aria-label="Show new articles"
+                type="button"
               >
-              <i class="bi bi-fire me-1"></i>
-              HOT
-            </button>
-            
-            <button
-              class="btn btn-outline-warning rounded-pill px-3 py-2 filter-btn" 
-              onclick="filterArticles('NEW')" 
-              data-filter="NEW"
-            >
-              <i class="bi bi-stars me-1"></i>
-              NEW
-            </button>
-            
-            <button 
-              class="btn btn-outline-success rounded-pill px-3 py-2 filter-btn position-relative d-flex align-items-center" 
-              onclick="filterArticles('SAVED')" 
-              data-filter="SAVED"
-            >
-              <i class="bi bi-bookmark-fill me-1"></i>
-              SAVED
-              <span class="badge bg-light text-dark ms-1" id="saved-count">0</span>
-            </button>
-            
-            <button class="btn btn-outline-secondary rounded-pill px-3 py-2 filter-btn active" 
-                    onclick="filterArticles('ALL')" 
-                    data-filter="ALL">
-                <i class="bi bi-grid me-1"></i>
+                <i class="bi bi-stars me-1" aria-hidden="true"></i>
+                NEW
+              </button>
+              
+              <button 
+                class="btn btn-outline-success rounded-pill px-3 py-2 filter-btn position-relative d-flex align-items-center" 
+                onclick="filterArticles('SAVED')" 
+                data-filter="SAVED"
+                aria-label="Show saved articles"
+                type="button"
+              >
+                <i class="bi bi-bookmark-fill me-1" aria-hidden="true"></i>
+                SAVED
+                <span class="badge bg-light text-dark ms-1" id="saved-count" aria-label="Number of saved articles">0</span>
+              </button>
+              
+              <button 
+                class="btn btn-outline-secondary rounded-pill px-3 py-2 filter-btn active" 
+                onclick="filterArticles('ALL')" 
+                data-filter="ALL"
+                aria-label="Show all articles"
+                type="button"
+                aria-pressed="true"
+              >
+                <i class="bi bi-grid me-1" aria-hidden="true"></i>
                 All
-            </button>
-        </div>
+              </button>
+
+            </fieldset>
+          </div>
+        </section>
 
         <!-- empty container for dynamic articles -->
         <div id="articles-container" class="row justify-content-center mb-4 g-4">
