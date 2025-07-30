@@ -105,12 +105,16 @@
 
     <section id="hero-section" class="position-relative vh-100">
       
-      <!-- hero background (globe video) -->
+      <!-- hero video (orbiting Earth) -->
       <div class="position-absolute w-100 h-100 video-container">
-        <video class="w-100 h-100 object-fit-cover hero-video" autoplay muted loop playsinline>
-          <source media="(min-width: 1200px)" src="assets/hero/globe-1080p.mp4" type="video/mp4">
-          <source media="(max-width: 767px)" src="assets/hero/globe-360p.mp4" type="video/mp4">
-          <img src="assets/hero/globe-static.png" class="w-100 h-100 object-fit-cover" alt="Globe background static image">
+        <video class="w-100 h-100 object-fit-cover hero-video" 
+              autoplay 
+              muted 
+              loop 
+              playsinline
+              preload="none">
+          <!-- JS handles the source elements -->
+          Your browser does not support the video tag.
         </video>
       </div>
 
@@ -223,5 +227,6 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
   <script src="js/script.js"></script>
+  <script src="js/hero.js"></script>
   <!-- <script src="js/carousel.js"></script> -->
 </body>

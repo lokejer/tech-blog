@@ -10,7 +10,7 @@ const allArticles = [
     image: 'assets/articles/article-cover1.avif',
     rating: 4,
     badge: "NEW",
-    saved: false
+    saved: false,
   },
 
   // article 2
@@ -448,9 +448,11 @@ function renderArticles(articlesToRender = allArticles, page = currentPage) {
                 VIEW ARTICLE
                 <i class="bi bi-arrow-up-right"></i>
               </button>
-              <button onclick="saveArticle(${article.id})" 
-                      class="btn ${article.saved ? 'btn-success saved' : 'btn-outline-info'} w-50 px-2 py-2" 
-                      data-article-id="${article.id}">
+              <button
+                onclick="saveArticle(${article.id})" 
+                class="btn ${article.saved ? 'btn-success saved' : 'btn-outline-info'} w-50 px-2 py-2" 
+                data-article-id="${article.id}"
+              >
                 <i class="bi bi-bookmark${article.saved ? '-fill' : ''} me-1"></i>
                 ${article.saved ? 'Bookmarked' : 'Add to Bookmarks'}
               </button>
