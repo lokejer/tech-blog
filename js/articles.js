@@ -147,7 +147,7 @@ const allArticles = [
 ];
 
 /* ---------------- DYNAMIC PAGINATION ---------------- */
-const ARTICLES_PER_PAGE = 4; // define how many articles to show per page (can change)
+const ARTICLES_PER_PAGE = Math.floor(Math.random() * 6) + 1; // define how many articles to show per page (can change)
 let currentPage = 1; // track which page we're currently on
 
 console.log('Pagination config loaded:', {
@@ -258,6 +258,77 @@ function getArticlesForPage(page, articlesArray = allArticles) {
   return articlesArray.slice(startIndex, endIndex);
 }
 
+/* ---------------- HELPER to SAVE FUNCTIONS (localStorage) ---------------- */
+// SAVE DATA TO localStorage
+function saveToLocalStorage(key, data) {
+  try {
+    localStorage.setItem(key, JSON.stringify(data));
+    console.log(`Saved to localStorage: ${key}`, data);
+  } catch (error) {
+    console.error('Failed to save to localStorage:', error);
+  }
+}
+
+// LOAD DATA FROM localStorage
+function loadFromLocalStorage(key, defaultValue = null) {
+  try {
+    const stored = localStorage.getItem(key);
+    if (stored) {
+      const parsed = JSON.parse(stored);
+      console.log(`Loaded from localStorage: ${key}`, parsed);
+      return parsed;
+    }
+    return defaultValue;
+  } catch (error) {
+    console.error('Failed to load from localStorage:', error);
+    return defaultValue;
+  }
+}
+
+// REMOVE DATA FROM localStorage
+function removeFromLocalStorage(key) {
+  try {
+    localStorage.removeItem(key);
+    console.log(`Removed from localStorage: ${key}`);
+  } catch (error) {
+    console.error('Failed to remove from localStorage:', error);
+  }
+}
+
+// INITIALISE localStorage
+function initializeFromLocalStorage() {
+  console.log('Initializing from localStorage...');
+  
+  // Load saved article IDs from localStorage
+  const savedArticleIds = loadFromLocalStorage('savedArticleIds', []);
+  
+  // Update the saved status in allArticles array
+  allArticles.forEach(article => {
+    if (savedArticleIds.includes(article.id)) {
+      article.saved = true;
+    } else {
+      article.saved = false;
+    }
+  });
+  
+  // Rebuild savedArticles array based on the loaded data
+  savedArticles = allArticles.filter(article => article.saved);
+  
+  // Load current page from localStorage (optional)
+  const storedPage = loadFromLocalStorage('currentPage', 1);
+  currentPage = storedPage;
+  
+  // Load current filter from localStorage (optional)
+  const storedFilter = loadFromLocalStorage('currentFilter', 'ALL');
+  currentFilter = storedFilter;
+  
+  console.log('Initialization complete:', {
+    savedArticles: savedArticles.length,
+    currentPage: currentPage,
+    currentFilter: currentFilter
+  });
+}
+
 /* ---------------- SAVE FUNCTIONS + TOAST NOTIFICATIONS FOR REAL-TIME FEEDBACK ---------------- */
 function saveArticle(articleId) {
   // if no ID passed, try to get it from the clicked button
@@ -287,10 +358,14 @@ function saveArticle(articleId) {
     showToast(`"${article.title}" removed from bookmarks!`, 'info');
   }
 
+  // save to localStorage
+  const savedArticleIds = savedArticles.map(article => article.id);
+  saveToLocalStorage('savedArticleIds', savedArticleIds);
+
   // update savedArticles count
   updateSavedCount();
   
-  // call the fn that updates "Add to Bookmarks" btn appearance
+  // update "Add to Bookmarks" btn appearance
   updateSaveButton(articleId, article.saved);
   
   console.log('Saved Articles:', savedArticles);
@@ -375,25 +450,15 @@ function removeSavedArticle(articleId) {
   if (article) {
     article.saved = false;
     savedArticles = savedArticles.filter(saved => saved.id !== articleId);
+
+    // remove this saved article from localStorage
+    const savedArticleIds = savedArticles.map(article => article.id);
+    saveToLocalStorage('savedArticleIds', savedArticleIds);
+
     updateSaveButton(articleId, false);
     updateSavedCount();
     showToast(`"${article.title}" removed from bookmarks!`, 'info');
   };
-}
-// MANAGE BOOKMARKS FEATURE (REMOVE ALL ARTICLES FROM SAVED) FN
-function clearAllSaved() {
-  savedArticles.forEach(article => {
-    const originalArticle = allArticles.find(a => a.id === article.id);
-    if (originalArticle) {
-      originalArticle.saved = false;
-      updateSaveButton(article.id, false);
-    }
-  });
-  savedArticles = [];
-
-  updateSavedCount();
-  
-  showToast('All bookmarks cleared!', 'info');
 }
 
 /* ---------------- DYNAMIC RENDERING OF ARTICLES ONTO PAGE ---------------- */
@@ -425,7 +490,7 @@ function renderArticles(articlesToRender = allArticles, page = currentPage) {
         <div class="card product-card h-100">
         
           <!-- PRODUCT IMAGE -->
-          <img src="${article.image}" class="product-img" alt="${article.title} cover image">
+          <a href="#" class=""> <img src="${article.image}" class="product-img" alt="${article.title} cover image"> </a>
 
           <div class="card-body d-flex flex-column">
 
@@ -532,6 +597,7 @@ function updateActiveFilter(activeFilter) {
   }
 }
 
+// update the number next to the "SAVED" filter pill
 function updateSavedCount() {
   const savedCount = allArticles.filter(article => article.saved).length;
   const badge = document.getElementById('saved-count');

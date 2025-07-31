@@ -30,14 +30,14 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 
-  // dynamic articles for blog.html
+  /* ========== dynamic article rendering for blog.html ========== */
+  initializeFromLocalStorage();
+  updateSavedCount();
   renderArticles();
-
-  // dynamic pagination for blog.html
-  console.log('Page loaded, initializing pagination...');
   
-  // #1 Render the first page of articles
-  renderArticles(allArticles, 1);
+  /* ========== dynamic pagination for blog.html ========== */
+  console.log('Articles loaded! Initializing...');
+  console.log('Page loaded! Initializing dynamic pagination...');
   
   // #2 Set up the pagination buttons
   updatePaginationButtons(allArticles);
