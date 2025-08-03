@@ -4,10 +4,10 @@ const allArticles = [
   // article 1
   {
     id: 1,
-    title: 'Once Upon Science',
-    author: 'Khambhati Moiz',
-    description: 'A brief description of the origins of significant scientific discoveries like the atomic bomb',
-    image: 'assets/articles/article-cover1.avif',
+    title: 'The Key to Quantum Computing',
+    author: 'Scientific American',
+    description: 'Quantum computing can solve complex problems far beyond the reach of classical computers. By harnessing quantum mechanics, it enables breakthroughs in areas like drug discovery, cryptography, artificial intelligence, and materials science, potentially revolutionising industries and accelerating scientific progress.',
+    image: 'assets/articles/article-quantum1.webp',
     rating: 4,
     badge: "NEW",
     saved: false,
@@ -16,10 +16,10 @@ const allArticles = [
   // article 2
   {
     id: 2,
-    title: 'Recent Tech Breakthroughs',
+    title: 'Principles of Superconducting Quantum Computers',
     author: 'Huzefa Bala',
     description: 'A brief description of the most notable technological leaps in the recent centuries',
-    image: 'assets/articles/article-cover2.jpg',
+    image: 'assets/articles/article-quantum2.jpg',
     rating: 5,
     badge: "HOT",
     saved: false
@@ -31,7 +31,7 @@ const allArticles = [
     title: 'Example Article 3',
     author: 'Example Author',
     description: 'A brief description of this article a brief description of this article',
-    image: 'assets/articles/article-cover3.jpg',
+    image: 'assets/articles/article-quantum3.jpg',
     rating: 2,
     badge: null,
     saved: false
@@ -43,7 +43,7 @@ const allArticles = [
     title: 'Example Article 4',
     author: 'Example Author',
     description: 'A brief description of this article a brief description of this article',
-    image: 'assets/articles/article-cover4.webp',
+    image: 'assets/articles/article-innovation1.jpg',
     rating: 3,
     badge: null,
     saved: false
@@ -55,7 +55,7 @@ const allArticles = [
     title: 'Example Article 5',
     author: 'Example Author',
     description: 'A brief description of this article a brief description of this article',
-    image: 'assets/articles/article-cover5.jpg',
+    image: 'assets/articles/article-innovation2.png',
     rating: 5,
     badge: "HOT",
     saved: false
@@ -67,7 +67,7 @@ const allArticles = [
     title: 'Example Article 6',
     author: 'Example Author',
     description: 'A brief description of this article a brief description of this article',
-    image: 'assets/articles/article-cover6.png',
+    image: 'assets/articles/article-innovation3.webp',
     rating: 4,
     badge: null,
     saved: false
@@ -79,7 +79,7 @@ const allArticles = [
     title: 'Example Article 7',
     author: 'Example Author',
     description: 'A brief description of this article a brief description of this article',
-    image: 'assets/articles/article-cover7.webp',
+    image: 'assets/articles/article-innovation4.avif',
     rating: 3,
     badge: null,
     saved: false
@@ -91,7 +91,7 @@ const allArticles = [
     title: 'Example Article 8',
     author: 'Example Author',
     description: 'A brief description of this article a brief description of this article',
-    image: 'assets/articles/article-cover8.jpg',
+    image: 'assets/articles/article-innovation5.jpg',
     rating: 5,
     badge: "HOT",
     saved: false
@@ -103,7 +103,7 @@ const allArticles = [
     title: 'Example Article 9',
     author: 'Example Author',
     description: 'A brief description of this article a brief description of this article',
-    image: 'assets/articles/article-cover9.webp',
+    image: 'assets/articles/article-technology1.webp',
     rating: 3,
     badge: "NEW",
     saved: false
@@ -115,7 +115,7 @@ const allArticles = [
     title: 'Example Article 10',
     author: 'Example Author',
     description: 'A brief description of this article a brief description of this article',
-    image: 'assets/articles/bruno concert.jpeg',
+    image: 'assets/articles/article-technology2.jpg',
     rating: 5,
     badge: "NEW",
     saved: false
@@ -127,7 +127,7 @@ const allArticles = [
     title: 'Example Article 11',
     author: 'Example Author',
     description: 'A brief description of this article a brief description of this article',
-    image: 'assets/articles/fireworks mbs.jpeg',
+    image: 'assets/articles/article-technology3.jpg',
     rating: 4,
     badge: null,
     saved: false
@@ -139,7 +139,7 @@ const allArticles = [
     title: 'Example Article 12',
     author: 'Example Author',
     description: 'A brief description of this article a brief description of this article',
-    image: 'assets/articles/fireworks red.jpeg',
+    image: 'assets/articles/article-technology4.webp',
     rating: 2,
     badge: null,
     saved: false
@@ -147,7 +147,7 @@ const allArticles = [
 ];
 
 /* ---------------- DYNAMIC PAGINATION ---------------- */
-const ARTICLES_PER_PAGE = Math.floor(Math.random() * 4) + 2; // show 2 - 6 articles per page
+const ARTICLES_PER_PAGE = Math.floor(Math.random() * 5) + 2; // show 2 - 6 articles per page
 let currentPage = 1; // track which page we're currently on
 
 console.log('Pagination config loaded:', {

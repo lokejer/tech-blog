@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon/icons8-earth-globe-quill-16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon/icons8-earth-globe-quill-32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="./assets/favicon/icons8-earth-globe-quill-96.png">
+
+  <!-- link bootstrap / bs icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- link css stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/navbar.css">
+  <link rel="stylesheet" href="css/form.css">
+ 
+  <!-- DM Sans font (headings) -->
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+  <!-- Merriweather font (text, subheadings) -->
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap" rel="stylesheet">
+  <!-- Font Awesome Free CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <title>Discussion - Future Tech</title>
+</head>
+
+<body>
+  
+  <!-- NAVBAR -->
+  <header>
+    <nav class="navbar navbar-expand-lg fixed-top custom-navbar">
+      <div class="container-fluid px-3 px-md-4">
+
+        <!-- brand -->
+        <a class="fw-bold navbar-brand" href="/"><i class="bi bi-globe me-2"></i>Future Tech</a>
+        
+        <!-- mobile hamburger menu -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <!-- NAVBAR CONTENT -->
+        <div class="collapse navbar-collapse" id="navbarContent">
+
+          <!-- *MOBILE ONLY* search and profile (shown in collapsed menu) -->
+          <div class="d-lg-none py-3 border-bottom mobile-search-profile">
+            <div class="d-flex justify-content-between align-items-center">
+              <!-- search function -->
+              <form class="search-form position-relative flex-grow-1 me-3">
+                <input type="search" class="form-control search-input" placeholder="Find something..." aria-label="Search articles and content">
+                <button class="search-btn" type="submit" aria-label="Submit search">
+                  <i class="bi bi-search"></i>
+                </button>
+              </form>
+              
+              <!-- user profile icon -->
+              <a href="#" class="user-profile d-flex justify-content-center align-items-center" aria-label="User profile">
+                <i class="bi bi-person-fill"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- nav links -->
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="blog.html">Blog</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="form.html" aria-current="page">Feedback</a>
+            </li>
+          </ul>
+          
+          <!-- *DESKTOP ONLY* search and profile (RHS ITEMS) -->
+          <div class="d-none d-lg-flex align-items-center gap-3">
+
+            <!-- search function -->
+            <form class="position-relative">
+              <input type="search" class="form-control search-input" placeholder="Find something..." aria-label="Search articles and content">
+              <button class="search-btn" type="submit" aria-label="Submit search">
+                <i class="bi bi-search"></i>
+              </button>
+            </form>
+            
+            <!-- user profile icon -->
+            <a href="#" class="d-flex justify-content-center align-items-center text-decoration-none user-profile" aria-label="User profile">
+              <i class="bi bi-person-fill"></i>
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+    </nav>
+  </header>
+  
+  <main>
+
+    <section class="container py-5 navbar-offset">
+
+      <!-- discussion form -->
+      <div class="row justify-content-center">
+
+        <div class="col-lg-8">
+          
+          <!-- success message (hidden by default) -->
+          <div id="successMessage" class="alert alert-success d-none" role="alert" aria-live="polite">
+            <i class="bi bi-check-circle me-2"></i>
+            Thank you for your feedback! Your submission has been received.
+          </div>
+
+          <form id="discussionForm" class="form-container needs-validation" novalidate role="form" aria-label="Article feedback and community engagement form">
+            
+            <!-- article feedback section -->
+            <div class="mb-5">
+              <h3 class="form-section-title">
+                <i class="bi bi-newspaper" aria-hidden="true"></i>
+                Article Feedback
+              </h3>
+              
+              <!-- which article -->
+              <div class="mb-3">
+                <label for="articleTitle" class="form-label">Which article are you referring to? <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" id="articleTitle" placeholder="Enter the article title or URL" required aria-describedby="articleTitleHelp">
+                <div class="invalid-feedback">
+                  Please provide the article title or URL.
+                </div>
+                <div id="articleTitleHelp" class="text-secondary form-text">Enter the full title or web address of the article you're reviewing</div>
+              </div>
+
+              <!-- article rating -->
+              <div class="mb-3">
+                <label for="articleRating" class="form-label">How would you rate this article? <span class="text-danger">*</span></label>
+                <select class="form-select" id="articleRating" required aria-describedby="ratingHelp">
+                  <option value="">Select a rating</option>
+                  <option value="5">Excellent - Highly informative and engaging</option>
+                  <option value="4">Good - Useful information with minor improvements needed</option>
+                  <option value="3">Average - Decent content but could be better</option>
+                  <option value="2">Below Average - Limited value</option>
+                  <option value="1">Poor - Not helpful</option>
+                </select>
+                <div class="invalid-feedback">
+                  Please select a rating for the article.
+                </div>
+                <div id="ratingHelp" class="text-secondary form-text">Rate from 1 (Poor) to 5 (Excellent) stars</div>
+              </div>
+
+              <!-- what you liked -->
+              <div class="mb-3">
+                <label for="articleLiked" class="form-label">What did you like most about this article?</label>
+                <textarea class="form-control" id="articleLiked" placeholder="Tell us what stood out to you..." rows="3" maxlength="500" aria-describedby="likedHelp likedCounter"></textarea>
+                <div class="d-flex justify-content-between">
+                  <div id="likedHelp" class="text-secondary form-text">Share the highlights that caught your attention</div>
+                  <div id="likedCounter" class="character-counter">0/500 characters</div>
+                </div>
+              </div>
+
+              <!-- suggestions for improvement -->
+              <div class="mb-3">
+                <label for="articleImprovement" class="form-label">Any suggestions for improvement?</label>
+                <textarea class="form-control" id="articleImprovement" placeholder="How could we make this article even better?" rows="3" maxlength="500" aria-describedby="improvementHelp improvementCounter"></textarea>
+                <div class="d-flex justify-content-between">
+                  <div id="improvementHelp" class="text-secondary form-text">Help us enhance our content quality</div>
+                  <div id="improvementCounter" class="character-counter">0/500 characters</div>
+                </div>
+              </div>
+
+              <!-- similar articles request -->
+              <div class="mb-3">
+                <label for="similarArticles" class="form-label">What other topics would you like us to cover? <span class="text-danger">*</span></label>
+                <textarea class="form-control" id="similarArticles" placeholder="Tell us about similar articles or topics you'd love to read about..." rows="4" required minlength="10" maxlength="1000" aria-describedby="topicsHelp topicsCounter"></textarea>
+                <div class="invalid-feedback">
+                  Please tell us what topics you'd like to see (at least 10 characters).
+                </div>
+                <div class="d-flex justify-content-between">
+                  <div id="topicsHelp" class="text-secondary form-text text-muted mt-2">
+                    <i class="bi bi-lightbulb me-1" aria-hidden="true"></i>
+                    Examples: AI ethics, sustainable tech solutions etc.
+                  </div>
+                  <div id="topicsCounter" class="character-counter">0/1000 characters</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- user preferences section -->
+            <div class="mb-4">
+              <h3 class="form-section-title">
+                <i class="bi bi-sliders" aria-hidden="true"></i>
+                Your Preferences
+              </h3>
+
+              <!-- tech interest level slider -->
+              <div>
+                <label for="techInterest" class="form-label">How interested are you in tech topics? <span id="interestValue" class="text-muted">(5)</span></label>
+                <input type="range" class="form-range" min="1" max="10" value="5" id="techInterest" aria-describedby="interestHelp" aria-label="Technology interest level from 1 to 10">
+                <div class="d-flex justify-content-between">
+                  <small class="text-muted">Not interested</small>
+                  <small class="text-muted">Very interested</small>
+                </div>
+              </div>
+
+              <!-- reading frequency slider -->
+              <div>
+                <label for="readingFreq" class="form-label">How often do you read tech articles? <span id="freqValue" class="text-muted">(3 times/week)</span></label>
+                <input type="range" class="form-range" min="1" max="7" value="3" id="readingFreq" aria-describedby="freqHelp" aria-label="Reading frequency from rarely to daily">
+                <div class="d-flex justify-content-between">
+                  <small class="text-muted">Rarely</small>
+                  <small class="text-muted">Daily</small>
+                </div>
+              </div>
+
+              <!-- notification preferences switches -->
+              <div class="mb-3">
+                <fieldset>
+                  <legend class="form-label fs-5"><i class="bi bi-bell me-1" aria-hidden="true"></i>Notification Preferences</legend>
+                  
+                  <div class="form-check form-switch mb-2">
+                    <input class="form-check-input" type="checkbox" id="emailNotifs" checked aria-describedby="emailNotifsHelp">
+                    <label class="form-check-label" for="emailNotifs">
+                      Email notifications for new articles
+                    </label>
+                    <div id="emailNotifsHelp" class="text-secondary form-text">Receive email alerts when we publish new content</div>
+                  </div>
+                  
+                  <div class="form-check form-switch mb-2">
+                    <input class="form-check-input" type="checkbox" id="weeklyDigest" aria-describedby="weeklyDigestHelp">
+                    <label class="form-check-label" for="weeklyDigest">
+                      Weekly digest summary
+                    </label>
+                    <div id="weeklyDigestHelp" class="text-secondary form-text">Get a weekly roundup of our top articles</div>
+                  </div>
+                  
+                  <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="breakingNews" aria-describedby="breakingNewsHelp">
+                    <label class="form-check-label" for="breakingNews">
+                      Breaking tech news alerts
+                    </label>
+                    <div id="breakingNewsHelp" class="text-secondary form-text">Immediate notifications for urgent tech developments</div>
+                  </div>
+                </fieldset>
+              </div>
+            </div>
+
+            <!-- community commitment section -->
+            <div class="mb-4">
+              <h3 class="form-section-title">
+                <i class="bi bi-people" aria-hidden="true"></i>
+                Community Commitment
+              </h3>
+
+              <div class="pledge-section">
+                <p class="mb-3">
+                  Help us build a community of <span class="pledge-highlight">tech-forward thinkers</span> who stay informed about innovation and the future!
+                </p>
+
+                <fieldset>
+                  <legend class="visually-hidden">Community engagement options</legend>
+                  
+                  <!-- sharing commitment -->
+                  <div class="mb-3">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="pledgeShare" value="share" aria-describedby="shareHelp">
+                      <label class="form-check-label" for="pledgeShare">
+                        I commit to sharing Future Tech articles with my network when I find them valuable
+                      </label>
+                      <div id="shareHelp" class="text-secondary form-text">Help spread valuable tech insights to your connections</div>
+                    </div>
+                  </div>
+
+                  <!-- community engagement -->
+                  <div class="mb-3">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="pledgeEngage" value="engage" aria-describedby="engageHelp">
+                      <label class="form-check-label" for="pledgeEngage">
+                        I will actively participate in discussions and help others stay informed about tech innovations
+                      </label>
+                      <div id="engageHelp" class="text-secondary form-text">Join our community conversations and knowledge sharing</div>
+                    </div>
+                  </div>
+
+                  <!-- newsletter subscription -->
+                  <div class="mb-3">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="pledgeNewsletter" value="newsletter" aria-describedby="newsletterHelp">
+                      <label class="form-check-label" for="pledgeNewsletter">
+                        Sign me up for the Future Tech newsletter to stay updated on the latest articles
+                      </label>
+                      <div id="newsletterHelp" class="text-secondary form-text">Regular updates delivered to your inbox</div>
+                    </div>
+                  </div>
+                </fieldset>
+
+                <!-- sharing method -->
+                <div class="mb-3">
+                  <label for="sharingMethod" class="form-label">How do you prefer to share valuable content?</label>
+                  <select class="form-select" id="sharingMethod" aria-describedby="sharingHelp">
+                    <option value="">Select your preferred method</option>
+                    <option value="social-media">Social media (Twitter, LinkedIn, Facebook)</option>
+                    <option value="email">Email to friends and colleagues</option>
+                    <option value="slack-teams">Work channels (Slack, Teams, Discord)</option>
+                    <option value="forums">Online forums and communities</option>
+                    <option value="word-of-mouth">Word of mouth conversations</option>
+                    <option value="multiple">Multiple methods</option>
+                  </select>
+                  <div id="sharingHelp" class="text-secondary form-text">Choose your primary method for sharing tech content</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- contact information -->
+            <div class="mb-4">
+              <h3 class="form-section-title">
+                <i class="bi bi-person-badge" aria-hidden="true"></i>
+                Contact Information (Optional)
+              </h3>
+              
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label for="userName" class="form-label">Name</label>
+                  <input type="text" class="form-control" id="userName" placeholder="Your name" aria-describedby="nameHelp">
+                  <div id="nameHelp" class="text-secondary form-text">How would you like us to address you?</div>
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="userEmail" class="form-label">Email</label>
+                  <input type="email" class="form-control" id="userEmail" placeholder="your.email@example.com" aria-describedby="emailHelp">
+                  <div class="invalid-feedback">
+                    Please provide a valid email address.
+                  </div>
+                  <div id="emailHelp" class="text-secondary form-text">We'll use this to follow up on your feedback if needed</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- additional comments -->
+            <div class="mb-4">
+              <label for="additionalComments" class="form-label">Additional Comments</label>
+              <textarea class="form-control" id="additionalComments" placeholder="Any other thoughts, suggestions, or feedback you'd like to share..." rows="4" maxlength="1000" aria-describedby="commentsHelp commentsCounter"></textarea>
+              <div class="d-flex justify-content-between">
+                <div id="commentsHelp" class="text-secondary form-text">Share any additional thoughts or suggestions</div>
+                <div id="commentsCounter" class="character-counter">0/1000 characters</div>
+              </div>
+            </div>
+
+            <!-- submit buttons -->
+            <div class="mt-5 d-flex flex-column flex-md-row gap-3 justify-content-center">
+              <button type="submit" class="btn btn-primary btn-lg" aria-describedby="submitHelp">
+                <i class="bi bi-send me-2" aria-hidden="true"></i>
+                Submit Feedback
+              </button>
+              <button type="reset" class="btn btn-outline-secondary btn-lg" aria-describedby="resetHelp">
+                <i class="bi bi-arrow-clockwise me-2" aria-hidden="true"></i>
+                Reset Form
+              </button>
+            </div>
+            
+          </form>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+  <script src="js/script.js"></script>
+  
+  <script>
+    // Enhanced form submission handling with better validation
+    document.getElementById('discussionForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Add bootstrap validation classes
+      this.classList.add('was-validated');
+      
+      // Custom email validation
+      const emailInput = document.getElementById('userEmail');
+      if (emailInput.value && !isValidEmail(emailInput.value)) {
+        emailInput.setCustomValidity('Please enter a valid email address');
+      } else {
+        emailInput.setCustomValidity('');
+      }
+      
+      // Check if form is valid
+      if (this.checkValidity()) {
+        // Show success message
+        const successMessage = document.getElementById('successMessage');
+        successMessage.classList.remove('d-none');
+        successMessage.focus(); // For screen readers
+        
+        // Scroll to top to show message
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        
+        // Hide form temporarily
+        this.style.opacity = '0.7';
+        this.style.pointerEvents = 'none';
+        
+        // Reset after 3 seconds (simulate processing)
+        setTimeout(() => {
+          this.style.opacity = '1';
+          this.style.pointerEvents = 'auto';
+          this.classList.remove('was-validated');
+          // Optionally reset form: this.reset();
+        }, 3000);
+      } else {
+        // Scroll to first invalid field
+        const firstInvalid = this.querySelector(':invalid');
+        if (firstInvalid) {
+          firstInvalid.focus();
+          firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      }
+    });
+
+    // Enhanced form reset handling
+    document.querySelector('button[type="reset"]').addEventListener('click', function() {
+      // Hide success message when resetting
+      document.getElementById('successMessage').classList.add('d-none');
+      // Remove validation classes
+      document.getElementById('discussionForm').classList.remove('was-validated');
+      // Reset all character counters
+      updateAllCounters();
+    });
+
+    // Auto-resize textareas
+    document.querySelectorAll('textarea').forEach(textarea => {
+      textarea.addEventListener('input', function() {
+        this.style.height = 'auto';
+        this.style.height = this.scrollHeight + 'px';
+      });
+    });
+
+    // Range slider value updates
+    document.getElementById('techInterest').addEventListener('input', function() {
+      document.getElementById('interestValue').textContent = `(${this.value})`;
+    });
+
+    document.getElementById('readingFreq').addEventListener('input', function() {
+      const frequencies = ['Rarely', 'Once/week', '2 times/week', '3 times/week', '4 times/week', '5 times/week', '6 times/week', 'Daily'];
+      document.getElementById('freqValue').textContent = `(${frequencies[this.value - 1]})`;
+    });
+
+    // Switch animations
+    document.querySelectorAll('.form-switch .form-check-input').forEach(switchInput => {
+      switchInput.addEventListener('change', function() {
+        this.style.transform = 'scale(0.95)';
+        setTimeout(() => {
+          this.style.transform = 'scale(1)';
+        }, 150);
+      });
+    });
+
+    // Character counter functionality
+    function updateCharacterCounter(textareaId, counterId, maxLength = 1000) {
+      const textarea = document.getElementById(textareaId);
+      const counter = document.getElementById(counterId);
+      
+      if (!textarea || !counter) return;
+      
+      const currentLength = textarea.value.length;
+      counter.textContent = `${currentLength}/${maxLength} characters`;
+      
+      // Update counter styling based on length
+      counter.classList.remove('warning', 'danger');
+      if (currentLength > maxLength * 0.9) {
+        counter.classList.add('danger');
+      } else if (currentLength > maxLength * 0.75) {
+        counter.classList.add('warning');
+      }
+      
+      // Add ARIA live region for screen readers
+      if (currentLength > maxLength * 0.9) {
+        counter.setAttribute('aria-live', 'polite');
+      } else {
+        counter.removeAttribute('aria-live');
+      }
+    }
+
+    // Initialize character counters
+    function updateAllCounters() {
+      updateCharacterCounter('articleLiked', 'likedCounter', 500);
+      updateCharacterCounter('articleImprovement', 'improvementCounter', 500);
+      updateCharacterCounter('similarArticles', 'topicsCounter', 1000);
+      updateCharacterCounter('additionalComments', 'commentsCounter', 1000);
+    }
+
+    // Add event listeners for character counting
+    document.getElementById('articleLiked').addEventListener('input', () => updateCharacterCounter('articleLiked', 'likedCounter', 500));
+    document.getElementById('articleImprovement').addEventListener('input', () => updateCharacterCounter('articleImprovement', 'improvementCounter', 500));
+    document.getElementById('similarArticles').addEventListener('input', () => updateCharacterCounter('similarArticles', 'topicsCounter', 1000));
+    document.getElementById('additionalComments').addEventListener('input', () => updateCharacterCounter('additionalComments', 'commentsCounter', 1000));
+
+    // Email validation helper
+    function isValidEmail(email) {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return emailRegex.test(email);
+    }
+
+    // Real-time email validation
+    document.getElementById('userEmail').addEventListener('input', function() {
+      if (this.value && !isValidEmail(this.value)) {
+        this.setCustomValidity('Please enter a valid email address');
+      } else {
+        this.setCustomValidity('');
+      }
+    });
+
+    // Initialize counters on page load
+    document.addEventListener('DOMContentLoaded', updateAllCounters);
+
+    // Enhanced focus indicators
+    document.querySelectorAll('.form-control, .form-select').forEach(element => {
+      element.addEventListener('focus', function() {
+        this.style.transform = 'scale(1.02)';
+        this.style.transition = 'transform 0.2s ease';
+      });
+      
+      element.addEventListener('blur', function() {
+        this.style.transform = 'scale(1)';
+      });
+    });
+  </script>
+</body>
+</html>

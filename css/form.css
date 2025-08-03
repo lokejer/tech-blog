@@ -27,8 +27,12 @@
   font-weight: 500;
   margin-bottom: 0.5rem;
 }
+/* 
+.form-text {
+  color: var(--text-secondary) !important;
+} */
 
-.form-control, .form-select {
+.form-container .form-control, .form-select {
   background-color: var(--elevated-surface);
   border: 1px solid var(--divider);
   color: var(--text-primary);
@@ -37,7 +41,7 @@
   transition: all 0.3s ease;
 }
 
-.form-control:focus, .form-select:focus {
+.form-container .form-control:focus, .form-select:focus {
   background-color: var(--elevated-surface);
   border-color: var(--color-primary);
   color: var(--text-primary);
