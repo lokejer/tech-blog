@@ -530,6 +530,7 @@ function renderArticles(articlesToRender = allArticles, page = currentPage) {
     `;
     
     container.innerHTML += articleHTML;
+    animateArticles();
   });
   
   console.log(`Rendered page ${page} with ${pageArticles.length} articles`);
@@ -553,6 +554,24 @@ function getBadgeHTML(badge) {
     return '<i class="bi bi-fire me-1"></i>HOT';
   }
   return badge;
+}
+
+// fade-in animation for dynamically generated articles
+function animateArticles() {
+  const articles = document.querySelectorAll('#articles-container article');
+  
+  articles.forEach((article, index) => {
+    article.style.opacity = '0';
+    article.style.transform = 'translateY(20px)';
+    article.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    article.style.transitionDelay = `${index * 100}ms`; // 0.1s stagger
+    
+    // trigger animation
+    setTimeout(() => {
+      article.style.opacity = '1';
+      article.style.transform = 'translateY(0)';
+    }, 50);
+  });
 }
 
 /* ---------------- FILTER FUNCTION ---------------- */

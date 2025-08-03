@@ -1,6 +1,8 @@
+/* script.js is for handling fade-in animations and rendering articles in blog.html */
+
 document.addEventListener('DOMContentLoaded', function() {
 
-  // handling highlighting of navbar links
+  /* ========== NAV LINK ACTIVE STATES ========== */
   const currentPath = window.location.pathname;
   const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
   
@@ -30,6 +32,60 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 
+  /* ========== FADE-IN ANIMATIONS ========== */
+  const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+
+      // (index.html) FAQ ACCORDION ONLY: staggered animation (can duplicate this block to apply stagger to other sections)
+      if (entry.target.closest('#hero-section')) {
+        const heroItems = document.querySelectorAll('#hero-section .hero-title, #hero-section .hero-content p, #hero-section .hero-btn-wrapper');
+        const index = Array.from(heroItems).indexOf(entry.target);
+        setTimeout(() => {
+          entry.target.classList.add('visible');
+        }, index * 300); // 0.3s stagger
+      }
+
+      else if (entry.target.closest('#faq-section')) {
+        const faqItems = document.querySelectorAll('#faq-section .accordion-item');
+        const index = Array.from(faqItems).indexOf(entry.target);
+        setTimeout(() => {
+          entry.target.classList.add('visible');
+        }, index * 200); // 0.2s stagger
+      }
+      
+      // (blog.html) x3 FEATURED ARTICLES ONLY: staggered animation
+      else if (entry.target.closest('.quick-links-wrapper')) {
+        const links = document.querySelectorAll('.quick-links-wrapper .row');
+        const index = Array.from(links).indexOf(entry.target);
+        setTimeout(() => {
+          entry.target.classList.add('visible');
+        }, index * 300); // 0.3s stagger
+      }
+
+      // (blog.html) x4 FILTERS ONLY: staggered animation
+      else if (entry.target.closest('.filter-section')) {
+        const links = document.querySelectorAll('.filter-section .filter-btn');
+        const index = Array.from(links).indexOf(entry.target);
+        setTimeout(() => {
+          entry.target.classList.add('visible');
+        }, index * 200); // 0.3s stagger
+      }
+      
+      // ALL OTHER ELEMENTS: normal animation (no stagger)
+      else {
+        entry.target.classList.add('visible');
+      }
+    }
+  });
+  }, {
+  threshold: 0.3
+  });
+
+  document.querySelectorAll('.fade-in').forEach(el => {
+    observer.observe(el);
+  });
+
   /* ========== dynamic article rendering for blog.html ========== */
   initializeFromLocalStorage();
   updateSavedCount();
@@ -54,17 +110,4 @@ document.addEventListener('DOMContentLoaded', function() {
   });
   
   console.log('Pagination initialized successfully!');
-});
-
-// fade-in animations
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-    }
-  });
-});
-
-document.querySelectorAll('.fade-in').forEach(el => {
-  observer.observe(el);
 });
