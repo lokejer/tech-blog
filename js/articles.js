@@ -147,7 +147,7 @@ const allArticles = [
 ];
 
 /* ---------------- DYNAMIC PAGINATION ---------------- */
-const ARTICLES_PER_PAGE = Math.floor(Math.random() * 6) + 1; // define how many articles to show per page (can change)
+const ARTICLES_PER_PAGE = Math.floor(Math.random() * 4) + 2; // show 2 - 6 articles per page
 let currentPage = 1; // track which page we're currently on
 
 console.log('Pagination config loaded:', {
