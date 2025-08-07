@@ -25,7 +25,7 @@
   <!-- Font Awesome Free CDN -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-  <title>Discussion - Future Tech</title>
+  <title>Feedback Form</title>
 </head>
 
 <body>
@@ -103,11 +103,10 @@
   
   <main>
 
+    <!-- FEEDBACK FORM -->
     <section class="container py-5 navbar-offset">
-
-      <!-- discussion form -->
       <div class="row justify-content-center">
-
+        
         <div class="col-lg-8">
           
           <!-- success message (hidden by default) -->
@@ -116,17 +115,17 @@
             Thank you for your feedback! Your submission has been received.
           </div>
 
-          <form id="discussionForm" class="form-container needs-validation" novalidate role="form" aria-label="Article feedback and community engagement form">
+          <form id="feedbackForm" class="form-container needs-validation" novalidate role="form" aria-label="Article feedback and community engagement form">
             
             <!-- article feedback section -->
-            <div class="mb-5">
+            <div class="mb-5 fade-in">
               <h3 class="form-section-title">
                 <i class="bi bi-newspaper" aria-hidden="true"></i>
                 Article Feedback
               </h3>
               
               <!-- which article -->
-              <div class="mb-3">
+              <div class="mb-3 fade-in">
                 <label for="articleTitle" class="form-label">Which article are you referring to? <span class="text-danger">*</span></label>
                 <input type="text" class="form-control" id="articleTitle" placeholder="Enter the article title or URL" required aria-describedby="articleTitleHelp">
                 <div class="invalid-feedback">
@@ -136,7 +135,7 @@
               </div>
 
               <!-- article rating -->
-              <div class="mb-3">
+              <div class="mb-3 fade-in">
                 <label for="articleRating" class="form-label">How would you rate this article? <span class="text-danger">*</span></label>
                 <select class="form-select" id="articleRating" required aria-describedby="ratingHelp">
                   <option value="">Select a rating</option>
@@ -153,7 +152,7 @@
               </div>
 
               <!-- what you liked -->
-              <div class="mb-3">
+              <div class="mb-3 fade-in">
                 <label for="articleLiked" class="form-label">What did you like most about this article?</label>
                 <textarea class="form-control" id="articleLiked" placeholder="Tell us what stood out to you..." rows="3" maxlength="500" aria-describedby="likedHelp likedCounter"></textarea>
                 <div class="d-flex justify-content-between">
@@ -163,7 +162,7 @@
               </div>
 
               <!-- suggestions for improvement -->
-              <div class="mb-3">
+              <div class="mb-3 fade-in">
                 <label for="articleImprovement" class="form-label">Any suggestions for improvement?</label>
                 <textarea class="form-control" id="articleImprovement" placeholder="How could we make this article even better?" rows="3" maxlength="500" aria-describedby="improvementHelp improvementCounter"></textarea>
                 <div class="d-flex justify-content-between">
@@ -173,7 +172,7 @@
               </div>
 
               <!-- similar articles request -->
-              <div class="mb-3">
+              <div class="mb-3 fade-in">
                 <label for="similarArticles" class="form-label">What other topics would you like us to cover? <span class="text-danger">*</span></label>
                 <textarea class="form-control" id="similarArticles" placeholder="Tell us about similar articles or topics you'd love to read about..." rows="4" required minlength="10" maxlength="1000" aria-describedby="topicsHelp topicsCounter"></textarea>
                 <div class="invalid-feedback">
@@ -190,7 +189,7 @@
             </div>
 
             <!-- user preferences section -->
-            <div class="mb-4">
+            <div class="mb-4 fade-in">
               <h3 class="form-section-title">
                 <i class="bi bi-sliders" aria-hidden="true"></i>
                 Your Preferences
@@ -217,7 +216,7 @@
               </div>
 
               <!-- notification preferences switches -->
-              <div class="mb-3">
+              <div class="mb-3 fade-in">
                 <fieldset>
                   <legend class="form-label fs-5"><i class="bi bi-bell me-1" aria-hidden="true"></i>Notification Preferences</legend>
                   
@@ -249,14 +248,14 @@
             </div>
 
             <!-- community commitment section -->
-            <div class="mb-4">
+            <div class="mb-4 fade-in">
               <h3 class="form-section-title">
                 <i class="bi bi-people" aria-hidden="true"></i>
                 Community Commitment
               </h3>
 
               <div class="pledge-section">
-                <p class="mb-3">
+                <p class="mb-3 fade-in">
                   Help us build a community of <span class="pledge-highlight">tech-forward thinkers</span> who stay informed about innovation and the future!
                 </p>
 
@@ -264,7 +263,7 @@
                   <legend class="visually-hidden">Community engagement options</legend>
                   
                   <!-- sharing commitment -->
-                  <div class="mb-3">
+                  <div class="mb-3 fade-in">
                     <div class="form-check">
                       <input class="form-check-input" type="checkbox" id="pledgeShare" value="share" aria-describedby="shareHelp">
                       <label class="form-check-label" for="pledgeShare">
@@ -275,7 +274,7 @@
                   </div>
 
                   <!-- community engagement -->
-                  <div class="mb-3">
+                  <div class="mb-3 fade-in">
                     <div class="form-check">
                       <input class="form-check-input" type="checkbox" id="pledgeEngage" value="engage" aria-describedby="engageHelp">
                       <label class="form-check-label" for="pledgeEngage">
@@ -286,7 +285,7 @@
                   </div>
 
                   <!-- newsletter subscription -->
-                  <div class="mb-3">
+                  <div class="mb-3 fade-in">
                     <div class="form-check">
                       <input class="form-check-input" type="checkbox" id="pledgeNewsletter" value="newsletter" aria-describedby="newsletterHelp">
                       <label class="form-check-label" for="pledgeNewsletter">
@@ -298,7 +297,7 @@
                 </fieldset>
 
                 <!-- sharing method -->
-                <div class="mb-3">
+                <div class="mb-3 fade-in">
                   <label for="sharingMethod" class="form-label">How do you prefer to share valuable content?</label>
                   <select class="form-select" id="sharingMethod" aria-describedby="sharingHelp">
                     <option value="">Select your preferred method</option>
@@ -315,19 +314,19 @@
             </div>
 
             <!-- contact information -->
-            <div class="mb-4">
+            <div class="mb-4 fade-in">
               <h3 class="form-section-title">
                 <i class="bi bi-person-badge" aria-hidden="true"></i>
                 Contact Information (Optional)
               </h3>
               
               <div class="row">
-                <div class="col-md-6 mb-3">
+                <div class="col-md-6 mb-3 fade-in">
                   <label for="userName" class="form-label">Name</label>
                   <input type="text" class="form-control" id="userName" placeholder="Your name" aria-describedby="nameHelp">
                   <div id="nameHelp" class="text-secondary form-text">How would you like us to address you?</div>
                 </div>
-                <div class="col-md-6 mb-3">
+                <div class="col-md-6 mb-3 fade-in">
                   <label for="userEmail" class="form-label">Email</label>
                   <input type="email" class="form-control" id="userEmail" placeholder="your.email@example.com" aria-describedby="emailHelp">
                   <div class="invalid-feedback">
@@ -339,7 +338,7 @@
             </div>
 
             <!-- additional comments -->
-            <div class="mb-4">
+            <div class="mb-4 fade-in">
               <label for="additionalComments" class="form-label">Additional Comments</label>
               <textarea class="form-control" id="additionalComments" placeholder="Any other thoughts, suggestions, or feedback you'd like to share..." rows="4" maxlength="1000" aria-describedby="commentsHelp commentsCounter"></textarea>
               <div class="d-flex justify-content-between">
@@ -349,7 +348,7 @@
             </div>
 
             <!-- submit buttons -->
-            <div class="mt-5 d-flex flex-column flex-md-row gap-3 justify-content-center">
+            <div class="mt-5 d-flex flex-column flex-md-row gap-3 justify-content-center fade-in">
               <button type="submit" class="btn btn-primary btn-lg" aria-describedby="submitHelp">
                 <i class="bi bi-send me-2" aria-hidden="true"></i>
                 Submit Feedback
@@ -365,168 +364,12 @@
         </div>
 
       </div>
-
     </section>
 
   </main>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
   <script src="js/script.js"></script>
-  
-  <script>
-    // Enhanced form submission handling with better validation
-    document.getElementById('discussionForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      
-      // Add bootstrap validation classes
-      this.classList.add('was-validated');
-      
-      // Custom email validation
-      const emailInput = document.getElementById('userEmail');
-      if (emailInput.value && !isValidEmail(emailInput.value)) {
-        emailInput.setCustomValidity('Please enter a valid email address');
-      } else {
-        emailInput.setCustomValidity('');
-      }
-      
-      // Check if form is valid
-      if (this.checkValidity()) {
-        // Show success message
-        const successMessage = document.getElementById('successMessage');
-        successMessage.classList.remove('d-none');
-        successMessage.focus(); // For screen readers
-        
-        // Scroll to top to show message
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-        
-        // Hide form temporarily
-        this.style.opacity = '0.7';
-        this.style.pointerEvents = 'none';
-        
-        // Reset after 3 seconds (simulate processing)
-        setTimeout(() => {
-          this.style.opacity = '1';
-          this.style.pointerEvents = 'auto';
-          this.classList.remove('was-validated');
-          // Optionally reset form: this.reset();
-        }, 3000);
-      } else {
-        // Scroll to first invalid field
-        const firstInvalid = this.querySelector(':invalid');
-        if (firstInvalid) {
-          firstInvalid.focus();
-          firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }
-      }
-    });
-
-    // Enhanced form reset handling
-    document.querySelector('button[type="reset"]').addEventListener('click', function() {
-      // Hide success message when resetting
-      document.getElementById('successMessage').classList.add('d-none');
-      // Remove validation classes
-      document.getElementById('discussionForm').classList.remove('was-validated');
-      // Reset all character counters
-      updateAllCounters();
-    });
-
-    // Auto-resize textareas
-    document.querySelectorAll('textarea').forEach(textarea => {
-      textarea.addEventListener('input', function() {
-        this.style.height = 'auto';
-        this.style.height = this.scrollHeight + 'px';
-      });
-    });
-
-    // Range slider value updates
-    document.getElementById('techInterest').addEventListener('input', function() {
-      document.getElementById('interestValue').textContent = `(${this.value})`;
-    });
-
-    document.getElementById('readingFreq').addEventListener('input', function() {
-      const frequencies = ['Rarely', 'Once/week', '2 times/week', '3 times/week', '4 times/week', '5 times/week', '6 times/week', 'Daily'];
-      document.getElementById('freqValue').textContent = `(${frequencies[this.value - 1]})`;
-    });
-
-    // Switch animations
-    document.querySelectorAll('.form-switch .form-check-input').forEach(switchInput => {
-      switchInput.addEventListener('change', function() {
-        this.style.transform = 'scale(0.95)';
-        setTimeout(() => {
-          this.style.transform = 'scale(1)';
-        }, 150);
-      });
-    });
-
-    // Character counter functionality
-    function updateCharacterCounter(textareaId, counterId, maxLength = 1000) {
-      const textarea = document.getElementById(textareaId);
-      const counter = document.getElementById(counterId);
-      
-      if (!textarea || !counter) return;
-      
-      const currentLength = textarea.value.length;
-      counter.textContent = `${currentLength}/${maxLength} characters`;
-      
-      // Update counter styling based on length
-      counter.classList.remove('warning', 'danger');
-      if (currentLength > maxLength * 0.9) {
-        counter.classList.add('danger');
-      } else if (currentLength > maxLength * 0.75) {
-        counter.classList.add('warning');
-      }
-      
-      // Add ARIA live region for screen readers
-      if (currentLength > maxLength * 0.9) {
-        counter.setAttribute('aria-live', 'polite');
-      } else {
-        counter.removeAttribute('aria-live');
-      }
-    }
-
-    // Initialize character counters
-    function updateAllCounters() {
-      updateCharacterCounter('articleLiked', 'likedCounter', 500);
-      updateCharacterCounter('articleImprovement', 'improvementCounter', 500);
-      updateCharacterCounter('similarArticles', 'topicsCounter', 1000);
-      updateCharacterCounter('additionalComments', 'commentsCounter', 1000);
-    }
-
-    // Add event listeners for character counting
-    document.getElementById('articleLiked').addEventListener('input', () => updateCharacterCounter('articleLiked', 'likedCounter', 500));
-    document.getElementById('articleImprovement').addEventListener('input', () => updateCharacterCounter('articleImprovement', 'improvementCounter', 500));
-    document.getElementById('similarArticles').addEventListener('input', () => updateCharacterCounter('similarArticles', 'topicsCounter', 1000));
-    document.getElementById('additionalComments').addEventListener('input', () => updateCharacterCounter('additionalComments', 'commentsCounter', 1000));
-
-    // Email validation helper
-    function isValidEmail(email) {
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      return emailRegex.test(email);
-    }
-
-    // Real-time email validation
-    document.getElementById('userEmail').addEventListener('input', function() {
-      if (this.value && !isValidEmail(this.value)) {
-        this.setCustomValidity('Please enter a valid email address');
-      } else {
-        this.setCustomValidity('');
-      }
-    });
-
-    // Initialize counters on page load
-    document.addEventListener('DOMContentLoaded', updateAllCounters);
-
-    // Enhanced focus indicators
-    document.querySelectorAll('.form-control, .form-select').forEach(element => {
-      element.addEventListener('focus', function() {
-        this.style.transform = 'scale(1.02)';
-        this.style.transition = 'transform 0.2s ease';
-      });
-      
-      element.addEventListener('blur', function() {
-        this.style.transform = 'scale(1)';
-      });
-    });
-  </script>
+  <script src="js/form.js"></script>
 </body>
 </html>

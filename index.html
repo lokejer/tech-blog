@@ -16,6 +16,7 @@
   <!-- link css stylesheets -->
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/navbar.css">
+  <link rel="stylesheet" href="css/sectionNav.css">
   <link rel="stylesheet" href="css/index.css">
   <link rel="stylesheet" href="css/hero.css">
  
@@ -101,11 +102,21 @@
     </nav>
   </header>
     
-  <main>
+  <main id="top">
+
+    <!-- SECTION NAVIGATION -->
+    <nav class="section-nav" id="section-nav">
+      <ul class="list-unstyled m-0 p-0">
+        <li><a class="my-3" href="#hero-section" data-title="Back To Top"></a></li>
+        <li><a class="my-3" href="#audience-section" data-title="Target Audience"></a></li>
+        <li><a class="my-3" href="#timeline-section" data-title="Future Tech Timeline"></a></li>
+        <li><a class="my-3" href="#faq-section" data-title="FAQ"></a></li>
+      </ul>
+    </nav>
 
     <!-- HERO SECTION -->
     <section id="hero-section" class="position-relative vh-100">
-      
+
       <!-- hero video (orbiting Earth) -->
       <div class="position-absolute w-100 h-100 video-container">
         <video class="w-100 h-100 object-fit-cover hero-video" 
@@ -144,8 +155,8 @@
                 This site aims to help you explore quantum computers, AI minds and sustainable innovations that are reshaping our world, keeping you informed of the future of technology & innovation in an ever-changing world.
               </p>
               <div class="d-flex flex-column flex-sm-row gap-3 justify-content-start hero-btn-wrapper fade-in">
-                <a href="blog.html" class="text-decoration-none glowing-btn flex-fill flex-sm-grow-0 text-center"><i class="bi bi-search me-1"></i>Explore Related Articles</a>
-                <a href="form.html" class="text-decoration-none btn-outline-custom flex-fill flex-sm-grow-0 text-center"><i class="bi bi-chat-quote me-2"></i>Join the Conversation</a>
+                <a href="blog.html" class="text-decoration-none glowing-btn d-flex justify-content-center align-items-center flex-fill flex-sm-grow-0"><i class="bi bi-search me-1"></i>Explore Related Articles</a>
+                <a href="form.html" class="text-decoration-none btn-outline-custom d-flex justify-content-center align-items-center flex-fill flex-sm-grow-0"><i class="bi bi-chat-quote me-2"></i>Join the Conversation</a>
               </div> 
             </div>
 
@@ -162,51 +173,101 @@
     </section>
 
     <!-- WHO IS THIS SITE FOR (audience-specific) SECTION -->
-    <section id="featured-section" class="container-md d-flex justify-content-center align-items-center">
+    <section id="audience-section" class="container-md mb-5 d-flex justify-content-center align-items-center">
 
       <!-- image carousel -->
-      <div id="carouselExampleCaptions" class="carousel slide min-vw-100 position-relative fade-in">
+      <div id="carouselNav" class="carousel slide min-vw-100 position-relative fade-in">
 
-        <!-- section heading -->
-        <h2 class="position-absolute top-0 left-0 z-3 mb-4 display-4">Who Is This Site For?</h2>
-        
+        <!-- CAROUSEL NAV 3 BARS AT THE BOTTOM OF EACH CAROUSEL SLIDE -->
         <div class="carousel-indicators">
-          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          <button type="button" data-bs-target="#carouselNav" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselNav" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselNav" data-bs-slide-to="2" aria-label="Slide 3"></button>
         </div>
 
         <!-- carousel content -->
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img src="assets/bg/abstract_purple_bg.jpg" class="d-block w-100" alt="...">
-            <div class="carousel-caption d-none d-md-block">
-              <h5>First slide label</h5>
-              <p>Some representative placeholder content for the first slide.</p>
+        <div class="carousel-inner p-md-5">
+
+          <!-- CAROUSEL ITEM 1 (who is my target audience) -->
+          <div class="carousel-item position-relative z-1 mb-3 active">
+
+            <!-- background image -->
+            <img src="assets/bg/abstract_purple_bg.jpg" class="carousel-bg-img d-block w-100" alt="a dimmed abstract purple background image">
+
+            <!-- section heading -->
+            <h2 class="position-absolute top-0 left-0 z-3 mb-4 px-md-4 px-1 py-3 display-4">Who Is This Site For?</h2>
+
+            <!-- target audience image -->
+            <div class="position-absolute top-50 start-50 translate-middle z-3 text-nowrap target-audience-img-wrapper">
+              <img src="assets/16yearold_target_audience.png" alt="image representing my male target audience, 16 year old individuals"
+                class="rounded-circle mx-md-3 mx-0 mb-5 px-md-0 px-5"
+                data-bs-toggle="tooltip"
+                data-bs-placement="left"
+                title="Pssst... this image was generated by ChatGPT!"
+              >
+              <img src="assets/16yearold_target_audience_female.png" alt="image representing my female target audience, 16 year old individuals"
+                class="d-none d-xl-inline rounded-circle mx-md-3 mx-0 mb-5 px-md-0 px-5"
+                data-bs-toggle="tooltip"
+                data-bs-placement="right"
+                title="Pssst... this image was also generated by ChatGPT!"
+              >
             </div>
-          </div>
-          <div class="carousel-item">
-            <img src="assets/bg/abstract_purple_bg.jpg" class="d-block w-100" alt="...">
-            <div class="carousel-caption d-none d-md-block">
-              <h5>Second slide label</h5>
-              <p>Some representative placeholder content for the second slide.</p>
+
+            <!-- slide caption -->
+            <div class="carousel-caption d-none d-md-block rounded-5">
+              <h5 class="fs-4 text-heading">Yes, this website was <strong>made for you!</strong></h5>
+              <p class="m-0 p-0 text-secondary">In an ever-changing world, it is crucial to stay informed on the latest technology trends. This website has got you covered!</p>
             </div>
+
           </div>
-          <div class="carousel-item">
-            <img src="assets/bg/abstract_purple_bg.jpg" class="d-block w-100" alt="...">
-            <div class="carousel-caption d-none d-md-block">
-              <h5>Third slide label</h5>
-              <p>Some representative placeholder content for the third slide.</p>
+
+          <!-- CAROUSEL ITEM 2 (why this target audience) -->
+          <div class="carousel-item position-relative z-1 mb-3">
+
+            <!-- background image -->
+            <img src="assets/bg/abstract_purple_bg.jpg" class="carousel-bg-img d-block w-100" alt="a dimmed abstract purple background image">
+
+            <!-- section heading -->
+            <h2 class="position-absolute top-50 start-50 translate-middle display-2">Why 16 year olds?</h2>
+
+            <!-- slide caption -->
+            <div class="carousel-caption d-none d-md-block rounded-5">
+              <h5 class="fs-4 text-heading">I've got you covered!</h5>
+              <p class="m-0 p-0 text-secondary">Whether you&#39;re curious about where tech is headed, exploring career paths or just love cool innovations, I break down the latest developments in technology and innovation into bite-sized pieces so that you can stay ahead.</p>
             </div>
+
           </div>
+
+          <!-- CAROUSEL ITEM 3 (next step) -->
+          <div class="carousel-item position-relative z-1 mb-3">
+
+            <!-- background image -->
+            <img src="assets/bg/abstract_purple_bg.jpg" class="carousel-bg-img d-block w-100" alt="a dimmed abstract purple background image">
+
+            <!-- section heading -->
+            <h2 class="position-absolute top-50 start-50 translate-middle text-center display-2">
+              <i class="fa-solid fa-arrow-down"></i>
+              <i class="fa-solid fa-arrow-down"></i>
+              <i class="fa-solid fa-arrow-down"></i>
+            </h2>
+
+            <!-- slide caption -->
+            <div class="carousel-caption d-none d-md-block rounded-5">
+              <h5 class="fs-4 text-heading m-0 p-0">
+                Scroll to learn more!
+              </h5>
+            </div>
+
+          </div>
+
         </div>
 
-        <!-- carousel nav -->
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+        <!-- LEFT AND RIGHT CAROUSEL NAV ARROWS -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselNav" data-bs-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Previous</span>
         </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselNav" data-bs-slide="next">
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Next</span>
         </button>
@@ -215,8 +276,8 @@
      
     </section>
     
-    <!-- tech timeline section -->
-    <section class="timeline-section py-5 bg-black">
+    <!-- TECH TIMELINE SECTION -->
+    <section id="timeline-section" class="timeline-section mb-5 py-5 bg-black">
       <div class="container">
 
         <!-- section header -->
@@ -232,14 +293,17 @@
             <!-- 2025 - current year -->
             <div class="col-12 mb-4">
               <div class="timeline-item fade-in">
-                <div class="timeline-year">2025</div>
+                
+                <!-- MD SCREENS & below : hide year -->
+                <div class="position-relative d-none d-md-block px-3 py-2 z-2 text-heading fs-4 fw-bold text-center rounded-pill timeline-year">2025</div>
+
                 <div class="timeline-content p-3 shadow-lg">
 
                   <!-- cover image -->
                   <img src="assets/timeline/ai-integration-era.jpg" class="img-thumbnail mb-3" alt="AI integration timeline cover image">
 
                   <!-- text content -->
-                  <h4>AI Integration Era</h4>
+                  <h4><span class="d-inline d-md-none mb-2 fs-5 text-heading">2025 | </span>AI Integration Era</h4>
                   <p>Large language models become mainstream in business operations. Advanced chatbots and AI assistants revolutionize customer service and content creation.</p>
                   <div class="timeline-tags">
                     <span class="badge rounded-pill px-3 py-2 border">Artificial Intelligence</span>
@@ -252,14 +316,17 @@
             <!-- 2027 -->
             <div class="col-12 mb-4">
               <div class="timeline-item fade-in">
-                <div class="timeline-year">2027</div>
+                
+                <!-- MD SCREENS & below : hide year -->
+                <div class="position-relative d-none d-md-block px-3 py-2 z-2 text-heading fs-4 fw-bold text-center rounded-pill timeline-year">2027</div>
+
                 <div class="timeline-content p-3 shadow-lg">
 
                   <!-- cover image -->
                   <img src="assets/timeline/quantum-computing.jpg" class="img-thumbnail mb-3" alt="quantum computing cover image">
 
                   <!-- text content -->
-                  <h4>Quantum Computing Breakthrough</h4>
+                  <h4><span class="d-inline d-md-none mb-2 fs-5 text-heading">2027 | </span>Quantum Computing Breakthrough</h4>
                   <p>First commercial quantum computers solve complex optimization problems. Major breakthroughs in drug discovery and financial modeling.</p>
                   <div class="timeline-tags">
                     <span class="badge rounded-pill px-3 py-2 border">Quantum Computing</span>
@@ -272,14 +339,17 @@
             <!-- 2030 -->
             <div class="col-12 mb-4">
               <div class="timeline-item fade-in">
-                <div class="timeline-year">2030</div>
+                
+                <!-- MD SCREENS & below : hide year -->
+                <div class="position-relative d-none d-md-block px-3 py-2 z-2 text-heading fs-4 fw-bold text-center rounded-pill timeline-year">2030</div>
+
                 <div class="timeline-content p-3 shadow-lg">
 
                   <!-- cover image -->
                   <img src="assets/timeline/autonomous-vehicle.jpg" class="img-thumbnail mb-3" alt="auto vehicles cover image">
 
                   <!-- text content -->
-                  <h4>Autonomous Vehicle Revolution</h4>
+                  <h4><span class="d-inline d-md-none mb-2 fs-5 text-heading">2030 | </span>Autonomous Vehicle Revolution</h4>
                   <p>Self-driving cars become common in major cities. Smart transportation networks reduce traffic congestion by 40%.</p>
                   <div class="timeline-tags">
                     <span class="badge rounded-pill px-3 py-2 border">Transportation</span>
@@ -292,14 +362,17 @@
             <!-- 2032 -->
             <div class="col-12 mb-4">
               <div class="timeline-item fade-in">
-                <div class="timeline-year">2032</div>
+                
+                <!-- MD SCREENS & below : hide year -->
+                <div class="position-relative d-none d-md-block px-3 py-2 z-2 text-heading fs-4 fw-bold text-center rounded-pill timeline-year">2032</div>
+
                 <div class="timeline-content p-3 shadow-lg">
 
                   <!-- cover image -->
                   <img src="assets/timeline/brain-computer-interface.jpg" class="img-thumbnail mb-3" alt="brain computer interface cover image">
 
                   <!-- text content -->
-                  <h4>Brain-Computer Interface</h4>
+                  <h4><span class="d-inline d-md-none mb-2 fs-5 text-heading">2032 | </span>Brain-Computer Interface</h4>
                   <p>Direct neural interfaces allow seamless interaction with digital devices. Revolutionary treatments for neurological conditions emerge.</p>
                   <div class="timeline-tags">
                     <span class="badge rounded-pill px-3 py-2 border">Biotechnology</span>
@@ -312,14 +385,17 @@
             <!-- 2035 -->
             <div class="col-12 mb-4">
               <div class="timeline-item fade-in">
-                <div class="timeline-year">2035</div>
+                
+                <!-- MD SCREENS & below : hide year -->
+                <div class="position-relative d-none d-md-block px-3 py-2 z-2 text-heading fs-4 fw-bold text-center rounded-pill timeline-year">2035</div>
+
                 <div class="timeline-content px-3 shadow-lg">
 
                   <!-- cover image -->
                   <img src="assets/timeline/sustainable-tech-ecosystem.jpg" class="img-thumbnail mb-3" alt="sustainable tech ecosystem cover image">
 
                   <!-- text content -->
-                  <h4>Sustainable Tech Ecosystem</h4>
+                  <h4><span class="d-inline d-md-none mb-2 fs-5 text-heading">2035 | </span>Sustainable Tech Ecosystem</h4>
                   <p>Renewable energy reaches 80% global adoption. Carbon capture technology and fusion power become commercially viable.</p>
                   <div class="timeline-tags">
                     <span class="badge rounded-pill px-3 py-2 border">Clean Energy</span>
@@ -331,6 +407,7 @@
 
           </div>
         </div>
+
       </div>
     </section>
     
@@ -444,10 +521,16 @@
       </div>
     </section>
 
+    <section id="back-to-top" class="py-5 text-center fs-5 fade-in">
+      <a href="#top" class="text-primary">go back to top</a>
+      <span>/</span>
+      <a href="blog.html" class="text-primary">next page</a>
+    </section>
+
   </main>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
   <script src="js/script.js"></script>
   <script src="js/hero.js"></script>
-  <!-- <script src="js/carousel.js"></script> -->
+  <script src="js/sectionNav.js"></script>
 </body>

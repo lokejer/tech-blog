@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   /* ========== FADE-IN ANIMATIONS ========== */
   const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
+    entries.forEach(entry => {
     if (entry.isIntersecting) {
 
       // (index.html) FAQ ACCORDION ONLY: staggered animation (can duplicate this block to apply stagger to other sections)
@@ -71,6 +71,15 @@ document.addEventListener('DOMContentLoaded', function() {
           entry.target.classList.add('visible');
         }, index * 200); // 0.3s stagger
       }
+
+      // (form.html) FEEDBACK FORM: staggered animation for form sections and fields
+      else if (entry.target.closest('#feedbackForm')) {
+        const formElements = document.querySelectorAll('#feedbackForm .form-section-title, #feedbackForm .mb-3, #feedbackForm .mb-4, #feedbackForm .mb-5, #feedbackForm .mt-5');
+        const index = Array.from(formElements).indexOf(entry.target);
+        setTimeout(() => {
+          entry.target.classList.add('visible');
+        }, index * 150); // 0.15s stagger for smoother form flow
+      } 
       
       // ALL OTHER ELEMENTS: normal animation (no stagger)
       else {
@@ -78,20 +87,28 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     }
   });
-  }, {
-  threshold: 0.3
+
+  // this is 'options' -- the second parameter in IntersectionObserver(callback, options)
+  }, { 
+  threshold: 0.3 // only triggers above function when >30% of el is visible on screen
   });
 
   document.querySelectorAll('.fade-in').forEach(el => {
     observer.observe(el);
   });
 
-  /* ========== dynamic article rendering for blog.html ========== */
+  /* ========== FADE-IN ANIMATIONS ========== */
+  const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+  const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl =>
+    new bootstrap.Tooltip(tooltipTriggerEl)
+  );
+
+  /* ========== INITIALISE DYNAMIC ARTICLE RENDERING FOR blog.html ========== */
   initializeFromLocalStorage();
   updateSavedCount();
   renderArticles();
   
-  /* ========== dynamic pagination for blog.html ========== */
+  /* ========== INITIALISE DYNAMIC PAGINATION FOR blog.html ========== */
   console.log('Articles loaded! Initializing...');
   console.log('Page loaded! Initializing dynamic pagination...');
   

@@ -6,7 +6,7 @@ const allArticles = [
     id: 1,
     title: 'The Key to Quantum Computing',
     author: 'Scientific American',
-    description: 'Quantum computing can solve complex problems far beyond the reach of classical computers. By harnessing quantum mechanics, it enables breakthroughs in areas like drug discovery, cryptography, artificial intelligence, and materials science, potentially revolutionising industries and accelerating scientific progress.',
+    description: 'A solid introduction to quantum computing that covers the fundamentals well. Readers 16 and above will find it informative, though some sections could benefit from deeper exploration. The writing is clear and accessible, making complex concepts understandable. While it successfully sparks curiosity about this emerging technology, it occasionally feels surface-level when discussing more advanced applications and implementations.',
     image: 'assets/articles/article-quantum1.webp',
     rating: 4,
     badge: "NEW",
@@ -17,8 +17,8 @@ const allArticles = [
   {
     id: 2,
     title: 'Principles of Superconducting Quantum Computers',
-    author: 'Huzefa Bala',
-    description: 'A brief description of the most notable technological leaps in the recent centuries',
+    author: 'Daniel D. Stancil',
+    description: 'Exceptional deep dive into quantum computer hardware that brilliantly balances technical depth with accessibility. Perfect for readers 16+ interested in physics or computing. Stancil masterfully explains superconducting principles while maintaining engagement throughout. The comprehensive coverage of both theoretical foundations and practical applications makes this an invaluable resource. Outstanding clarity in explaining complex quantum phenomena—truly exemplary science communication.',
     image: 'assets/articles/article-quantum2.jpg',
     rating: 5,
     badge: "HOT",
@@ -28,9 +28,9 @@ const allArticles = [
   // article 3
   {
     id: 3,
-    title: 'Example Article 3',
-    author: 'Example Author',
-    description: 'A brief description of this article a brief description of this article',
+    title: 'Qubits Rising',
+    author: 'The Spotlight',
+    description: 'Basic overview of qubits that barely scratches the surface of quantum computing. While accessible to readers 16+, the content lacks depth and fails to provide meaningful insights into why qubits matter. The writing feels rushed and oversimplified, missing opportunities to engage with fascinating concepts. Disappointing given the potential of the topic—leaves readers wanting substance rather than superficial explanations.',
     image: 'assets/articles/article-quantum3.jpg',
     rating: 2,
     badge: null,
@@ -40,9 +40,9 @@ const allArticles = [
   // article 4
   {
     id: 4,
-    title: 'Example Article 4',
-    author: 'Example Author',
-    description: 'A brief description of this article a brief description of this article',
+    title: 'Innovation and Emerging Technologies',
+    author: 'World Scientific',
+    description: 'Decent survey of current technological trends suitable for readers 16 and above. Provides a reasonable overview of emerging innovations without being groundbreaking. The content is competently written and informative enough for general understanding. However, it lacks the compelling insights or unique perspectives that would elevate it beyond a standard technology review. Adequate for basic knowledge building.',
     image: 'assets/articles/article-innovation1.jpg',
     rating: 3,
     badge: null,
@@ -52,9 +52,9 @@ const allArticles = [
   // article 5
   {
     id: 5,
-    title: 'Example Article 5',
-    author: 'Example Author',
-    description: 'A brief description of this article a brief description of this article',
+    title: 'Light | Advanced Manufacturing',
+    author: 'JHL Group 中国',
+    description: 'Outstanding exploration of light-based manufacturing technologies that perfectly balances technical precision with reader accessibility. Recommended for ages 16+ seeking to understand cutting-edge industrial innovation. The article excels at connecting photonic principles to real-world manufacturing breakthroughs. Exceptional clarity in explaining complex optical systems and their transformative impact on modern production. Truly illuminating content that sets new standards for technical communication.',
     image: 'assets/articles/article-innovation2.png',
     rating: 5,
     badge: "HOT",
@@ -64,9 +64,9 @@ const allArticles = [
   // article 6
   {
     id: 6,
-    title: 'Example Article 6',
-    author: 'Example Author',
-    description: 'A brief description of this article a brief description of this article',
+    title: 'Chemistry, an European Journal',
+    author: 'European Chemical Societies Publishing',
+    description: 'Well-crafted examination of contemporary chemistry developments that makes complex topics approachable for readers 16+. The scientific content is presented clearly with good attention to detail. Successfully bridges the gap between academic rigor and general accessibility. While not groundbreaking, it offers solid insights into current chemical research trends. A reliable resource for students and science enthusiasts seeking foundational understanding.',
     image: 'assets/articles/article-innovation3.webp',
     rating: 4,
     badge: null,
@@ -76,9 +76,9 @@ const allArticles = [
   // article 7
   {
     id: 7,
-    title: 'Example Article 7',
-    author: 'Example Author',
-    description: 'A brief description of this article a brief description of this article',
+    title: 'How Transcription Begins',
+    author: 'sciencemag.org',
+    description: 'Adequate introduction to transcription mechanisms for readers 16+ interested in molecular biology. Covers basic concepts competently without reaching exceptional depth or insight. The writing is clear enough for general comprehension, though it occasionally feels textbook-like. Provides reasonable foundation knowledge but lacks the engaging storytelling or innovative perspectives that would make complex biology truly captivating for young adult audiences.',
     image: 'assets/articles/article-innovation4.avif',
     rating: 3,
     badge: null,
@@ -88,9 +88,9 @@ const allArticles = [
   // article 8
   {
     id: 8,
-    title: 'Example Article 8',
-    author: 'Example Author',
-    description: 'A brief description of this article a brief description of this article',
+    title: 'Advanced Materials',
+    author: 'Wiley-VCH',
+    description: 'Absolutely brilliant analysis of molybdenum disulfide and next-generation materials that captivates readers 16+. Masterfully connects nanoscale science to revolutionary applications in electronics and quantum computing. The writing seamlessly weaves technical accuracy with compelling real-world relevance. Outstanding at inspiring interest in materials engineering careers while maintaining scientific rigor. This exceptional piece sets the gold standard for making advanced materials science accessible.',
     image: 'assets/articles/article-innovation5.jpg',
     rating: 5,
     badge: "HOT",
@@ -102,7 +102,7 @@ const allArticles = [
     id: 9,
     title: 'Example Article 9',
     author: 'Example Author',
-    description: 'A brief description of this article a brief description of this article',
+    description: 'Reasonable overview of technology topics that provides basic information without exceptional depth. Suitable for general audiences seeking introductory knowledge. The content covers essential points competently, though it lacks innovative insights or compelling analysis. Writing quality is acceptable but unremarkable. Serves as a decent starting point for further exploration, meeting basic expectations without exceeding them significantly.',
     image: 'assets/articles/article-technology1.webp',
     rating: 3,
     badge: "NEW",
@@ -114,7 +114,7 @@ const allArticles = [
     id: 10,
     title: 'Example Article 10',
     author: 'Example Author',
-    description: 'A brief description of this article a brief description of this article',
+    description: 'Remarkable piece that delivers exceptional insights with outstanding clarity and depth. The comprehensive analysis showcases expert knowledge while remaining highly accessible to diverse readers. Every paragraph demonstrates thoughtful research and engaging presentation. The author\'s expertise shines through compelling examples and innovative perspectives. This exemplary work sets new benchmarks for quality content, offering tremendous value and inspiring further exploration of complex topics.',
     image: 'assets/articles/article-technology2.jpg',
     rating: 5,
     badge: "NEW",
@@ -126,7 +126,7 @@ const allArticles = [
     id: 11,
     title: 'Example Article 11',
     author: 'Example Author',
-    description: 'A brief description of this article a brief description of this article',
+    description: 'Strong article that effectively communicates important concepts with good attention to detail and clarity. The content demonstrates solid research and thoughtful organization throughout. Readers will appreciate the balanced approach to complex topics and practical insights provided. While not groundbreaking, it consistently delivers valuable information with professional presentation. A reliable resource that meets high standards and provides meaningful learning opportunities.',
     image: 'assets/articles/article-technology3.jpg',
     rating: 4,
     badge: null,
@@ -138,7 +138,7 @@ const allArticles = [
     id: 12,
     title: 'Example Article 12',
     author: 'Example Author',
-    description: 'A brief description of this article a brief description of this article',
+    description: 'Underwhelming article that fails to deliver meaningful insights or engaging content. The superficial treatment of topics leaves readers unsatisfied and searching for substance. Poor organization and lackluster writing make it difficult to extract value. Key concepts are glossed over without proper explanation or development. Unfortunately falls short of expectations, offering little beyond basic information that could be found elsewhere.',
     image: 'assets/articles/article-technology4.webp',
     rating: 2,
     badge: null,
@@ -495,16 +495,20 @@ function renderArticles(articlesToRender = allArticles, page = currentPage) {
           <div class="card-body d-flex flex-column">
 
           <!-- PRODUCT CARD CONTENT -->
-            <div class="d-flex justify-content-between align-items-center">
-              <h5 class="mb-0 text-heading align-middle">
-                ${article.title} 
-                ${article.badge ? `<span class="badge align-middle badge-${article.badge.toLowerCase()}">${getBadgeHTML(article.badge)}</span>` : ''}
-              </h5>
-              <div class="star-rating">
+          <div class="d-flex justify-content-between align-items-center">
+            <h5 class="mb-0 text-heading align-middle">
+              ${article.title} 
+              ${article.badge ? `<span class="badge align-middle badge-${article.badge.toLowerCase()}">${getBadgeHTML(article.badge)}</span>` : ''}
+            </h5>
+            </div>
+            <p class="mb-3 text-secondary">${article.author}</p>
+            
+            <div class="d-flex">
+              <h6 class="lead text-primary">My Review:</h6>
+              <div class="ms-2 star-rating">
                 ${generateStarRating(article.rating)}
               </div>
             </div>
-            <p class="mb-3 text-secondary">${article.author}</p>
             <p class="mb-4 text-secondary">${article.description}</p>
 
             <!-- BUTTONS WRAPPER -->

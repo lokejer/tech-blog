@@ -17,7 +17,7 @@
 
 /* ----------- CUSTOM SCROLLBAR ----------- */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 12px;
 }
 
 ::-webkit-scrollbar-track {
@@ -48,13 +48,8 @@ h1, h2, h3, h4, h5, h6 {
   font-family: 'DM Sans', serif;
 }
 
-p, figcaption {
+p, span, figcaption {
   font-family: 'Merriweather', sans-serif;
-}
-
-a {
-  display: flex;
-  align-items: center;
 }
 
 /* ----------- BOOTSTRAP UTILS ----------- */
