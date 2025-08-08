@@ -1,53 +1,18 @@
-/* form styling */
-.form-container {
-  background-color: var(--dark-surface);
-  border-radius: 20px;
-  padding: 2.5rem;
-  border: 1px solid var(--divider);
-  margin-bottom: 2rem;
+:root {
+  --success: #28a745;
+  --failure: #dc3545;
 }
 
+/* section titles */
 .form-section-title {
-  color: var(--text-heading);
-  font-family: 'DM Sans', sans-serif;
-  font-weight: 600;
-  font-size: 1.3rem;
-  margin-bottom: 1.5rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+  font-size: 1.5rem;
 }
-
 .form-section-title i {
-  color: var(--color-primary);
+  color: var(--color-primary) !important;
 }
 
-.form-label {
-  color: var(--text-primary);
-  font-weight: 500;
-  margin-bottom: 0.5rem;
-}
-/* 
-.form-text {
-  color: var(--text-secondary) !important;
-} */
-
-.form-container .form-control, .form-select {
-  background-color: var(--elevated-surface);
-  border: 1px solid var(--divider);
-  color: var(--text-primary);
-  border-radius: 10px;
-  padding: 0.75rem 1rem;
-  transition: all 0.3s ease;
-}
-
-.form-container .form-control:focus, .form-select:focus {
-  background-color: var(--elevated-surface);
-  border-color: var(--color-primary);
-  color: var(--text-primary);
-  box-shadow: 0 0 0 0.2rem rgba(122, 69, 255, 0.25);
-}
-
+/* ============== FORM FIELDS STYLING ============== */
+/* change placeholder text colour */
 .form-control::placeholder {
   color: var(--text-secondary);
 }
@@ -57,39 +22,41 @@ textarea.form-control {
   resize: vertical;
 }
 
-/* checkbox styling */
+/* override default bs border color for all fields */
+.form-container, .form-control, .form-select, .form-select:focus, .form-check-input {
+  border-color: var(--divider) !important;
+}
+
+/* textareas and textboxes */
+/* (no css needed) */
+
+/* select/dropdowns */
+.form-container .form-control, .form-select {
+  transition: all 0.3s ease;
+}
+.form-container .form-control:focus, .form-select:focus {
+  box-shadow: 0 0 0 0.2rem rgba(122, 69, 255, 0.25);
+}
+
+/* checkboxes */
 .form-check-input {
-  background-color: var(--elevated-surface);
-  border: 1px solid var(--divider);
-  border-radius: 6px;
+  border-width: 2px !important;
 }
-
 .form-check-input:checked {
+  border-color: var(--color-primary) !important;
   background-color: var(--color-primary);
-  border-color: var(--color-primary);
 }
-
 .form-check-input:focus {
   box-shadow: 0 0 0 0.2rem rgba(122, 69, 255, 0.25);
 }
 
-.form-check-label {
-  color: var(--text-primary);
-  margin-left: 0.5rem;
-}
-
+/* ============== SUBMIT and RESET BUTTON STYLING ============== */
 /* button styling */
 .btn-primary {
   background: linear-gradient(135deg, var(--color-primary), hsl(250.1, 100%, 60%));
   border: none;
-  border-radius: 12px;
-  padding: 0.75rem 2rem;
-  font-weight: 600;
-  font-family: 'DM Sans', sans-serif;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(122, 69, 255, 0.3);
 }
-
 .btn-primary:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(122, 69, 255, 0.4);
@@ -97,17 +64,12 @@ textarea.form-control {
 }
 
 .btn-outline-secondary {
-  border: 1px solid var(--divider);
-  color: var(--text-secondary);
-  border-radius: 12px;
-  padding: 0.75rem 2rem;
-  font-weight: 500;
+  border-color: var(--divider) !important;
   transition: all 0.3s ease;
 }
-
 .btn-outline-secondary:hover {
+  border-color: var(--color-primary) !important;
   background-color: var(--elevated-surface);
-  border-color: var(--color-primary);
   color: var(--color-primary);
 }
 
@@ -129,42 +91,44 @@ textarea.form-control {
 /* pledge section styling */
 .pledge-section {
   background: linear-gradient(135deg, var(--elevated-surface), var(--dark-surface));
-  border: 1px solid var(--color-accent);
-  border-radius: 15px;
-  padding: 1.5rem;
-  margin-top: 1.5rem;
+  border-color: var(--color-accent) !important;
 }
-
 .pledge-highlight {
   color: var(--color-accent);
-  font-weight: 600;
 }
-
-/* validation styling */
+/* ============== VALIDATION MESSAGES STYLING ============== */
 .was-validated .form-control:valid,
 .was-validated .form-select:valid {
-  border-color: #28a745;
-  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath fill='%2328a745' d='m2.3 6.73.8-.77-.8-.77 1.5-1.5.77.8-.77.8 1.5 1.5.8-.77.8.77-1.5 1.5-.77-.8.77-.8-1.5-1.5z'/%3E%3C/svg%3E");
+  border-color: var(--success);
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%2328a745'%3E%3Cpath d='M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 0.75rem center;
-  background-size: 16px 12px;
+  background-size: 16px 16px;
 }
 
 .was-validated .form-control:invalid,
 .was-validated .form-select:invalid {
   border-color: #dc3545;
-  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%23dc3545'%3E%3Ccircle cx='6' cy='6' r='4.5'/%3E%3Cpath d='m5.8 4.6 4.6 4.6M4.6 5.8l4.6-4.6'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23dc3545'%3E%3Cpath d='M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 0.75rem center;
-  background-size: 16px 12px;
+  background-size: 16px 16px;
+}
+
+.was-validated .form-control:valid:focus,
+.was-validated .form-select:valid:focus {
+  border-color: var(--success);
+  box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+}
+.was-validated .form-control:invalid:focus,
+.was-validated .form-select:invalid:focus {
+  border-color: #dc3545;
+  box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
 }
 
 .invalid-feedback {
-  display: none;
-  width: 100%;
-  margin-top: 0.25rem;
-  font-size: 0.875rem;
-  color: #dc3545;
+  display: none; /* hide by default */
+  color: var(--failure);
 }
 
 .was-validated .form-control:invalid ~ .invalid-feedback,
@@ -172,10 +136,25 @@ textarea.form-control {
   display: block;
 }
 
-/* success message styling */
+/* ============== SUCCESS MESSAGE & LOADING ANIMATION STYLING ============== */
 .alert-success {
   background-color: rgba(40, 167, 69, 0.1);
   border: 1px solid rgba(40, 167, 69, 0.3);
-  color: #28a745;
+  color: var(--success);
   border-radius: 10px;
+}
+
+.spinner-border {
+  border-width: 0.3rem;
+}
+.spinner-border.text-primary {
+  --bs-spinner-border-color: var(--color-primary);
+  --bs-spinner-border-right-color: transparent;
+}
+
+.loading-message {
+  animation: fadeInPulse 2s ease-in-out infinite alternate;
+}
+@keyframes fadeInPulse {
+  from { opacity: 0.8; } to { opacity: 1; }
 }

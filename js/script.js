@@ -72,14 +72,21 @@ document.addEventListener('DOMContentLoaded', function() {
         }, index * 200); // 0.3s stagger
       }
 
-      // (form.html) FEEDBACK FORM: staggered animation for form sections and fields
+      // (form.html) FEEDBACK FORM ONLY: staggered animations only for currently visible elements
       else if (entry.target.closest('#feedbackForm')) {
-        const formElements = document.querySelectorAll('#feedbackForm .form-section-title, #feedbackForm .mb-3, #feedbackForm .mb-4, #feedbackForm .mb-5, #feedbackForm .mt-5');
-        const index = Array.from(formElements).indexOf(entry.target);
+        // get all form elements currently visible on screen
+        const currentlyVisible = entries.filter(e => 
+          e.isIntersecting && e.target.closest('#feedbackForm')
+        );
+        
+        // find the index within this batch of visible elements
+        const batchIndex = currentlyVisible.findIndex(e => e.target === entry.target);
+        
+        // apply a much shorter stagger
         setTimeout(() => {
           entry.target.classList.add('visible');
-        }, index * 150); // 0.15s stagger for smoother form flow
-      } 
+        }, batchIndex * 200); // 0.2s stagger
+      }
       
       // ALL OTHER ELEMENTS: normal animation (no stagger)
       else {
@@ -97,7 +104,7 @@ document.addEventListener('DOMContentLoaded', function() {
     observer.observe(el);
   });
 
-  /* ========== FADE-IN ANIMATIONS ========== */
+  /* ========== INITIALISE TOOLTIPS FOR index.html (image carousel) ========== */
   const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
   const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl =>
     new bootstrap.Tooltip(tooltipTriggerEl)

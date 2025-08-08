@@ -51,7 +51,7 @@
             <div class="d-flex justify-content-between align-items-center">
               <!-- search function -->
               <form class="search-form position-relative flex-grow-1 me-3">
-                <input type="search" class="form-control search-input" placeholder="Find something..." aria-label="Search articles and content">
+                <input type="search" class="form-control text-primary bg-secondary border search-input" placeholder="Find something..." aria-label="Search articles and content">
                 <button class="search-btn" type="submit" aria-label="Submit search">
                   <i class="bi bi-search"></i>
                 </button>
@@ -82,7 +82,7 @@
 
             <!-- search function -->
             <form class="position-relative">
-              <input type="search" class="form-control search-input" placeholder="Find something..." aria-label="Search articles and content">
+              <input type="search" class="form-control text-primary bg-secondary border search-input" placeholder="Find something..." aria-label="Search articles and content">
               <button class="search-btn" type="submit" aria-label="Submit search">
                 <i class="bi bi-search"></i>
               </button>
@@ -115,46 +115,50 @@
             Thank you for your feedback! Your submission has been received.
           </div>
 
-          <form id="feedbackForm" class="form-container needs-validation" novalidate role="form" aria-label="Article feedback and community engagement form">
+          <!-- custom validated form -->
+          <form
+            id="feedbackForm" 
+            class="form-container needs-validation bg-dark p-5 mb-3 border rounded-5" 
+            role="form" 
+            aria-label="Article feedback and community engagement form" 
+            novalidate
+          >
             
             <!-- article feedback section -->
             <div class="mb-5 fade-in">
-              <h3 class="form-section-title">
-                <i class="bi bi-newspaper" aria-hidden="true"></i>
-                Article Feedback
+              <h3 class="text-heading d-flex align-items-center gap-3 mb-4 form-section-title">
+                <i class="bi bi-newspaper"></i>Article Feedback
               </h3>
               
               <!-- which article -->
-              <div class="mb-3 fade-in">
+              <div class="mb-4 fade-in">
                 <label for="articleTitle" class="form-label">Which article are you referring to? <span class="text-danger">*</span></label>
-                <input type="text" class="form-control" id="articleTitle" placeholder="Enter the article title or URL" required aria-describedby="articleTitleHelp">
-                <div class="invalid-feedback">
+                <input type="text" class="form-control text-primary bg-secondary border" id="articleTitle" placeholder="Enter the article title or URL" required aria-describedby="articleTitleHelp">
+                <div class="invalid-feedback w-100 mt-2">
                   Please provide the article title or URL.
                 </div>
-                <div id="articleTitleHelp" class="text-secondary form-text">Enter the full title or web address of the article you're reviewing</div>
               </div>
 
               <!-- article rating -->
-              <div class="mb-3 fade-in">
+              <div class="mb-4 fade-in">
                 <label for="articleRating" class="form-label">How would you rate this article? <span class="text-danger">*</span></label>
-                <select class="form-select" id="articleRating" required aria-describedby="ratingHelp">
-                  <option value="">Select a rating</option>
+                <select class="form-select px-3 py-2 text-primary bg-secondary border" id="articleRating" required aria-describedby="ratingHelp">
+                  <option value="">Click to select a rating</option>
                   <option value="5">Excellent - Highly informative and engaging</option>
                   <option value="4">Good - Useful information with minor improvements needed</option>
                   <option value="3">Average - Decent content but could be better</option>
                   <option value="2">Below Average - Limited value</option>
                   <option value="1">Poor - Not helpful</option>
                 </select>
-                <div class="invalid-feedback">
+                <div class="invalid-feedback w-100 mt-2">
                   Please select a rating for the article.
                 </div>
-                <div id="ratingHelp" class="text-secondary form-text">Rate from 1 (Poor) to 5 (Excellent) stars</div>
               </div>
 
               <!-- what you liked -->
               <div class="mb-3 fade-in">
                 <label for="articleLiked" class="form-label">What did you like most about this article?</label>
-                <textarea class="form-control" id="articleLiked" placeholder="Tell us what stood out to you..." rows="3" maxlength="500" aria-describedby="likedHelp likedCounter"></textarea>
+                <textarea class="form-control text-primary bg-secondary" id="articleLiked" placeholder="Tell us what stood out to you..." rows="3" maxlength="500" aria-describedby="likedHelp likedCounter"></textarea>
                 <div class="d-flex justify-content-between">
                   <div id="likedHelp" class="text-secondary form-text">Share the highlights that caught your attention</div>
                   <div id="likedCounter" class="character-counter">0/500 characters</div>
@@ -164,7 +168,7 @@
               <!-- suggestions for improvement -->
               <div class="mb-3 fade-in">
                 <label for="articleImprovement" class="form-label">Any suggestions for improvement?</label>
-                <textarea class="form-control" id="articleImprovement" placeholder="How could we make this article even better?" rows="3" maxlength="500" aria-describedby="improvementHelp improvementCounter"></textarea>
+                <textarea class="form-control text-primary bg-secondary" id="articleImprovement" placeholder="How could we make this article even better?" rows="3" maxlength="500" aria-describedby="improvementHelp improvementCounter"></textarea>
                 <div class="d-flex justify-content-between">
                   <div id="improvementHelp" class="text-secondary form-text">Help us enhance our content quality</div>
                   <div id="improvementCounter" class="character-counter">0/500 characters</div>
@@ -174,13 +178,13 @@
               <!-- similar articles request -->
               <div class="mb-3 fade-in">
                 <label for="similarArticles" class="form-label">What other topics would you like us to cover? <span class="text-danger">*</span></label>
-                <textarea class="form-control" id="similarArticles" placeholder="Tell us about similar articles or topics you'd love to read about..." rows="4" required minlength="10" maxlength="1000" aria-describedby="topicsHelp topicsCounter"></textarea>
-                <div class="invalid-feedback">
+                <textarea class="form-control text-primary bg-secondary" id="similarArticles" placeholder="Tell us about similar articles or topics you'd love to read about..." rows="4" required minlength="10" maxlength="1000" aria-describedby="topicsHelp topicsCounter"></textarea>
+                <div class="invalid-feedback w-100 mt-2">
                   Please tell us what topics you'd like to see (at least 10 characters).
                 </div>
                 <div class="d-flex justify-content-between">
                   <div id="topicsHelp" class="text-secondary form-text text-muted mt-2">
-                    <i class="bi bi-lightbulb me-1" aria-hidden="true"></i>
+                    <i class="bi bi-lightbulb me-1"></i>
                     Examples: AI ethics, sustainable tech solutions etc.
                   </div>
                   <div id="topicsCounter" class="character-counter">0/1000 characters</div>
@@ -190,8 +194,8 @@
 
             <!-- user preferences section -->
             <div class="mb-4 fade-in">
-              <h3 class="form-section-title">
-                <i class="bi bi-sliders" aria-hidden="true"></i>
+              <h3 class="form-section-title mb-4">
+                <i class="bi bi-sliders"></i>
                 Your Preferences
               </h3>
 
@@ -218,10 +222,10 @@
               <!-- notification preferences switches -->
               <div class="mb-3 fade-in">
                 <fieldset>
-                  <legend class="form-label fs-5"><i class="bi bi-bell me-1" aria-hidden="true"></i>Notification Preferences</legend>
+                  <legend class="form-label fs-5"><i class="bi bi-bell me-1"></i>Notification Preferences</legend>
                   
                   <div class="form-check form-switch mb-2">
-                    <input class="form-check-input" type="checkbox" id="emailNotifs" checked aria-describedby="emailNotifsHelp">
+                    <input class="form-check-input px-1 py-2 bg-secondary border rounded-3" type="checkbox" id="emailNotifs" checked aria-describedby="emailNotifsHelp">
                     <label class="form-check-label" for="emailNotifs">
                       Email notifications for new articles
                     </label>
@@ -229,7 +233,7 @@
                   </div>
                   
                   <div class="form-check form-switch mb-2">
-                    <input class="form-check-input" type="checkbox" id="weeklyDigest" aria-describedby="weeklyDigestHelp">
+                    <input class="form-check-input px-1 py-2 bg-secondary border rounded-3" type="checkbox" id="weeklyDigest" aria-describedby="weeklyDigestHelp">
                     <label class="form-check-label" for="weeklyDigest">
                       Weekly digest summary
                     </label>
@@ -237,7 +241,7 @@
                   </div>
                   
                   <div class="form-check form-switch">
-                    <input class="form-check-input" type="checkbox" id="breakingNews" aria-describedby="breakingNewsHelp">
+                    <input class="form-check-input px-1 py-2 bg-secondary border rounded-3" type="checkbox" id="breakingNews" aria-describedby="breakingNewsHelp">
                     <label class="form-check-label" for="breakingNews">
                       Breaking tech news alerts
                     </label>
@@ -249,12 +253,12 @@
 
             <!-- community commitment section -->
             <div class="mb-4 fade-in">
-              <h3 class="form-section-title">
-                <i class="bi bi-people" aria-hidden="true"></i>
+              <h3 class="form-section-title mb-4">
+                <i class="bi bi-people"></i>
                 Community Commitment
               </h3>
 
-              <div class="pledge-section">
+              <div class="pledge-section p-5 mt-2 border rounded-4">
                 <p class="mb-3 fade-in">
                   Help us build a community of <span class="pledge-highlight">tech-forward thinkers</span> who stay informed about innovation and the future!
                 </p>
@@ -265,7 +269,7 @@
                   <!-- sharing commitment -->
                   <div class="mb-3 fade-in">
                     <div class="form-check">
-                      <input class="form-check-input" type="checkbox" id="pledgeShare" value="share" aria-describedby="shareHelp">
+                      <input class="form-check-input p-2 bg-secondary border rounded-2" type="checkbox" id="pledgeShare" value="share" aria-describedby="shareHelp">
                       <label class="form-check-label" for="pledgeShare">
                         I commit to sharing Future Tech articles with my network when I find them valuable
                       </label>
@@ -276,7 +280,7 @@
                   <!-- community engagement -->
                   <div class="mb-3 fade-in">
                     <div class="form-check">
-                      <input class="form-check-input" type="checkbox" id="pledgeEngage" value="engage" aria-describedby="engageHelp">
+                      <input class="form-check-input p-2 bg-secondary border rounded-2" type="checkbox" id="pledgeEngage" value="engage" aria-describedby="engageHelp">
                       <label class="form-check-label" for="pledgeEngage">
                         I will actively participate in discussions and help others stay informed about tech innovations
                       </label>
@@ -287,7 +291,7 @@
                   <!-- newsletter subscription -->
                   <div class="mb-3 fade-in">
                     <div class="form-check">
-                      <input class="form-check-input" type="checkbox" id="pledgeNewsletter" value="newsletter" aria-describedby="newsletterHelp">
+                      <input class="form-check-input p-2 bg-secondary border rounded-2" type="checkbox" id="pledgeNewsletter" value="newsletter" aria-describedby="newsletterHelp">
                       <label class="form-check-label" for="pledgeNewsletter">
                         Sign me up for the Future Tech newsletter to stay updated on the latest articles
                       </label>
@@ -299,7 +303,7 @@
                 <!-- sharing method -->
                 <div class="mb-3 fade-in">
                   <label for="sharingMethod" class="form-label">How do you prefer to share valuable content?</label>
-                  <select class="form-select" id="sharingMethod" aria-describedby="sharingHelp">
+                  <select class="form-select px-3 py-2 text-primary border bg-secondary" id="sharingMethod" aria-describedby="sharingHelp">
                     <option value="">Select your preferred method</option>
                     <option value="social-media">Social media (Twitter, LinkedIn, Facebook)</option>
                     <option value="email">Email to friends and colleagues</option>
@@ -314,22 +318,22 @@
             </div>
 
             <!-- contact information -->
-            <div class="mb-4 fade-in">
-              <h3 class="form-section-title">
-                <i class="bi bi-person-badge" aria-hidden="true"></i>
+            <div class="mb-2 fade-in">
+              <h3 class="form-section-title mb-4">
+                <i class="bi bi-person-badge"></i>
                 Contact Information (Optional)
               </h3>
               
               <div class="row">
                 <div class="col-md-6 mb-3 fade-in">
                   <label for="userName" class="form-label">Name</label>
-                  <input type="text" class="form-control" id="userName" placeholder="Your name" aria-describedby="nameHelp">
+                  <input type="text" class="form-control text-primary bg-secondary border" id="userName" placeholder="Your name" aria-describedby="nameHelp">
                   <div id="nameHelp" class="text-secondary form-text">How would you like us to address you?</div>
                 </div>
                 <div class="col-md-6 mb-3 fade-in">
                   <label for="userEmail" class="form-label">Email</label>
-                  <input type="email" class="form-control" id="userEmail" placeholder="your.email@example.com" aria-describedby="emailHelp">
-                  <div class="invalid-feedback">
+                  <input type="email" class="form-control text-primary bg-secondary border" id="userEmail" placeholder="your.email@example.com" aria-describedby="emailHelp">
+                  <div class="invalid-feedback w-100 mt-2">
                     Please provide a valid email address.
                   </div>
                   <div id="emailHelp" class="text-secondary form-text">We'll use this to follow up on your feedback if needed</div>
@@ -340,7 +344,7 @@
             <!-- additional comments -->
             <div class="mb-4 fade-in">
               <label for="additionalComments" class="form-label">Additional Comments</label>
-              <textarea class="form-control" id="additionalComments" placeholder="Any other thoughts, suggestions, or feedback you'd like to share..." rows="4" maxlength="1000" aria-describedby="commentsHelp commentsCounter"></textarea>
+              <textarea class="form-control text-primary bg-secondary border" id="additionalComments" placeholder="Any other thoughts, suggestions, or feedback you'd like to share..." rows="4" maxlength="1000" aria-describedby="commentsHelp commentsCounter"></textarea>
               <div class="d-flex justify-content-between">
                 <div id="commentsHelp" class="text-secondary form-text">Share any additional thoughts or suggestions</div>
                 <div id="commentsCounter" class="character-counter">0/1000 characters</div>
@@ -349,14 +353,34 @@
 
             <!-- submit buttons -->
             <div class="mt-5 d-flex flex-column flex-md-row gap-3 justify-content-center fade-in">
-              <button type="submit" class="btn btn-primary btn-lg" aria-describedby="submitHelp">
-                <i class="bi bi-send me-2" aria-hidden="true"></i>
+              <button type="submit" class="btn btn-primary btn-lg shadow-lg px-4 py-3 rounded-4" aria-describedby="submitHelp">
+                <i class="bi bi-send me-2"></i>
                 Submit Feedback
               </button>
-              <button type="reset" class="btn btn-outline-secondary btn-lg" aria-describedby="resetHelp">
-                <i class="bi bi-arrow-clockwise me-2" aria-hidden="true"></i>
+              <button type="reset" class="btn btn-outline-secondary btn-lg shadow-sm px-4 py-3 rounded-4 " aria-describedby="resetHelp">
+                <i class="bi bi-arrow-clockwise me-2"></i>
                 Reset Form
               </button>
+            </div>
+
+            <!-- loading spinner and message (hidden until form validated + submitted) -->
+            <div id="loadingSpinner" class="d-none text-center mt-5" role="status" aria-live="polite">
+              <div class="d-flex flex-column align-items-center gap-3">
+
+                <!-- spinner (bootstrap) -->
+                <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" aria-hidden="true">
+                  <span class="visually-hidden">Loading...</span>
+                </div>
+                
+                <!-- loading message -->
+                <div class="loading-message">
+                  <h5 class="text-heading mb-2">Processing Your Feedback</h5>
+                  <p class="text-secondary mb-0">
+                    <i class="bi bi-cloud-upload me-2"></i>
+                    Please wait while we submit your feedback...
+                  </p>
+                </div>
+              </div>
             </div>
             
           </form>

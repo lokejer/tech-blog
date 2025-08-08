@@ -1,11 +1,11 @@
-// Enhanced form submission handling with better validation
+// FORM SUBMISSION + VALIDATION
 document.getElementById('feedbackForm').addEventListener('submit', function(e) {
   e.preventDefault();
   
-  // Add bootstrap validation classes
+  // add bootstrap validation classes
   this.classList.add('was-validated');
   
-  // Custom email validation
+  // custom email validation
   const emailInput = document.getElementById('userEmail');
   if (emailInput.value && !isValidEmail(emailInput.value)) {
     emailInput.setCustomValidity('Please enter a valid email address');
@@ -13,29 +13,56 @@ document.getElementById('feedbackForm').addEventListener('submit', function(e) {
     emailInput.setCustomValidity('');
   }
   
-  // Check if form is valid
+  // check if form is valid
   if (this.checkValidity()) {
-    // Show success message
-    const successMessage = document.getElementById('successMessage');
-    successMessage.classList.remove('d-none');
-    successMessage.focus(); // For screen readers
     
-    // Scroll to top to show message
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    // get form elements
+    const submitBtn = document.querySelector('.btn-primary');
+    const resetBtn = document.querySelector('button[type="reset"]');
+    const loadingSpinner = document.getElementById('loadingSpinner');
     
-    // Hide form temporarily
+    // show loading animation immediately
+    submitBtn.disabled = true;
+    resetBtn.disabled = true;
+    submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2" aria-hidden="true"></span>Submitting...';
+    loadingSpinner.classList.remove('d-none');
+    loadingSpinner.scrollIntoView({ behavior: 'smooth', block: 'center' }); // scroll to show loading spinner
+    
+    // mute form (visual feedback that form is being submitted/processed)
     this.style.opacity = '0.7';
     this.style.pointerEvents = 'none';
     
-    // Reset after 3 seconds (simulate processing)
+    // SIMULATED PROCESSING - first play the loading animation, only after 3s show success message and reset form
     setTimeout(() => {
+      
+      // hide loading spinner
+      loadingSpinner.classList.add('d-none');
+      
+      // reset form state
       this.style.opacity = '1';
       this.style.pointerEvents = 'auto';
       this.classList.remove('was-validated');
-      // Optionally reset form: this.reset();
-    }, 3000);
-  } else {
-    // Scroll to first invalid field
+      this.reset();
+      
+      // reset buttons
+      submitBtn.disabled = false;
+      resetBtn.disabled = false;
+      submitBtn.innerHTML = '<i class="bi bi-send me-2"></i>Submit Feedback';
+      
+      // show success message
+      const successMessage = document.getElementById('successMessage');
+      successMessage.classList.remove('d-none');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      successMessage.focus();
+      
+      // update character counters
+      updateAllCounters();
+      
+    }, 3000); // 3s 'loading' time
+  }
+  
+  // if form invalid, scroll to first invalid field
+  else {
     const firstInvalid = this.querySelector(':invalid');
     if (firstInvalid) {
       firstInvalid.focus();
@@ -44,17 +71,29 @@ document.getElementById('feedbackForm').addEventListener('submit', function(e) {
   }
 });
 
-// Enhanced form reset handling
+// helper fn for email validation
+function isValidEmail(email) {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+}
+
+// real-time email validation (ONLY when form failed to submit before)
+document.getElementById('userEmail').addEventListener('input', function() {
+  if (this.value && !isValidEmail(this.value)) {
+    this.setCustomValidity('Please enter a valid email address');
+  } else {
+    this.setCustomValidity('');
+  }
+});
+
+/* ============== FORM RESET BUTTON ============== */
 document.querySelector('button[type="reset"]').addEventListener('click', function() {
-  // Hide success message when resetting
   document.getElementById('successMessage').classList.add('d-none');
-  // Remove validation classes
   document.getElementById('discussionForm').classList.remove('was-validated');
-  // Reset all character counters
   updateAllCounters();
 });
 
-// Auto-resize textareas
+/* ============== AUTO-RESIZE TEXTAREAS ============== */
 document.querySelectorAll('textarea').forEach(textarea => {
   textarea.addEventListener('input', function() {
     this.style.height = 'auto';
@@ -62,7 +101,7 @@ document.querySelectorAll('textarea').forEach(textarea => {
   });
 });
 
-// Range slider value updates
+/* ============== UPDATE RANGE SLIDER VALUE(s) ============== */
 document.getElementById('techInterest').addEventListener('input', function() {
   document.getElementById('interestValue').textContent = `(${this.value})`;
 });
@@ -72,17 +111,7 @@ document.getElementById('readingFreq').addEventListener('input', function() {
   document.getElementById('freqValue').textContent = `(${frequencies[this.value - 1]})`;
 });
 
-// Switch animations
-document.querySelectorAll('.form-switch .form-check-input').forEach(switchInput => {
-  switchInput.addEventListener('change', function() {
-    this.style.transform = 'scale(0.95)';
-    setTimeout(() => {
-      this.style.transform = 'scale(1)';
-    }, 150);
-  });
-});
-
-// Character counter functionality
+/* ============== HANDLE CHARACTER COUNTERS ============== */
 function updateCharacterCounter(textareaId, counterId, maxLength = 1000) {
   const textarea = document.getElementById(textareaId);
   const counter = document.getElementById(counterId);
@@ -92,7 +121,7 @@ function updateCharacterCounter(textareaId, counterId, maxLength = 1000) {
   const currentLength = textarea.value.length;
   counter.textContent = `${currentLength}/${maxLength} characters`;
   
-  // Update counter styling based on length
+  // update counter styling based on length
   counter.classList.remove('warning', 'danger');
   if (currentLength > maxLength * 0.9) {
     counter.classList.add('danger');
@@ -100,7 +129,7 @@ function updateCharacterCounter(textareaId, counterId, maxLength = 1000) {
     counter.classList.add('warning');
   }
   
-  // Add ARIA live region for screen readers
+  // add ARIA live region for screen readers
   if (currentLength > maxLength * 0.9) {
     counter.setAttribute('aria-live', 'polite');
   } else {
@@ -108,7 +137,7 @@ function updateCharacterCounter(textareaId, counterId, maxLength = 1000) {
   }
 }
 
-// Initialize character counters
+// update character counters when user types
 function updateAllCounters() {
   updateCharacterCounter('articleLiked', 'likedCounter', 500);
   updateCharacterCounter('articleImprovement', 'improvementCounter', 500);
@@ -116,26 +145,11 @@ function updateAllCounters() {
   updateCharacterCounter('additionalComments', 'commentsCounter', 1000);
 }
 
-// Add event listeners for character counting
+// add event listeners
 document.getElementById('articleLiked').addEventListener('input', () => updateCharacterCounter('articleLiked', 'likedCounter', 500));
 document.getElementById('articleImprovement').addEventListener('input', () => updateCharacterCounter('articleImprovement', 'improvementCounter', 500));
 document.getElementById('similarArticles').addEventListener('input', () => updateCharacterCounter('similarArticles', 'topicsCounter', 1000));
 document.getElementById('additionalComments').addEventListener('input', () => updateCharacterCounter('additionalComments', 'commentsCounter', 1000));
 
-// Email validation helper
-function isValidEmail(email) {
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return emailRegex.test(email);
-}
-
-// Real-time email validation
-document.getElementById('userEmail').addEventListener('input', function() {
-  if (this.value && !isValidEmail(this.value)) {
-    this.setCustomValidity('Please enter a valid email address');
-  } else {
-    this.setCustomValidity('');
-  }
-});
-
-// Initialize counters on page load
+// initialise when page loads
 document.addEventListener('DOMContentLoaded', updateAllCounters);
