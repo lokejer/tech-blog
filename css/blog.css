@@ -71,9 +71,15 @@ h2::before {
   line-height: 2;
 }
 
+#featuredArticleCarousel img {
+  height: 500px;  
+  object-fit: cover;
+}
+
 /* ------------- FILTER BUTTONS SECTION ------------- */
 .filter-section button {
   border-width: 2.4px !important;
+  transition: all 0.25s ease;
 }
 
 /* ------------- ARTICLE GRID SECTION ------------- */

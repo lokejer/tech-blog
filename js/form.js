@@ -139,15 +139,3 @@ document.getElementById('userEmail').addEventListener('input', function() {
 
 // Initialize counters on page load
 document.addEventListener('DOMContentLoaded', updateAllCounters);
-
-// Enhanced focus indicators
-document.querySelectorAll('.form-control, .form-select').forEach(element => {
-  element.addEventListener('focus', function() {
-    this.style.transform = 'scale(1.02)';
-    this.style.transition = 'transform 0.2s ease';
-  });
-  
-  element.addEventListener('blur', function() {
-    this.style.transform = 'scale(1)';
-  });
-});

@@ -100,8 +100,8 @@ const allArticles = [
   // article 9
   {
     id: 9,
-    title: 'Example Article 9',
-    author: 'Example Author',
+    title: 'GenAI - The Future of CX',
+    author: 'technologymagazine.com',
     description: 'Reasonable overview of technology topics that provides basic information without exceptional depth. Suitable for general audiences seeking introductory knowledge. The content covers essential points competently, though it lacks innovative insights or compelling analysis. Writing quality is acceptable but unremarkable. Serves as a decent starting point for further exploration, meeting basic expectations without exceeding them significantly.',
     image: 'assets/articles/article-technology1.webp',
     rating: 3,
@@ -112,8 +112,8 @@ const allArticles = [
   // article 10
   {
     id: 10,
-    title: 'Example Article 10',
-    author: 'Example Author',
+    title: 'THE NEXT GADGET IS... YOU!',
+    author: '9.9 Media',
     description: 'Remarkable piece that delivers exceptional insights with outstanding clarity and depth. The comprehensive analysis showcases expert knowledge while remaining highly accessible to diverse readers. Every paragraph demonstrates thoughtful research and engaging presentation. The author\'s expertise shines through compelling examples and innovative perspectives. This exemplary work sets new benchmarks for quality content, offering tremendous value and inspiring further exploration of complex topics.',
     image: 'assets/articles/article-technology2.jpg',
     rating: 5,
@@ -124,8 +124,8 @@ const allArticles = [
   // article 11
   {
     id: 11,
-    title: 'Example Article 11',
-    author: 'Example Author',
+    title: 'Beyond Virtual Reality',
+    author: 'businessmediamags.co.za',
     description: 'Strong article that effectively communicates important concepts with good attention to detail and clarity. The content demonstrates solid research and thoughtful organization throughout. Readers will appreciate the balanced approach to complex topics and practical insights provided. While not groundbreaking, it consistently delivers valuable information with professional presentation. A reliable resource that meets high standards and provides meaningful learning opportunities.',
     image: 'assets/articles/article-technology3.jpg',
     rating: 4,
@@ -136,12 +136,12 @@ const allArticles = [
   // article 12
   {
     id: 12,
-    title: 'Example Article 12',
-    author: 'Example Author',
-    description: 'Underwhelming article that fails to deliver meaningful insights or engaging content. The superficial treatment of topics leaves readers unsatisfied and searching for substance. Poor organization and lackluster writing make it difficult to extract value. Key concepts are glossed over without proper explanation or development. Unfortunately falls short of expectations, offering little beyond basic information that could be found elsewhere.',
+    title: 'AI & the Future of Work',
+    author: 'Columbia University',
+    description: "Outstanding article that delivers exceptional insights into AI&#39;s transformative impact on the modern workplace. Columbia University&#39;s comprehensive treatment of automation, job displacement, and emerging opportunities leaves readers thoroughly informed about this critical transition. Excellent organization and compelling analysis make complex technological concepts accessible while extracting significant value from current research. Key developments in machine learning, workforce adaptation, and policy implications are explored with rigorous academic explanation and thoughtful development. Exceeds expectations by offering substantial depth beyond surface-level discussions found elsewhere, providing evidence-based perspectives on how artificial intelligence will reshape employment landscapes and requiring strategic workforce preparation.",
     image: 'assets/articles/article-technology4.webp',
-    rating: 2,
-    badge: null,
+    rating: 5,
+    badge: "HOT",
     saved: false
   }
 ];
@@ -486,7 +486,7 @@ function renderArticles(articlesToRender = allArticles, page = currentPage) {
   // #4: generate articles' HTML
   pageArticles.forEach(article => {
     const articleHTML = `
-      <article class="col-md-5">
+      <article class="col-xl-4 col-lg-5">
         <div class="card product-card h-100">
         
           <!-- PRODUCT IMAGE -->
