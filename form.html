@@ -46,24 +46,6 @@
         <!-- NAVBAR CONTENT -->
         <div class="collapse navbar-collapse" id="navbarContent">
 
-          <!-- *MOBILE ONLY* search and profile (shown in collapsed menu) -->
-          <div class="d-lg-none py-3 border-bottom mobile-search-profile">
-            <div class="d-flex justify-content-between align-items-center">
-              <!-- search function -->
-              <form class="search-form position-relative flex-grow-1 me-3">
-                <input type="search" class="form-control text-primary bg-secondary border search-input" placeholder="Find something..." aria-label="Search articles and content">
-                <button class="search-btn" type="submit" aria-label="Submit search">
-                  <i class="bi bi-search"></i>
-                </button>
-              </form>
-              
-              <!-- user profile icon -->
-              <a href="#" class="user-profile d-flex justify-content-center align-items-center" aria-label="User profile">
-                <i class="bi bi-person-fill"></i>
-              </a>
-            </div>
-          </div>
-
           <!-- nav links -->
           <ul class="navbar-nav mx-auto">
             <li class="nav-item">
@@ -73,27 +55,14 @@
               <a class="nav-link" href="blog.html">Articles</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="form.html" aria-current="page">Feedback</a>
+              <a class="nav-link" href="form.html">Feedback</a>
             </li>
           </ul>
           
-          <!-- *DESKTOP ONLY* search and profile (RHS ITEMS) -->
-          <div class="d-none d-lg-flex align-items-center gap-3">
-
-            <!-- search function -->
-            <form class="position-relative">
-              <input type="search" class="form-control text-primary bg-secondary border search-input" placeholder="Find something..." aria-label="Search articles and content">
-              <button class="search-btn" type="submit" aria-label="Submit search">
-                <i class="bi bi-search"></i>
-              </button>
-            </form>
-            
-            <!-- user profile icon -->
-            <a href="#" class="d-flex justify-content-center align-items-center text-decoration-none user-profile" aria-label="User profile">
-              <i class="bi bi-person-fill"></i>
-            </a>
-
-          </div>
+          <!-- user profile icon (hide on mobile dropdown) -->
+          <a href="#" class="d-none d-md-flex justify-content-center align-items-center text-decoration-none user-profile">
+            <i class="bi bi-person-fill"></i>
+          </a>
 
         </div>
 
@@ -104,7 +73,7 @@
   <main>
 
     <!-- FEEDBACK FORM -->
-    <section class="container py-5 navbar-offset">
+    <section class="container-fluid container-lg py-5 navbar-offset">
       <div class="row justify-content-center">
         
         <div class="col-lg-8">
@@ -118,7 +87,7 @@
           <!-- custom validated form -->
           <form
             id="feedbackForm" 
-            class="form-container needs-validation bg-dark p-5 mb-3 border rounded-5" 
+            class="form-container needs-validation bg-dark py-5 p-md-5 mb-3 border rounded-5" 
             role="form" 
             aria-label="Article feedback and community engagement form" 
             novalidate

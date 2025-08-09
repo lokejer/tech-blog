@@ -45,24 +45,6 @@
         <!-- NAVBAR CONTENT -->
         <div class="collapse navbar-collapse" id="navbarContent">
 
-          <!-- *MOBILE ONLY* search and profile (shown in collapsed menu) -->
-          <div class="d-lg-none py-3 border-bottom mobile-search-profile">
-            <div class="d-flex justify-content-between align-items-center">
-              <!-- search function -->
-              <form class="search-form position-relative flex-grow-1 me-3">
-                <input type="search" class="form-control search-input" placeholder="Find something..." aria-label="Search">
-                <button class="search-btn" type="submit">
-                  <i class="bi bi-search"></i>
-                </button>
-              </form>
-              
-              <!-- user profile icon -->
-              <a href="#" class="user-profile d-flex justify-content-center align-items-center">
-                <i class="bi bi-person-fill"></i>
-              </a>
-            </div>
-          </div>
-
           <!-- nav links -->
           <ul class="navbar-nav mx-auto">
             <li class="nav-item">
@@ -76,23 +58,10 @@
             </li>
           </ul>
           
-          <!-- *DESKTOP ONLY* search and profile (RHS ITEMS) -->
-          <div class="d-none d-lg-flex align-items-center gap-3">
-
-            <!-- search function -->
-            <form class="position-relative">
-              <input type="search" class="form-control search-input" placeholder="Find something..." aria-label="Search">
-              <button class="search-btn" type="submit">
-                <i class="bi bi-search"></i>
-              </button>
-            </form>
-            
-            <!-- user profile icon -->
-            <a href="#" class="d-flex justify-content-center align-items-center text-decoration-none user-profile">
-              <i class="bi bi-person-fill"></i>
-            </a>
-
-          </div>
+          <!-- user profile icon (hide on mobile dropdown) -->
+          <a href="#" class="d-none d-md-flex justify-content-center align-items-center text-decoration-none user-profile">
+            <i class="bi bi-person-fill"></i>
+          </a>
 
         </div>
 
@@ -105,7 +74,7 @@
     <!-- FEATURED ARTICLES SECTION -->
     <section id="featured-section" class="container-fluid container-md py-5 px-md-5 navbar-offset">
 
-      <!-- Section Header -->
+      <!-- section header -->
       <h2 class="display-4 display-md-3 my-3 text-center fw-bold fade-in" data-title="Featured Articles">Featured Articles</h2>
       <p class="mb-4 lead text-center fst-italic fade-in">These are my personal favourite articles on the Rise of Artifical Intelligence and Quantum Computing!</p>
 
@@ -124,11 +93,12 @@
           </button>
         </div>
 
-        <!-- Modal -->
+        <!-- Modal 1 -->
         <div class="modal fade" id="featuredArticle1" tabindex="-1" role="dialog" aria-labelledby="featuredArticle1-label" aria-hidden="true">
           <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
 
+              <!-- modal header -->
               <div class="modal-header justify-content-between">
                 <div>
                   <h3 class="modal-title" id="featuredArticle1-label">AI & the Future of Work</h3>          
@@ -136,16 +106,14 @@
                   <span class="mx-2">|</span>
                   <small class="text-muted"><i class="bi bi-clock me-1"></i>45 min read</small>
                 </div>
-                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
+                <button type="button" class="btn-close p-3" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
 
               <div class="modal-body fade-in">
 
                 <!-- featured article carousel -->
                 <div class="py-3 pb-4 d-flex justify-content-center">
-                  <div id="featuredArticleCarousel" class="carousel slide carousel-fade w-50">
+                  <div id="featuredArticleCarousel" class="carousel slide carousel-fade w-md-50 w-100">
                     <div class="carousel-inner">
                       <div class="carousel-item active">
                         <img src="assets/articles/article-technology4.webp" class="d-block w-100" alt="featured article cover image">
@@ -203,40 +171,72 @@
 
         <!-- Featured Article 2 -->
         <div class="row w-100 fade-in">
-          <button class="col p-3 d-flex flex-column position-relative" data-bs-toggle="modal" data-bs-target="#featuredArticle1">
+          <button class="col p-3 d-flex flex-column position-relative" data-bs-toggle="modal" data-bs-target="#featuredArticle2">
             <h3 class="text-heading">Quantum Computing</h3>
-            <p class="w-75 m-0 p-0 text-secondary">Dive into the basis of Quantum Computing which powers operations never expected to be humanly possible!</p>
+            <p class="w-75 m-0 pe-3 text-secondary">"Principles of Superconducting Quantum Computers" by Dr Daniel D. Stancil</p>
             <i class="position-absolute position-relative bi bi-square">
-              <svg xmlns="http://www.w3.org/2000/svg" width="54" height="54" fill="#ffffff" class="bi bi-cpu position-absolute" viewBox="0 0 16 16">
+              <svg xmlns="http://www.w3.org/2000/svg" width="54" height="54" fill="#ffffff" class="bi bi-cpu position-absolute p-1" viewBox="0 0 16 16">
                 <path d="M5 0a.5.5 0 0 1 .5.5V2h1V.5a.5.5 0 0 1 1 0V2h1V.5a.5.5 0 0 1 1 0V2h1V.5a.5.5 0 0 1 1 0V2A2.5 2.5 0 0 1 14 4.5h1.5a.5.5 0 0 1 0 1H14v1h1.5a.5.5 0 0 1 0 1H14v1h1.5a.5.5 0 0 1 0 1H14v1h1.5a.5.5 0 0 1 0 1H14a2.5 2.5 0 0 1-2.5 2.5v1.5a.5.5 0 0 1-1 0V14h-1v1.5a.5.5 0 0 1-1 0V14h-1v1.5a.5.5 0 0 1-1 0V14h-1v1.5a.5.5 0 0 1-1 0V14A2.5 2.5 0 0 1 2 11.5H.5a.5.5 0 0 1 0-1H2v-1H.5a.5.5 0 0 1 0-1H2v-1H.5a.5.5 0 0 1 0-1H2v-1H.5a.5.5 0 0 1 0-1H2A2.5 2.5 0 0 1 4.5 2V.5A.5.5 0 0 1 5 0m-.5 3A1.5 1.5 0 0 0 3 4.5v7A1.5 1.5 0 0 0 4.5 13h7a1.5 1.5 0 0 0 1.5-1.5v-7A1.5 1.5 0 0 0 11.5 3zM5 6.5A1.5 1.5 0 0 1 6.5 5h3A1.5 1.5 0 0 1 11 6.5v3A1.5 1.5 0 0 1 9.5 11h-3A1.5 1.5 0 0 1 5 9.5zM6.5 6a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5z"/>
               </svg>
             </i>
           </button>
         </div>
 
-        <!-- Modal -->
-        <div class="modal fade" id="featuredArticle1" tabindex="-1" role="dialog" aria-labelledby="featuredArticle1-label" aria-hidden="true">
+        <!-- Modal 2 -->
+        <div class="modal fade" id="featuredArticle2" tabindex="-1" role="dialog" aria-labelledby="featuredArticle2-label" aria-hidden="true">
           <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
 
+              <!-- modal header -->
               <div class="modal-header justify-content-between">
                 <div>
-                  <h3 class="modal-title" id="featuredArticle1-label">Featured Article 2</h3>          
-                  <small class="text-muted"><i class="bi bi-person me-1"></i>By Dr. Khambhati Huzefa</small>
+                  <h3 class="modal-title" id="featuredArticle2-label">Principles of Superconducting Quantum Computers</h3>          
+                  <small class="text-muted"><i class="bi bi-person me-1"></i>By Daniel D. Stancil & Gregory T. Byrd</small>
                   <span class="mx-2">|</span>
-                  <small class="text-muted"><i class="bi bi-clock me-1"></i>8 min read</small>
+                  <small class="text-muted"><i class="bi bi-clock me-1"></i>32 min read</small>
                 </div>
-                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
+                <button type="button" class="btn-close p-3" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
 
-              <div class="modal-body">
+              <div class="modal-body fade-in">
+
+                <!-- featured article carousel -->
+                <div class="py-3 pb-4 d-flex justify-content-center">
+                  <div id="featuredArticleCarousel2" class="carousel slide carousel-fade w-md-50 w-100">
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <img src="assets/articles/article-quantum2.jpg" class="d-block w-100" alt="featured article cover image">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="assets/bg/abstract_purple_bg.jpg" class="d-block w-100" alt="featured article cover image">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="assets/articles/article-technology4.webp" class="d-block w-100" alt="featured article cover image">
+                      </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#featuredArticleCarousel2" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#featuredArticleCarousel2" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                  </div>
+                </div>
+
                 <h4><i class="bi bi-award me-1"></i>People's Choice</h4>
-                <p class="mb-3 text-muted">This article was voted by nearly 10,000 readers as the month of November's top read!</p>
+                <p class="mb-3 text-muted">This article was voted as this website's top read for the month of June!</p>
                 
                 <h4><i class="bi bi-lightbulb me-2"></i>In a Nutshell:</h4>
-                <p class="text-muted">This article lets you discover breakthrough innovations in battery technology that could revolutionize how we store renewable energy. From solid-state batteries to revolutionary graphene supercapacitors, explore the cutting-edge solutions powering tomorrow's green grid.</p>
+                <ul class="text-muted">
+                    <li>Provides deep insights into AI's impact on employment</li>
+                    <li>Covers automation, job displacement, and new opportunities thoroughly</li>
+                    <li>Makes complex AI concepts accessible through clear analysis</li>
+                    <li>Offers rigorous academic treatment of machine learning and workforce changes</li>
+                    <li>Goes beyond surface-level discussion with evidence-based perspectives</li>
+                    <li>Helps readers understand how AI will reshape jobs and workplace preparation</li>
+                </ul>
                 
                 <div class="mt-2">
                   <span class="badge bg-primary p-2 me-1">Technology</span>
@@ -260,7 +260,7 @@
 
         <!-- Featured Article 3 -->
         <div class="row w-100 fade-in">
-          <button class="col p-3 d-flex flex-column position-relative" data-bs-toggle="modal" data-bs-target="#featuredArticle1">
+          <button class="col p-3 d-flex flex-column position-relative" data-bs-toggle="modal" data-bs-target="#featuredArticle3">
             <h3 class="text-heading">Advanced Materials</h3>
             <p class="w-75 m-0 p-0 text-secondary">Learn more about how Advanced Materials are manufactured in high-tech factories!</p>
             <i class="position-absolute position-relative bi bi-square">
@@ -271,26 +271,51 @@
           </button>
         </div>
 
-        <!-- Modal -->
-        <div class="modal fade" id="featuredArticle1" tabindex="-1" role="dialog" aria-labelledby="featuredArticle1-label" aria-hidden="true">
+        <!-- Modal 3 -->
+        <div class="modal fade" id="featuredArticle3" tabindex="-1" role="dialog" aria-labelledby="featuredArticle3-label" aria-hidden="true">
           <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
 
+              <!-- modal header -->
               <div class="modal-header justify-content-between">
                 <div>
-                  <h3 class="modal-title" id="featuredArticle1-label">Featured Article 3</h3>          
-                  <small class="text-muted"><i class="bi bi-person me-1"></i>By Dr. Khambhati Huzefa</small>
+                  <h3 class="modal-title" id="featuredArticle3-label">Light - Advanced Manufacturing</h3>          
+                  <small class="text-muted"><i class="bi bi-person me-1"></i>By JHL Group 中国</small>
                   <span class="mx-2">|</span>
-                  <small class="text-muted"><i class="bi bi-clock me-1"></i>8 min read</small>
+                  <small class="text-muted"><i class="bi bi-clock me-1"></i>79 min read - it's worth it!</small>
                 </div>
-                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
+                <button type="button" class="btn-close p-3" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
 
               <div class="modal-body">
+                
+                <!-- featured article carousel -->
+                <div class="py-3 pb-4 d-flex justify-content-center">
+                  <div id="featuredArticleCarousel3" class="carousel slide carousel-fade w-md-50 w-100">
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <img src="assets/articles/article-innovation2.png" class="d-block w-100" alt="featured article cover image">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="assets/bg/abstract_purple_bg.jpg" class="d-block w-100" alt="featured article cover image">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="assets/articles/article-innovation2.png" class="d-block w-100" alt="featured article cover image">
+                      </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#featuredArticleCarousel3" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#featuredArticleCarousel3" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                  </div>
+                </div>
+
                 <h4><i class="bi bi-award me-1"></i>People's Choice</h4>
-                <p class="mb-3 text-muted">This article was voted by nearly 10,000 readers as the month of November's top read!</p>
+                <p class="mb-3 text-muted">This article was voted by nearly 10,000 readers as the month of April's top read!</p>
                 
                 <h4><i class="bi bi-lightbulb me-2"></i>In a Nutshell:</h4>
                 <p class="text-muted">This article lets you discover breakthrough innovations in battery technology that could revolutionize how we store renewable energy. From solid-state batteries to revolutionary graphene supercapacitors, explore the cutting-edge solutions powering tomorrow's green grid.</p>

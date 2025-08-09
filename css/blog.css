@@ -35,7 +35,7 @@ h2::before {
   color: gray;
   opacity: 0.4;
   transform: rotate(-15deg);
-  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, color 0.3s ease-in-out;
 }
 
 /* remove default bs styles for the button (that triggers the modal) */
@@ -50,13 +50,15 @@ h2::before {
   border-color: hsl(from var(--divider) h s 30%);
   background: linear-gradient(to bottom right, hsl(from var(--divider) h s 15%));
 }
+.quick-links-wrapper .row svg { transition: 0.2s ease-in-out; }
+.quick-links-wrapper .row:hover svg { fill: var(--color-accent); }
+.quick-links-wrapper .row .col:hover i {
+  transform: rotate(-11deg) translateY(-4px);
+  color: var(--color-accent);
+}
 .quick-links-wrapper .row:hover h3,
 .quick-links-wrapper .row:hover p {
   cursor: pointer;
-  /* text-decoration: underline; */
-}
-.quick-links-wrapper .row .col:hover i {
-  transform: rotate(-11deg) translateY(-4px);
 }
 
 /* bs medium screens breakpoint */
@@ -71,9 +73,14 @@ h2::before {
   line-height: 2;
 }
 
-#featuredArticleCarousel img {
+#featured-section .carousel-item img {
   height: 500px;  
-  object-fit: cover;
+  object-fit: contain;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  background-color: rgba(255, 0, 0, 0.75);
 }
 
 /* ------------- FILTER BUTTONS SECTION ------------- */

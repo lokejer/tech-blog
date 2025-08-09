@@ -89,8 +89,12 @@ document.getElementById('userEmail').addEventListener('input', function() {
 /* ============== FORM RESET BUTTON ============== */
 document.querySelector('button[type="reset"]').addEventListener('click', function() {
   document.getElementById('successMessage').classList.add('d-none');
-  document.getElementById('discussionForm').classList.remove('was-validated');
-  updateAllCounters();
+  document.getElementById('feedbackForm').classList.remove('was-validated');
+
+  // ensure browser clears the form before resetting character counts
+  setTimeout(() => {
+    updateAllCounters();
+  }, 0);
 });
 
 /* ============== AUTO-RESIZE TEXTAREAS ============== */
@@ -129,7 +133,7 @@ function updateCharacterCounter(textareaId, counterId, maxLength = 1000) {
     counter.classList.add('warning');
   }
   
-  // add ARIA live region for screen readers
+  // ACCESSIBILITY: screen readers politely remind the user once, when the word count is 900 (approaching the max limit of 1000)
   if (currentLength > maxLength * 0.9) {
     counter.setAttribute('aria-live', 'polite');
   } else {

@@ -629,13 +629,3 @@ function updateSavedCount() {
     badge.style.display = savedCount > 0 ? 'inline-block' : 'none';
   }
 }
-
-// For search functionality
-function searchArticles(searchTerm) {
-  const filtered = allArticles.filter(article => 
-    article.title.toLowerCase().includes(searchTerm.toLowerCase())
-  );
-  currentPage = 1; // reset to first page
-  renderArticles(filtered, 1);
-  updatePaginationButtons(filtered);
-}

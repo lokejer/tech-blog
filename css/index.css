@@ -19,8 +19,7 @@
 
 /* styling the carousel indicators (the 3 bars at the bottom of each slide) */
 .carousel-indicators [data-bs-target] {
-  width: 20px; height: 20px;
-  border-radius: 50%; /* turn them into perfect circles */
+  width: 40px; height: 12px;
   background-color: var(--divider);
   opacity: 0.8;
   transition: all 0.3s ease;
@@ -30,7 +29,7 @@
   opacity: 1;
 }
 
-/* styling the tooltips that popup when hovering on the target audience images */
+/* styling the tooltips that pops up when hovering on the target audience images */
 .tooltip {
   --bs-tooltip-bg: var(--elevated-surface);
   --bs-tooltip-color: var(--text-primary);
