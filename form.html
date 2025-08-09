@@ -100,11 +100,21 @@
               </h3>
               
               <!-- which article -->
-              <div class="mb-4 fade-in">
+              <div class="mb-1 fade-in">
                 <label for="articleTitle" class="form-label">Which article are you referring to? <span class="text-danger">*</span></label>
                 <input type="text" class="form-control text-primary bg-secondary border" id="articleTitle" placeholder="Enter the article title or URL" required aria-describedby="articleTitleHelp">
                 <div class="invalid-feedback w-100 mt-2">
                   Please provide the article title or URL.
+                </div>
+              </div>
+
+              <!-- nominate for People's Choice / article of the month -->
+              <div class="mb-3 fade-in">
+                <div class="form-check">
+                  <input class="form-check-input me-1 p-2 bg-secondary border rounded-2" type="checkbox" id="nominatePeoplesChoice" value="share" aria-describedby="shareHelp">
+                  <label class="form-check-label text-secondary" for="nominatePeoplesChoice">
+                    I want to nominate this article for Article of the Month
+                  </label>
                 </div>
               </div>
 

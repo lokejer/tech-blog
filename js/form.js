@@ -94,6 +94,7 @@ document.querySelector('button[type="reset"]').addEventListener('click', functio
   // ensure browser clears the form before resetting character counts
   setTimeout(() => {
     updateAllCounters();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }, 0);
 });
 

@@ -4,6 +4,7 @@ const allArticles = [
   // article 1
   {
     id: 1,
+    link: 'https://www.scientificamerican.com/article/whats-a-qubit-3-ways-scientists-build-quantum-computers/',
     title: 'The Key to Quantum Computing',
     author: 'Scientific American',
     description: 'A solid introduction to quantum computing that covers the fundamentals well. Readers 16 and above will find it informative, though some sections could benefit from deeper exploration. The writing is clear and accessible, making complex concepts understandable. While it successfully sparks curiosity about this emerging technology, it occasionally feels surface-level when discussing more advanced applications and implementations.',
@@ -16,8 +17,9 @@ const allArticles = [
   // article 2
   {
     id: 2,
+    link: 'https://www.google.com.sg/books/edition/Principles_of_Superconducting_Quantum_Co/awxsEAAAQBAJ?hl=en&gbpv=1&pg=PA2&printsec=frontcover',
     title: 'Principles of Superconducting Quantum Computers',
-    author: 'Daniel D. Stancil',
+    author: 'Daniel D. Stancil, Gregory T. Byrd',
     description: 'Exceptional deep dive into quantum computer hardware that brilliantly balances technical depth with accessibility. Perfect for readers 16+ interested in physics or computing. Stancil masterfully explains superconducting principles while maintaining engagement throughout. The comprehensive coverage of both theoretical foundations and practical applications makes this an invaluable resource. Outstanding clarity in explaining complex quantum phenomena—truly exemplary science communication.',
     image: 'assets/articles/article-quantum2.jpg',
     rating: 5,
@@ -28,6 +30,7 @@ const allArticles = [
   // article 3
   {
     id: 3,
+    link: 'https://www.nature.com/articles/d41586-023-01692-9',
     title: 'Qubits Rising',
     author: 'The Spotlight',
     description: 'Basic overview of qubits that barely scratches the surface of quantum computing. While accessible to readers 16+, the content lacks depth and fails to provide meaningful insights into why qubits matter. The writing feels rushed and oversimplified, missing opportunities to engage with fascinating concepts. Disappointing given the potential of the topic—leaves readers wanting substance rather than superficial explanations.',
@@ -40,6 +43,7 @@ const allArticles = [
   // article 4
   {
     id: 4,
+    link: 'https://www.worldscientific.com/worldscinet/iet',
     title: 'Innovation and Emerging Technologies',
     author: 'World Scientific',
     description: 'Decent survey of current technological trends suitable for readers 16 and above. Provides a reasonable overview of emerging innovations without being groundbreaking. The content is competently written and informative enough for general understanding. However, it lacks the compelling insights or unique perspectives that would elevate it beyond a standard technology review. Adequate for basic knowledge building.',
@@ -52,7 +56,8 @@ const allArticles = [
   // article 5
   {
     id: 5,
-    title: 'Light | Advanced Manufacturing',
+    link: 'https://www.light-am.com/',
+    title: 'Light | Advanced Manufacturing 光 。先进控制',
     author: 'JHL Group 中国',
     description: 'Outstanding exploration of light-based manufacturing technologies that perfectly balances technical precision with reader accessibility. Recommended for ages 16+ seeking to understand cutting-edge industrial innovation. The article excels at connecting photonic principles to real-world manufacturing breakthroughs. Exceptional clarity in explaining complex optical systems and their transformative impact on modern production. Truly illuminating content that sets new standards for technical communication.',
     image: 'assets/articles/article-innovation2.png',
@@ -64,6 +69,7 @@ const allArticles = [
   // article 6
   {
     id: 6,
+    link: 'https://chemistry-europe.onlinelibrary.wiley.com/toc/15213765/2025/31/16',
     title: 'Chemistry, an European Journal',
     author: 'European Chemical Societies Publishing',
     description: 'Well-crafted examination of contemporary chemistry developments that makes complex topics approachable for readers 16+. The scientific content is presented clearly with good attention to detail. Successfully bridges the gap between academic rigor and general accessibility. While not groundbreaking, it offers solid insights into current chemical research trends. A reliable resource for students and science enthusiasts seeking foundational understanding.',
@@ -76,30 +82,33 @@ const allArticles = [
   // article 7
   {
     id: 7,
+    link: 'https://www.science.org/doi/10.1126/sciadv.ads5743',
     title: 'How Transcription Begins',
     author: 'sciencemag.org',
-    description: 'Adequate introduction to transcription mechanisms for readers 16+ interested in molecular biology. Covers basic concepts competently without reaching exceptional depth or insight. The writing is clear enough for general comprehension, though it occasionally feels textbook-like. Provides reasonable foundation knowledge but lacks the engaging storytelling or innovative perspectives that would make complex biology truly captivating for young adult audiences.',
+    description: 'An exceptional introduction to transcription mechanisms for young adults interested in molecular biology. Covers concepts in an unprecedented high depth and insight. The writing is clear enough for general comprehension, but readers may not fancy its similarity to a textbook writing style. Uses engaging storytelling to provide a profound foundation to transcription, while passing down innovative perspectives that make complex biology truly captivating for young adult audiences.',
     image: 'assets/articles/article-innovation4.avif',
-    rating: 3,
-    badge: null,
+    rating: 5,
+    badge: "HOT",
     saved: false
   },
 
   // article 8
   {
     id: 8,
+    link: 'https://advanced.onlinelibrary.wiley.com/journal/15214095',
     title: 'Advanced Materials',
     author: 'Wiley-VCH',
-    description: 'Absolutely brilliant analysis of molybdenum disulfide and next-generation materials that captivates readers 16+. Masterfully connects nanoscale science to revolutionary applications in electronics and quantum computing. The writing seamlessly weaves technical accuracy with compelling real-world relevance. Outstanding at inspiring interest in materials engineering careers while maintaining scientific rigor. This exceptional piece sets the gold standard for making advanced materials science accessible.',
+    description: 'I&#39;m recommending this cutting-edge materials science journal because it showcases the latest breakthroughs in nanotechnology, biomaterials, and smart materials that are literally reshaping our world. From self-healing concrete to flexible electronics, these innovations will define the next decade of technology. Perfect for understanding how science creates the materials powering tomorrow&#39;s innovations and career opportunities, but lacklustre in finding the right article for you.',
     image: 'assets/articles/article-innovation5.jpg',
-    rating: 5,
-    badge: "HOT",
+    rating: 3,
+    badge: null,
     saved: false
   },
 
   // article 9
   {
     id: 9,
+    link: 'https://technologymagazine.com/magazine/technology-magazine-august-2023',
     title: 'GenAI - The Future of CX',
     author: 'technologymagazine.com',
     description: 'Reasonable overview of technology topics that provides basic information without exceptional depth. Suitable for general audiences seeking introductory knowledge. The content covers essential points competently, though it lacks innovative insights or compelling analysis. Writing quality is acceptable but unremarkable. Serves as a decent starting point for further exploration, meeting basic expectations without exceeding them significantly.',
@@ -112,6 +121,7 @@ const allArticles = [
   // article 10
   {
     id: 10,
+    link: 'https://store.digit.in/cartPrewiew?mode=cart_add&product_id=850&quantity=1&category_id=83&page=15',
     title: 'THE NEXT GADGET IS... YOU!',
     author: '9.9 Media',
     description: 'Remarkable piece that delivers exceptional insights with outstanding clarity and depth. The comprehensive analysis showcases expert knowledge while remaining highly accessible to diverse readers. Every paragraph demonstrates thoughtful research and engaging presentation. The author\'s expertise shines through compelling examples and innovative perspectives. This exemplary work sets new benchmarks for quality content, offering tremendous value and inspiring further exploration of complex topics.',
@@ -124,6 +134,7 @@ const allArticles = [
   // article 11
   {
     id: 11,
+    link: 'https://businessmediamags.co.za/magazine-cover/technology-solutions-and-innovations-cover/switched-june-2023-cover/https://businessmediamags.co.za/magazine-cover/technology-solutions-and-innovations-cover/switched-june-2023-cover/',
     title: 'Beyond Virtual Reality',
     author: 'businessmediamags.co.za',
     description: 'Strong article that effectively communicates important concepts with good attention to detail and clarity. The content demonstrates solid research and thoughtful organization throughout. Readers will appreciate the balanced approach to complex topics and practical insights provided. While not groundbreaking, it consistently delivers valuable information with professional presentation. A reliable resource that meets high standards and provides meaningful learning opportunities.',
@@ -136,6 +147,7 @@ const allArticles = [
   // article 12
   {
     id: 12,
+    link: 'https://csd.columbia.edu/research-projects/artificial-intelligence-future-work',
     title: 'AI & the Future of Work',
     author: 'Columbia University',
     description: "Outstanding article that delivers exceptional insights into AI&#39;s transformative impact on the modern workplace. Columbia University&#39;s comprehensive treatment of automation, job displacement, and emerging opportunities leaves readers thoroughly informed about this critical transition. Excellent organization and compelling analysis make complex technological concepts accessible while extracting significant value from current research. Key developments in machine learning, workforce adaptation, and policy implications are explored with rigorous academic explanation and thoughtful development. Exceeds expectations by offering substantial depth beyond surface-level discussions found elsewhere, providing evidence-based perspectives on how artificial intelligence will reshape employment landscapes and requiring strategic workforce preparation.",
@@ -147,7 +159,7 @@ const allArticles = [
 ];
 
 /* ---------------- DYNAMIC PAGINATION ---------------- */
-const ARTICLES_PER_PAGE = Math.floor(Math.random() * 5) + 2; // show 2 - 6 articles per page
+const ARTICLES_PER_PAGE = 3; // ***change this number during interview to show dynamic pagination***
 let currentPage = 1; // track which page we're currently on
 
 console.log('Pagination config loaded:', {
@@ -490,19 +502,30 @@ function renderArticles(articlesToRender = allArticles, page = currentPage) {
         <div class="card product-card h-100">
         
           <!-- PRODUCT IMAGE -->
-          <a href="#" class=""> <img src="${article.image}" class="product-img" alt="${article.title} cover image"> </a>
-
-          <div class="card-body d-flex flex-column">
+          <a href="${article.link}" target="_blank">
+            <img 
+              src="${article.image}" 
+              class="product-img w-100 object-fit-cover object-fit-xl-contain" 
+              alt="${article.title} cover image"
+            >
+          </a>
 
           <!-- PRODUCT CARD CONTENT -->
-          <div class="d-flex justify-content-between align-items-center">
-            <h5 class="mb-0 text-heading align-middle">
-              ${article.title} 
-              ${article.badge ? `<span class="badge align-middle badge-${article.badge.toLowerCase()}">${getBadgeHTML(article.badge)}</span>` : ''}
-            </h5>
+          <div class="card-body d-flex flex-column">
+            <hr style="border: 1.6px solid hsl(220, 13%, 25%); opacity:1" class="mt-0">
+
+            <!-- ARTICLE TITLE & DESC -->
+            <div class="d-flex align-items-center">
+              <h5 class="mb-0 text-heading d-flex align-items-center" style="width: 100%">
+                <span class="text-truncate">
+                  ${article.title}
+                </span>
+                ${article.badge ? `<span class="ms-1 badge flex-shrink-0 badge-${article.badge.toLowerCase()}">${getBadgeHTML(article.badge)}</span>` : ''}
+              </h5>
             </div>
             <p class="mb-3 text-secondary">${article.author}</p>
-            
+  
+            <!-- STAR RATING -->
             <div class="d-flex">
               <h6 class="lead text-primary">My Review:</h6>
               <div class="ms-2 star-rating">
@@ -513,10 +536,10 @@ function renderArticles(articlesToRender = allArticles, page = currentPage) {
 
             <!-- BUTTONS WRAPPER -->
             <div class="mt-auto d-flex justify-content-between align-items-center gap-1">
-              <button class="btn btn-3d w-50 px-2 py-2">
+              <a href="${article.link}" target="_blank" class="btn btn-3d w-50 px-2 py-2">
                 VIEW ARTICLE
                 <i class="bi bi-arrow-up-right"></i>
-              </button>
+              </a>
               <button
                 onclick="saveArticle(${article.id})" 
                 class="btn ${article.saved ? 'btn-success saved' : 'btn-outline-info'} w-50 px-2 py-2" 
