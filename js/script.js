@@ -32,6 +32,69 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 
+  /* ========== NAVBAR LIGHT/DARK TOGGLE FUNCTION ========== */
+  const themeToggle = document.getElementById('themeToggle');
+  const themeIcon = document.getElementById('themeIcon');
+  const themeText = document.getElementById('themeText');
+  const root = document.documentElement;
+
+  // LIGHT THEME palette
+  const lightTheme = {
+    '--off-black': 'hsl(0, 0%, 95%)',
+    '--dark-surface': 'hsl(0, 0%, 100%)',
+    '--elevated-surface': 'hsl(220, 15%, 96%)',
+    '--divider': 'hsl(220, 13%, 85%)',
+    '--text-primary': 'hsl(0, 0%, 20%)',
+    '--text-secondary': 'hsl(215, 14%, 45%)',
+    '--text-heading': 'hsl(0, 0%, 10%)'
+  };
+  // DARK THEME palette
+  const darkTheme = {
+    '--off-black': 'hsl(0, 0%, 9%)',
+    '--dark-surface': 'hsl(220, 14%, 12%)',
+    '--elevated-surface': 'hsl(220, 15%, 20%)',
+    '--divider': 'hsl(220, 13%, 25%)',
+    '--text-primary': 'hsl(0, 0%, 88%)',
+    '--text-secondary': 'hsl(215, 14%, 65%)',
+    '--text-heading': 'hsl(0, 0%, 100%)'
+  };
+
+  // check user's preferred theme and apply it
+  const savedTheme = localStorage.getItem('theme') || 'dark';
+  applyTheme(savedTheme);
+  updateThemeButton(savedTheme);
+
+  themeToggle.addEventListener('click', () => {
+    const currentTheme = localStorage.getItem('theme') || 'dark';
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    
+    applyTheme(newTheme);
+    localStorage.setItem('theme', newTheme);
+    updateThemeButton(newTheme);
+  });
+
+  function applyTheme(theme) {
+    const colors = theme === 'dark' ? darkTheme : lightTheme;
+    
+    // apply colors to CSS variables
+    Object.entries(colors).forEach(([property, value]) => {
+      root.style.setProperty(property, value);
+    });
+    
+    // set data-theme attribute for specific overrides
+    root.setAttribute('data-theme', theme);
+  }
+
+  function updateThemeButton(theme) {
+    if (theme === 'dark') {
+      themeIcon.className = 'bi bi-sun me-2';
+      themeText.textContent = 'Light Mode';
+    } else {
+      themeIcon.className = 'bi bi-moon me-2';
+      themeText.textContent = 'Dark Mode';
+    }
+  }
+
   /* ========== FADE-IN ANIMATIONS ========== */
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {

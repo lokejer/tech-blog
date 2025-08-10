@@ -29,15 +29,15 @@
 
   <title>Home</title>
 </head>
-<body>
+<body id="homePage">
   
   <!-- NAVBAR -->
   <header>
-    <nav class="navbar navbar-expand-lg fixed-top custom-navbar">
+    <nav class="navbar navbar-expand-lg fixed-top custom-navbar keep-light-text">
       <div class="container-fluid px-3 px-md-4">
 
         <!-- brand -->
-        <a class="fw-bold navbar-brand" href="index.html"><i class="bi bi-globe me-2"></i>Future Tech</a>
+        <a class="fw-bold text-heading navbar-brand" href="index.html"><i class="bi bi-globe me-2"></i>Future Tech</a>
         
         <!-- mobile hamburger menu -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -47,23 +47,50 @@
         <!-- NAVBAR CONTENT -->
         <div class="collapse navbar-collapse" id="navbarContent">
 
-          <!-- nav links -->
-          <ul class="navbar-nav mx-auto">
+          <!-- nav links (show on medium and below) -->
+          <ul class="navbar-nav mx-auto d-lg-none">
             <li class="nav-item">
-              <a class="nav-link" href="index.html">Home</a>
+              <a class="nav-link text-primary px-3 py-2" href="index.html">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="blog.html">Articles</a>
+              <a class="nav-link text-primary px-3 py-2" href="blog.html">Articles</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="form.html">Feedback</a>
+              <a class="nav-link text-primary px-3 py-2" href="form.html">Feedback</a>
             </li>
           </ul>
           
-          <!-- user profile icon (hide on mobile dropdown) -->
-          <a href="#" class="d-none d-md-flex justify-content-center align-items-center text-decoration-none user-profile">
-            <i class="bi bi-person-fill"></i>
-          </a>
+          <!-- user profile dropdown (show on large screens only) -->
+          <div class="dropdown d-none d-lg-block ms-auto">
+            <a href="#" class="d-flex justify-content-center align-items-center text-decoration-none bg-secondary user-profile"
+               data-bs-toggle="dropdown" aria-expanded="false" id="profileDropdown">
+              <i class="bi bi-person-fill"></i>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end m-0 p-0 mt-2 bg-secondary shadow-lg" aria-labelledby="profileDropdown">
+              <li>
+                <button class="dropdown-item ps-3 py-3 text-primary d-flex align-items-center" id="themeToggle">
+                  <i class="bi bi-moon me-2" id="themeIcon"></i>
+                  <span id="themeText">Dark Mode</span>
+                </button>
+              </li>
+              <li><hr class="dropdown-divider m-0 p-0" style="border-color: var(--divider);"></li>
+              <li>
+                <a class="dropdown-item ps-3 py-2 text-primary d-flex align-items-center" href="index.html">
+                  <i class="bi bi-house me-2"></i>Home
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item ps-3 py-2 text-primary d-flex align-items-center" href="blog.html">
+                  <i class="bi bi-journal-text me-2"></i>Articles
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item ps-3 py-2 text-primary d-flex align-items-center" href="form.html">
+                  <i class="bi bi-chat-dots me-2"></i>Feedback
+                </a>
+              </li>
+            </ul>
+          </div>
 
         </div>
 
@@ -120,7 +147,7 @@
               <h1 class="display-3 display-md-2 display-sm-3 fw-bold mb-4 hero-title fade-in">
                 Do You Feel Detached From The Future?
               </h1>
-              <p class="lead fs-5 fs-md-4 mb-3 mb-md-4 text-primary position-relative fade-in">
+              <p class="lead fs-5 fs-md-4 p-md-2 p-0 mb-3 mb-md-4 text-primary position-relative fade-in">
                 This site aims to help you explore quantum computers, AI minds and sustainable innovations that are reshaping our world, keeping you informed of the future of technology & innovation in an ever-changing world.
               </p>
               <div class="d-flex flex-column flex-sm-row gap-3 justify-content-start hero-btn-wrapper fade-in">
@@ -164,7 +191,7 @@
             <img src="assets/bg/abstract_purple_bg.jpg" class="carousel-bg-img d-block w-100" alt="a dimmed abstract purple background image">
 
             <!-- section heading -->
-            <h2 class="position-absolute top-0 left-0 z-3 mb-4 px-md-4 px-1 py-3 display-4">Who Is This Site For?</h2>
+            <h2 class="position-absolute top-0 left-0 z-3 mb-4 px-md-4 px-1 py-3 text-heading display-4">Who Is This Site For?</h2>
 
             <!-- target audience image -->
             <div class="position-absolute top-50 start-50 translate-middle z-3 text-nowrap target-audience-img-wrapper">
@@ -184,7 +211,7 @@
 
             <!-- slide caption -->
             <div class="carousel-caption d-none d-md-block rounded-5">
-              <h5 class="fs-4 text-heading">Yes, this website was <strong>made for you!</strong></h5>
+              <h5 class="fs-4 text-primary">Yes, this website was <strong>made for you!</strong></h5>
               <p class="m-0 p-0 text-secondary">In an ever-changing world, it is crucial to stay informed on the latest technology trends. This website has got you covered!</p>
             </div>
 
@@ -197,7 +224,7 @@
             <img src="assets/bg/abstract_purple_bg.jpg" class="carousel-bg-img d-block w-100" alt="a dimmed abstract purple background image">
 
             <!-- section heading -->
-            <h2 class="position-absolute top-50 start-50 translate-middle display-2">Why 16 year olds?</h2>
+            <h2 class="position-absolute top-50 start-50 translate-middle text-heading display-2">Why 16 year olds?</h2>
 
             <!-- slide caption -->
             <div class="carousel-caption d-none d-md-block rounded-5">
@@ -214,7 +241,7 @@
             <img src="assets/bg/abstract_purple_bg.jpg" class="carousel-bg-img d-block w-100" alt="a dimmed abstract purple background image">
 
             <!-- section heading -->
-            <h2 class="position-absolute top-50 start-50 translate-middle text-center display-2">
+            <h2 class="position-absolute top-50 start-50 translate-middle text-heading text-center display-2">
               <i class="fa-solid fa-arrow-down"></i>
               <i class="fa-solid fa-arrow-down"></i>
               <i class="fa-solid fa-arrow-down"></i>
@@ -252,7 +279,7 @@
         <!-- section header -->
         <div class="text-center mb-5">
           <h2 class="display-4">Future of Technology - Timeline</h2>
-          <p class="lead">Key milestones shaping our technological future</p>
+          <p class="lead">Learn more about potential key milestones that will shape our technological future...</p>
         </div>
 
         <!-- timeline container -->
@@ -296,7 +323,7 @@
 
                   <!-- text content -->
                   <h4><span class="d-inline d-md-none mb-2 fs-5 text-heading">2027 | </span>Quantum Computing Breakthrough</h4>
-                  <p>First commercial quantum computers solve complex optimization problems. Major breakthroughs in drug discovery and financial modeling.</p>
+                  <p>The first commercially-available quantum computers start to solve complex optimization problems, likely leading to major breakthroughs in drug discovery and financial modeling.</p>
                   <div class="timeline-tags">
                     <span class="badge rounded-pill px-3 py-2 border">Quantum Computing</span>
                     <span class="badge rounded-pill px-3 py-2 border">Research</span>
@@ -319,7 +346,7 @@
 
                   <!-- text content -->
                   <h4><span class="d-inline d-md-none mb-2 fs-5 text-heading">2030 | </span>Autonomous Vehicle Revolution</h4>
-                  <p>Self-driving cars become common in major cities. Smart transportation networks reduce traffic congestion by 40%.</p>
+                  <p>Self-driving cars become common in major cities. Smart transportation networks reduce traffic congestion by 40% - less MRT breakdowns!</p>
                   <div class="timeline-tags">
                     <span class="badge rounded-pill px-3 py-2 border">Transportation</span>
                     <span class="badge rounded-pill px-3 py-2 border">Artificial Intelligence</span>
@@ -358,7 +385,7 @@
                 <!-- MD SCREENS & below : hide year -->
                 <div class="position-relative d-none d-md-block px-3 py-2 z-2 text-heading fs-4 fw-bold text-center rounded-pill timeline-year">2035</div>
 
-                <div class="timeline-content px-3 shadow-lg">
+                <div class="timeline-content p-3 shadow-lg">
 
                   <!-- cover image -->
                   <img src="assets/timeline/sustainable-tech-ecosystem.jpg" class="img-thumbnail mb-3" alt="sustainable tech ecosystem cover image">
@@ -385,7 +412,7 @@
       <div class="faq-section">
 
         <!-- section heading -->
-        <h2 class="display-4 text-heading">Future Tech FAQ</h2>
+        <h2 class="display-4 text-heading">You Might Be Wondering...</h2>
         <hr class="mb-4" style="border: solid var(--text-primary);">
 
         <div class="accordion" id="techFaqAccordion">

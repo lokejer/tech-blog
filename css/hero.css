@@ -22,8 +22,6 @@
 }
 
 .hero-content p {
-  /* find a way to make the text contrast better against the bright globe */
-  padding: 0.5rem;
   background: linear-gradient(to right, #6c707b8f, transparent);
 }
 

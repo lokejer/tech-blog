@@ -52,6 +52,58 @@ p, span, figcaption {
   font-family: 'Merriweather', sans-serif;
 }
 
+/* ----------- LIGHT THEME OVERRIDES ----------- */
+/* home page */
+[data-theme="light"] #homePage .navbar-brand {
+  color: hsl(0, 0%, 88%) !important;
+}
+
+[data-theme="light"] #homePage .btn-outline-custom {
+  color: hsl(0, 0%, 88%) !important;
+}
+[data-theme="light"] #homePage .btn-outline-custom:hover {
+  color: hsl(0, 0%, 0%) !important;
+}
+
+[data-theme="light"] #hero-section {
+  --text-primary: hsl(0, 0%, 20%) !important;
+  --text-heading: hsl(0, 0%, 10%) !important;
+}
+
+[data-theme="light"] #hero-section .text-primary,
+[data-theme="light"] #hero-section .text-primary,
+[data-theme="light"] #audience-section .text-primary,
+[data-theme="light"] #audience-section .text-heading {
+  color: hsl(0, 0%, 88%) !important;
+}
+
+[data-theme="light"] #homePage .timeline-tags .badge {
+  border-color: hsl(0, 0%, 0%) !important;
+  color: hsl(0, 0%, 0%) !important;
+}
+
+/* articles page */
+[data-theme="light"] .quick-links-wrapper .row .col svg { fill: black; }
+[data-theme="light"] .quick-links-wrapper .row:hover svg { fill: var(--color-accent); }
+[data-theme="light"] .quick-links-wrapper .row:hover h3 { color: hsl(0, 0%, 88%) !important; }
+
+/* form page */
+[data-theme="light"] #feedbackForm .text-primary {
+  color: hsl(0, 0%, 88%) !important;
+}
+
+[data-theme="light"] #feedbackForm .form-select {
+  color: hsl(0, 0%, 0%) !important;
+}
+
+[data-theme="light"] #feedbackForm .form-control { color: hsl(0, 0%, 0%) !important;}
+[data-theme="light"] #feedbackForm textarea { color: hsl(0, 0%, 0%) !important;}
+[data-theme="light"] #feedbackForm .character-counter { color: hsl(0, 0%, 88%) !important;}
+
+[data-theme="light"] #feedbackForm .form-check-input:checked {
+  background-color: var(--color-primary) !important;
+}
+
 /* ----------- BOOTSTRAP UTILS ----------- */
 .text-heading { color: var(--text-heading) !important; }
 .text-primary { color: var(--text-primary) !important; }
@@ -61,17 +113,6 @@ p, span, figcaption {
 .bg-black { background-color: var(--off-black) !important; }
 
 /* ----------- CUSTOM CSS FOR BOOTSTRAP ----------- */
-/* CUSTOM HEADERS */
-.gradient-text {
-  background: linear-gradient(
-    to bottom right,
-    #8c93ff, 
-    #6915ff);
-  background-clip: text;
-  -webkit-background-clip: text;  /* webkit compatibility */
-  color: transparent;
-}
-
 /* CUSTOM-COLOURED BUTTONS */
 .btn-purple {
   padding: 0.6em 0.8em;
@@ -115,22 +156,16 @@ p, span, figcaption {
   box-shadow: 0 0 32px hsl(from var(--color-accent) h s 50%);
 }
 
-.secondary-glowing-btn {
-  background-color: var(--divider);
-  line-height: 45px; /* vertically center the 'Register' text as height = line height = 45px */
-}
-
-.secondary-glowing-btn:hover,
-.secondary-glowing-btn:focus-visible {
-  background-color: var(--accent-color);
-}
-
 /* FADE IN ANIMATION CSS */
 .fade-in {
   opacity: 0;
   transition: opacity 0.5s ease-in-out;
 }
+.fade-in.visible { opacity: 1; }
 
-.fade-in.visible {
-  opacity: 1;
+/* on MD breakpoint and below, make "Join the Conversation" btn white colour text for better contrast */
+@media (max-width: 768px) {
+  .btn-outline-custom {
+    color: var(--text-primary) !important;
+  }
 }

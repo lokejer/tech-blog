@@ -36,7 +36,7 @@
       <div class="container-fluid px-3 px-md-4">
 
         <!-- brand -->
-        <a class="fw-bold navbar-brand" href="index.html"><i class="bi bi-globe me-2"></i>Future Tech</a>
+        <a class="fw-bold text-heading navbar-brand" href="index.html"><i class="bi bi-globe me-2"></i>Future Tech</a>
         
         <!-- mobile hamburger menu -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -46,23 +46,50 @@
         <!-- NAVBAR CONTENT -->
         <div class="collapse navbar-collapse" id="navbarContent">
 
-          <!-- nav links -->
-          <ul class="navbar-nav mx-auto">
+          <!-- nav links (show on medium and below) -->
+          <ul class="navbar-nav mx-auto d-lg-none">
             <li class="nav-item">
-              <a class="nav-link" href="index.html">Home</a>
+              <a class="nav-link text-primary px-3 py-2" href="index.html">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="blog.html">Articles</a>
+              <a class="nav-link text-primary px-3 py-2" href="blog.html">Articles</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="form.html">Feedback</a>
+              <a class="nav-link text-primary px-3 py-2" href="form.html">Feedback</a>
             </li>
           </ul>
           
-          <!-- user profile icon (hide on mobile dropdown) -->
-          <a href="#" class="d-none d-md-flex justify-content-center align-items-center text-decoration-none user-profile">
-            <i class="bi bi-person-fill"></i>
-          </a>
+          <!-- user profile dropdown (show on large screens only) -->
+          <div class="dropdown d-none d-lg-block ms-auto">
+            <a href="#" class="d-flex justify-content-center align-items-center text-decoration-none bg-secondary text-heading user-profile" 
+               data-bs-toggle="dropdown" aria-expanded="false" id="profileDropdown">
+              <i class="bi bi-person-fill"></i>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end m-0 p-0 mt-2 bg-secondary shadow-lg" aria-labelledby="profileDropdown">
+              <li>
+                <button class="dropdown-item ps-3 py-3 text-primary d-flex align-items-center" id="themeToggle">
+                  <i class="bi bi-moon me-2" id="themeIcon"></i>
+                  <span id="themeText">Dark Mode</span>
+                </button>
+              </li>
+              <li><hr class="dropdown-divider m-0 p-0" style="border-color: var(--divider);"></li>
+              <li>
+                <a class="dropdown-item ps-3 py-2 text-primary d-flex align-items-center" href="index.html">
+                  <i class="bi bi-house me-2"></i>Home
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item ps-3 py-2 text-primary d-flex align-items-center" href="blog.html">
+                  <i class="bi bi-journal-text me-2"></i>Articles
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item ps-3 py-2 text-primary d-flex align-items-center" href="form.html">
+                  <i class="bi bi-chat-dots me-2"></i>Feedback
+                </a>
+              </li>
+            </ul>
+          </div>
 
         </div>
 
@@ -87,7 +114,7 @@
           <!-- custom validated form -->
           <form
             id="feedbackForm" 
-            class="form-container needs-validation bg-dark py-5 p-md-5 mb-3 border rounded-5" 
+            class="form-container needs-validation bg-dark py-5 p-md-5 mb-3 border rounded-5 shadow-lg" 
             role="form" 
             aria-label="Article feedback and community engagement form" 
             novalidate
@@ -95,13 +122,13 @@
             
             <!-- article feedback section -->
             <div class="mb-5 fade-in">
-              <h3 class="text-heading d-flex align-items-center gap-3 mb-4 form-section-title">
+              <h3 class="d-flex align-items-center gap-3 mb-4 text-primary form-section-title">
                 <i class="bi bi-newspaper"></i>Article Feedback
               </h3>
               
               <!-- which article -->
               <div class="mb-1 fade-in">
-                <label for="articleTitle" class="form-label">Which article are you referring to? <span class="text-danger">*</span></label>
+                <label for="articleTitle" class="form-label text-primary">Which article are you referring to? <span class="text-danger">*</span></label>
                 <input type="text" class="form-control text-primary bg-secondary border" id="articleTitle" placeholder="Enter the article title or URL" required aria-describedby="articleTitleHelp">
                 <div class="invalid-feedback w-100 mt-2">
                   Please provide the article title or URL.
@@ -120,7 +147,7 @@
 
               <!-- article rating -->
               <div class="mb-4 fade-in">
-                <label for="articleRating" class="form-label">How would you rate this article? <span class="text-danger">*</span></label>
+                <label for="articleRating" class="form-label text-primary">How would you rate this article? <span class="text-danger">*</span></label>
                 <select class="form-select px-3 py-2 text-primary bg-secondary border" id="articleRating" required aria-describedby="ratingHelp">
                   <option value="">Click to select a rating</option>
                   <option value="5">Excellent - Highly informative and engaging</option>
@@ -136,7 +163,7 @@
 
               <!-- what you liked -->
               <div class="mb-3 fade-in">
-                <label for="articleLiked" class="form-label">What did you like most about this article?</label>
+                <label for="articleLiked" class="form-label text-primary">What did you like most about this article?</label>
                 <textarea class="form-control text-primary bg-secondary" id="articleLiked" placeholder="Tell us what stood out to you..." rows="3" maxlength="500" aria-describedby="likedHelp likedCounter"></textarea>
                 <div class="d-flex justify-content-between">
                   <div id="likedHelp" class="text-secondary form-text">Share the highlights that caught your attention</div>
@@ -146,7 +173,7 @@
 
               <!-- suggestions for improvement -->
               <div class="mb-3 fade-in">
-                <label for="articleImprovement" class="form-label">Any suggestions for improvement?</label>
+                <label for="articleImprovement" class="form-label text-primary">Any suggestions for improvement?</label>
                 <textarea class="form-control text-primary bg-secondary" id="articleImprovement" placeholder="How could we make this article even better?" rows="3" maxlength="500" aria-describedby="improvementHelp improvementCounter"></textarea>
                 <div class="d-flex justify-content-between">
                   <div id="improvementHelp" class="text-secondary form-text">Help us enhance our content quality</div>
@@ -156,7 +183,7 @@
 
               <!-- similar articles request -->
               <div class="mb-3 fade-in">
-                <label for="similarArticles" class="form-label">What other topics would you like us to cover? <span class="text-danger">*</span></label>
+                <label for="similarArticles" class="form-label text-primary">What other topics would you like us to cover? <span class="text-danger">*</span></label>
                 <textarea class="form-control text-primary bg-secondary" id="similarArticles" placeholder="Tell us about similar articles or topics you'd love to read about..." rows="4" required minlength="10" maxlength="1000" aria-describedby="topicsHelp topicsCounter"></textarea>
                 <div class="invalid-feedback w-100 mt-2">
                   Please tell us what topics you'd like to see (at least 10 characters).
@@ -173,14 +200,14 @@
 
             <!-- user preferences section -->
             <div class="mb-4 fade-in">
-              <h3 class="form-section-title mb-4">
+              <h3 class="form-section-title text-primary mb-4">
                 <i class="bi bi-sliders"></i>
                 Your Preferences
               </h3>
 
               <!-- tech interest level slider -->
               <div>
-                <label for="techInterest" class="form-label">How interested are you in tech topics? <span id="interestValue" class="text-muted">(5)</span></label>
+                <label for="techInterest" class="form-label text-primary">How interested are you in tech topics? <span id="interestValue" class="text-muted">(5)</span></label>
                 <input type="range" class="form-range" min="1" max="10" value="5" id="techInterest" aria-describedby="interestHelp" aria-label="Technology interest level from 1 to 10">
                 <div class="d-flex justify-content-between">
                   <small class="text-muted">Not interested</small>
@@ -190,7 +217,7 @@
 
               <!-- reading frequency slider -->
               <div>
-                <label for="readingFreq" class="form-label">How often do you read tech articles? <span id="freqValue" class="text-muted">(3 times/week)</span></label>
+                <label for="readingFreq" class="form-label text-primary">How often do you read tech articles? <span id="freqValue" class="text-muted">(3 times/week)</span></label>
                 <input type="range" class="form-range" min="1" max="7" value="3" id="readingFreq" aria-describedby="freqHelp" aria-label="Reading frequency from rarely to daily">
                 <div class="d-flex justify-content-between">
                   <small class="text-muted">Rarely</small>
@@ -201,11 +228,11 @@
               <!-- notification preferences switches -->
               <div class="mb-3 fade-in">
                 <fieldset>
-                  <legend class="form-label fs-5"><i class="bi bi-bell me-1"></i>Notification Preferences</legend>
+                  <legend class="form-label text-primary fs-5"><i class="bi bi-bell me-1"></i>Notification Preferences</legend>
                   
                   <div class="form-check form-switch mb-2">
                     <input class="form-check-input px-1 py-2 bg-secondary border rounded-3" type="checkbox" id="emailNotifs" checked aria-describedby="emailNotifsHelp">
-                    <label class="form-check-label" for="emailNotifs">
+                    <label class="form-check-label text-primary" for="emailNotifs">
                       Email notifications for new articles
                     </label>
                     <div id="emailNotifsHelp" class="text-secondary form-text">Receive email alerts when we publish new content</div>
@@ -213,7 +240,7 @@
                   
                   <div class="form-check form-switch mb-2">
                     <input class="form-check-input px-1 py-2 bg-secondary border rounded-3" type="checkbox" id="weeklyDigest" aria-describedby="weeklyDigestHelp">
-                    <label class="form-check-label" for="weeklyDigest">
+                    <label class="form-check-label text-primary" for="weeklyDigest">
                       Weekly digest summary
                     </label>
                     <div id="weeklyDigestHelp" class="text-secondary form-text">Get a weekly roundup of our top articles</div>
@@ -221,7 +248,7 @@
                   
                   <div class="form-check form-switch">
                     <input class="form-check-input px-1 py-2 bg-secondary border rounded-3" type="checkbox" id="breakingNews" aria-describedby="breakingNewsHelp">
-                    <label class="form-check-label" for="breakingNews">
+                    <label class="form-check-label text-primary" for="breakingNews">
                       Breaking tech news alerts
                     </label>
                     <div id="breakingNewsHelp" class="text-secondary form-text">Immediate notifications for urgent tech developments</div>
@@ -232,7 +259,7 @@
 
             <!-- community commitment section -->
             <div class="mb-4 fade-in">
-              <h3 class="form-section-title mb-4">
+              <h3 class="form-section-title text-primary mb-4">
                 <i class="bi bi-people"></i>
                 Community Commitment
               </h3>
@@ -298,19 +325,19 @@
 
             <!-- contact information -->
             <div class="mb-2 fade-in">
-              <h3 class="form-section-title mb-4">
+              <h3 class="form-section-title text-primary mb-4">
                 <i class="bi bi-person-badge"></i>
                 Contact Information (Optional)
               </h3>
               
               <div class="row">
                 <div class="col-md-6 mb-3 fade-in">
-                  <label for="userName" class="form-label">Name</label>
+                  <label for="userName" class="form-label text-primary">Name</label>
                   <input type="text" class="form-control text-primary bg-secondary border" id="userName" placeholder="Your name" aria-describedby="nameHelp">
                   <div id="nameHelp" class="text-secondary form-text">How would you like us to address you?</div>
                 </div>
                 <div class="col-md-6 mb-3 fade-in">
-                  <label for="userEmail" class="form-label">Email</label>
+                  <label for="userEmail" class="form-label text-primary">Email</label>
                   <input type="email" class="form-control text-primary bg-secondary border" id="userEmail" placeholder="your.email@example.com" aria-describedby="emailHelp">
                   <div class="invalid-feedback w-100 mt-2">
                     Please provide a valid email address.
@@ -322,7 +349,7 @@
 
             <!-- additional comments -->
             <div class="mb-4 fade-in">
-              <label for="additionalComments" class="form-label">Additional Comments</label>
+              <label for="additionalComments" class="form-label text-primary">Additional Comments</label>
               <textarea class="form-control text-primary bg-secondary border" id="additionalComments" placeholder="Any other thoughts, suggestions, or feedback you'd like to share..." rows="4" maxlength="1000" aria-describedby="commentsHelp commentsCounter"></textarea>
               <div class="d-flex justify-content-between">
                 <div id="commentsHelp" class="text-secondary form-text">Share any additional thoughts or suggestions</div>
