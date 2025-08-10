@@ -121,7 +121,6 @@
           <form
             id="feedbackForm" 
             class="form-container needs-validation bg-dark py-5 p-md-5 mb-3 border rounded-5 shadow-lg" 
-            role="form" 
             aria-label="Article feedback and community engagement form" 
             novalidate
           >
@@ -135,7 +134,7 @@
               <!-- which article -->
               <div class="mb-1 fade-in">
                 <label for="articleTitle" class="form-label text-primary">Which article are you referring to? <span class="text-danger">*</span></label>
-                <input type="text" class="form-control text-primary bg-secondary border" id="articleTitle" placeholder="Enter the article title or URL" required aria-describedby="articleTitleHelp">
+                <input type="text" class="form-control text-primary bg-secondary border" id="articleTitle" placeholder="Enter the article title or URL" required>
                 <div class="invalid-feedback w-100 mt-2">
                   Please provide the article title or URL.
                 </div>
@@ -144,7 +143,7 @@
               <!-- nominate for People's Choice / article of the month -->
               <div class="mb-3 fade-in">
                 <div class="form-check">
-                  <input class="form-check-input me-1 p-2 bg-secondary border rounded-2" type="checkbox" id="nominatePeoplesChoice" value="share" aria-describedby="shareHelp">
+                  <input class="form-check-input me-1 p-2 bg-secondary border rounded-2" type="checkbox" id="nominatePeoplesChoice" value="share">
                   <label class="form-check-label text-secondary" for="nominatePeoplesChoice">
                     I want to nominate this article for Article of the Month
                   </label>
@@ -154,7 +153,7 @@
               <!-- article rating -->
               <div class="mb-4 fade-in">
                 <label for="articleRating" class="form-label text-primary">How would you rate this article? <span class="text-danger">*</span></label>
-                <select class="form-select px-3 py-2 text-primary bg-secondary border" id="articleRating" required aria-describedby="ratingHelp">
+                <select class="form-select px-3 py-2 text-primary bg-secondary border" id="articleRating" required>
                   <option value="">Click to select a rating</option>
                   <option value="5">Excellent - Highly informative and engaging</option>
                   <option value="4">Good - Useful information with minor improvements needed</option>
@@ -214,7 +213,7 @@
               <!-- tech interest level slider -->
               <div>
                 <label for="techInterest" class="form-label text-primary">How interested are you in tech topics? <span id="interestValue" class="text-muted">(5)</span></label>
-                <input type="range" class="form-range" min="1" max="10" value="5" id="techInterest" aria-describedby="interestHelp" aria-label="Technology interest level from 1 to 10">
+                <input type="range" class="form-range" min="1" max="10" value="5" id="techInterest" aria-label="Technology interest level from 1 to 10">
                 <div class="d-flex justify-content-between">
                   <small class="text-muted">Not interested</small>
                   <small class="text-muted">Very interested</small>
@@ -224,7 +223,7 @@
               <!-- reading frequency slider -->
               <div>
                 <label for="readingFreq" class="form-label text-primary">How often do you read tech articles? <span id="freqValue" class="text-muted">(3 times/week)</span></label>
-                <input type="range" class="form-range" min="1" max="7" value="3" id="readingFreq" aria-describedby="freqHelp" aria-label="Reading frequency from rarely to daily">
+                <input type="range" class="form-range" min="1" max="7" value="3" id="readingFreq" aria-label="Reading frequency from rarely to daily">
                 <div class="d-flex justify-content-between">
                   <small class="text-muted">Rarely</small>
                   <small class="text-muted">Daily</small>
@@ -365,11 +364,11 @@
 
             <!-- submit buttons -->
             <div class="mt-5 d-flex flex-column flex-md-row gap-3 justify-content-center fade-in">
-              <button type="submit" class="btn btn-primary btn-lg shadow-lg px-4 py-3 rounded-4" aria-describedby="submitHelp">
+              <button type="submit" class="btn btn-primary btn-lg shadow-lg px-4 py-3 rounded-4">
                 <i class="bi bi-send me-2"></i>
                 Submit Feedback
               </button>
-              <button type="reset" class="btn btn-outline-secondary btn-lg shadow-sm px-4 py-3 rounded-4 " aria-describedby="resetHelp">
+              <button type="reset" class="btn btn-outline-secondary btn-lg shadow-sm px-4 py-3 rounded-4">
                 <i class="bi bi-arrow-clockwise me-2"></i>
                 Reset Form
               </button>

@@ -38,14 +38,12 @@ h2::before {
 }
 
 /* remove default bs styles for the button (that triggers the modal) */
-.quick-links-wrapper .row button {
+.quick-links-wrapper .row a {
   background: var(--off-black);
-  border: none;
-  text-align: left;
 }
 
 /* hover animations */
-.quick-links-wrapper .row:hover button {
+.quick-links-wrapper .row:hover a {
   border-color: hsl(from var(--divider) h s 30%);
   background: linear-gradient(to bottom right, hsl(from var(--divider) h s 15%));
 }
