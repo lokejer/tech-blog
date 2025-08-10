@@ -37,6 +37,14 @@
 }
 
 /* ----------- BASE STYLES ----------- */
+*, *::before, *::after {
+  transition: 
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
 body {
   font-family: 'DM Sans', sans-serif;
   background-color: var(--off-black);
@@ -53,11 +61,16 @@ p, span, figcaption {
 }
 
 /* ----------- LIGHT THEME OVERRIDES ----------- */
-/* home page */
-[data-theme="light"] #homePage .navbar-brand {
+/* navbar */
+[data-theme="light"] .custom-navbar {
+  background-color: hsla(0, 0%, 0%, 0.5) !important;
+  border-bottom: 1px solid hsl(0, 0%, 9%);
+}
+[data-theme="light"] .navbar-brand {
   color: hsl(0, 0%, 88%) !important;
 }
 
+/* home page */
 [data-theme="light"] #homePage .btn-outline-custom {
   color: hsl(0, 0%, 88%) !important;
 }
@@ -88,21 +101,12 @@ p, span, figcaption {
 [data-theme="light"] .quick-links-wrapper .row:hover h3 { color: hsl(0, 0%, 88%) !important; }
 
 /* form page */
-[data-theme="light"] #feedbackForm .text-primary {
-  color: hsl(0, 0%, 88%) !important;
-}
-
-[data-theme="light"] #feedbackForm .form-select {
-  color: hsl(0, 0%, 0%) !important;
-}
-
+[data-theme="light"] #feedbackForm .text-primary { color: hsl(0, 0%, 88%) !important; }
+[data-theme="light"] #feedbackForm .form-select { color: hsl(0, 0%, 0%) !important; }
 [data-theme="light"] #feedbackForm .form-control { color: hsl(0, 0%, 0%) !important;}
-[data-theme="light"] #feedbackForm textarea { color: hsl(0, 0%, 0%) !important;}
+[data-theme="light"] #feedbackForm  textarea { color: hsl(0, 0%, 0%) !important;}
 [data-theme="light"] #feedbackForm .character-counter { color: hsl(0, 0%, 88%) !important;}
-
-[data-theme="light"] #feedbackForm .form-check-input:checked {
-  background-color: var(--color-primary) !important;
-}
+[data-theme="light"] #feedbackForm .form-check-input:checked { background-color: var(--color-primary) !important; }
 
 /* ----------- BOOTSTRAP UTILS ----------- */
 .text-heading { color: var(--text-heading) !important; }

@@ -24,20 +24,23 @@
 
 /* user profile */
 .user-profile {
-  width: 35px; height: 35px;
+  width: 52px; height: 52px;
+  font-size: 1.2rem;
   border: 2px solid var(--color-primary);
   border-radius: 50%;
   transition: all 0.3s ease;
 }
-.user-profile:hover {
+.user-profile:hover,
+.user-profile[aria-expanded="true"] {
   background-color: var(--color-primary) !important;
   color: var(--off-black) !important;
 }
-
-#homePage .user-profile {
-  color: hsl(0, 0%, 9%) !important;
+.user-profile .bi-chevron-down {
+  font-size: 0.8rem;
+  transition: 0.3s ease;
 }
- 
+.user-profile[aria-expanded="true"] .bi-chevron-down { transform: rotate(180deg); }
+
 /* user profile's dropdown menu */
 .dropdown-menu {
   border: 3px solid var(--divider);
